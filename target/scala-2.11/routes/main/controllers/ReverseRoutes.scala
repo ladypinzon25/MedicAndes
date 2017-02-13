@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Temp/MedicAndes/conf/routes
-// @DATE:Sun Feb 12 10:53:48 COT 2017
+// @DATE:Sun Feb 12 18:34:59 COT 2017
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -58,8 +58,16 @@ package controllers {
   
     // @LINE:37
     def updatePaciente(id:Long): Call = {
-      import ReverseRouteContext.empty
-      Call("PUT", _prefix + { _defaultPrefix } + "paciente/" + implicitly[PathBindable[Long]].unbind("id", id))
+    
+      (id: @unchecked) match {
+      
+        // @LINE:37
+        case (id)  =>
+          import ReverseRouteContext.empty
+          Call("PUT", _prefix + { _defaultPrefix } + "paciente/" + implicitly[PathBindable[Long]].unbind("id", id))
+      
+      }
+    
     }
   
     // @LINE:35
@@ -87,6 +95,45 @@ package controllers {
     def index2(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix)
+    }
+  
+  }
+
+  // @LINE:41
+  class ReverseCitaController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:46
+    def createCitaPaciente(idP:Long, idM:Long): Call = {
+      import ReverseRouteContext.empty
+      Call("POST", _prefix + { _defaultPrefix } + "paciente/" + implicitly[PathBindable[Long]].unbind("idP", idP) + "&" + implicitly[PathBindable[Long]].unbind("idM", idM) + "/cita")
+    }
+  
+    // @LINE:43
+    def createCita(): Call = {
+      import ReverseRouteContext.empty
+      Call("POST", _prefix + { _defaultPrefix } + "cita")
+    }
+  
+    // @LINE:42
+    def getCita(id:Long): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "cita/" + implicitly[PathBindable[Long]].unbind("id", id))
+    }
+  
+    // @LINE:44
+    def updateCita(id:Long): Call = {
+      import ReverseRouteContext.empty
+      Call("PUT", _prefix + { _defaultPrefix } + "cita/" + implicitly[PathBindable[Long]].unbind("id", id))
+    }
+  
+    // @LINE:41
+    def getCitas(): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "citas")
     }
   
   }

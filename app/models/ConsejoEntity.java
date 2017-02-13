@@ -61,14 +61,14 @@ public class ConsejoEntity extends Model {
      */
 
     @ManyToOne
-    @JsonManagedReference(value="r2")
+    @JsonBackReference(value="r2")
     private PacienteEntity paciente;
 
     /**
      * medico creador del consejo
      */
     @ManyToOne
-    @JsonManagedReference(value="r3")
+    @JsonBackReference(value="r3")
     private MedicoEntity medico;
 
     //--------------------------------------------------------------

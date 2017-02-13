@@ -82,7 +82,7 @@ public class MedicoEntity extends Model {
      */
     public MedicoEntity() {
 
-        System.out.println("Medico");
+
         id = null;
         nombre  = "NO NAME";
         especialidad ="NO NAME";
@@ -98,7 +98,7 @@ public class MedicoEntity extends Model {
      * @param especialidad
      */
     public MedicoEntity(Long id, String nombre, String especialidad) {
-        System.out.println("Medico");
+
         this.id = id;
         this.nombre = nombre;
         this.especialidad = especialidad;
@@ -165,5 +165,10 @@ public class MedicoEntity extends Model {
     public void setConsejosDados(List <ConsejoEntity> consejosDados) {
 
         this.consejosDados = consejosDados;
+    }
+
+    public void addCita(CitaEntity cita) {
+
+        this.citas.add(cita);
     }
 }

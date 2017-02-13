@@ -3,6 +3,7 @@ package controllers;
 import akka.dispatch.MessageDispatcher;
 import com.fasterxml.jackson.databind.JsonNode;
 import dispatchers.AkkaDispatcher;
+import models.CitaEntity;
 import models.PacienteEntity;
 import play.libs.Json;
 import play.mvc.Controller;
@@ -72,26 +73,28 @@ public class PacienteController extends Controller{
                 }
         );
     }
-    public CompletionStage<Result> updatePaciente( Long idE)
-    {
+    public CompletionStage<Result> updatePaciente( Long idE) {
 
         JsonNode n = request().body().asJson();
-        PacienteEntity m = Json.fromJson( n , PacienteEntity.class ) ;
+        PacienteEntity m = Json.fromJson(n, PacienteEntity.class);
         PacienteEntity antiguo = PacienteEntity.FINDER.byId(idE);
 
-        return CompletableFuture.supplyAsync(
-                ()->{
-                    antiguo.setId(m.getId());
-                    antiguo.setNombre(m.getNombre());
-                    antiguo.setGrupoSanguineo(m.getGrupoSanguineo());
+            return CompletableFuture.supplyAsync(
+                    () -> {
+                        antiguo.setId(m.getId());
+                        antiguo.setNombre(m.getNombre());
+                        antiguo.setGrupoSanguineo(m.getGrupoSanguineo());
 
-                    antiguo.update();
-                    return antiguo;
-                }
-        ).thenApply(
-                pacientes -> {
-                    return ok(Json.toJson(pacientes));
-                }
-        );
+                        antiguo.update();
+                        return antiguo;
+                    }
+            ).thenApply(
+                    pacientes -> {
+                        return ok(Json.toJson(pacientes));
+                    }
+            );
+
+
     }
+
 }

@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Clase que representa una marcapaso medica
@@ -39,8 +40,14 @@ public class MarcapasosEntity extends Model{
     /**
      * ritmoCardiaco generado en el marcapasos
      */
-    private int ritmoCardiaco;
-
+    private int ritmoCardiacoMarcapasos;
+    /**
+     * lecturas que ha tomado el marcapasos
+     */
+    //
+    @OneToMany(mappedBy = "marcapasos")
+    @JsonManagedReference(value="r11")
+    private List<LecturaEntity> lecturas;
 
     //--------------------------------------------------------------
     //                          Constructores
@@ -52,7 +59,7 @@ public class MarcapasosEntity extends Model{
     public MarcapasosEntity() {
         System.out.println("Marcapasos");
         id = null;
-        ritmoCardiaco =0;
+        ritmoCardiacoMarcapasos =0;
     }
 
     /**
@@ -63,7 +70,7 @@ public class MarcapasosEntity extends Model{
     public MarcapasosEntity(Long id, Long fecha, int ritmoCardiaco) {
         System.out.println("Marcapasos");
         this.id = id;
-        this.ritmoCardiaco = ritmoCardiaco;
+        this.ritmoCardiacoMarcapasos = ritmoCardiaco;
     }
 
     public MarcapasosEntity(Long id) {
@@ -83,11 +90,11 @@ public class MarcapasosEntity extends Model{
 
     public int getRitmoCardiaco() {
 
-        return ritmoCardiaco;
+        return ritmoCardiacoMarcapasos;
     }
 
     public void setRitmoCardiaco(int ritmoCardiaco) {
 
-        this.ritmoCardiaco = ritmoCardiaco;
+        this.ritmoCardiacoMarcapasos = ritmoCardiaco;
     }
 }

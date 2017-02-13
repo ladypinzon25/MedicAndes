@@ -62,15 +62,21 @@ public class LecturaEntity extends Model{
      */
 
     @ManyToOne
-    @JsonManagedReference(value="r4")
+    @JsonBackReference(value="r4")
     private PacienteEntity paciente;
 
     /**
      * historial al que pertenece las lecturas
      */
     @ManyToOne
-    @JsonManagedReference(value="r9")
+    @JsonBackReference(value="r9")
     private HistorialEntity historial;
+    /**
+     * marcapasos que toma las lecturas
+     */
+    @ManyToOne
+    @JsonBackReference(value="r11")
+    private MarcapasosEntity marcapasos;
 
 
     //--------------------------------------------------------------

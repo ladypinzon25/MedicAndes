@@ -51,28 +51,28 @@ public class HistorialEntity extends Model {
      * citas del historial
      */
     @OneToMany(mappedBy = "historial")
-    @JsonBackReference(value="r6")
+    @JsonManagedReference(value="r6")
     private List<CitaEntity> citasHistorial;
 
     /**
      * examenes del historial
      */
     @OneToMany(mappedBy = "historial")
-    @JsonBackReference(value="r8")
+    @JsonManagedReference(value="r8")
     private List<ExamenEntity> examenesHistorial;
 
     /**
      * lecturas del historial
      */
     @OneToMany(mappedBy = "historial")
-    @JsonBackReference(value="r9")
+    @JsonManagedReference(value="r9")
     private List<LecturaEntity> lecturasHistorial;
 
     /**
      * emergencias del historial
      */
     @OneToMany(mappedBy = "historial")
-    @JsonBackReference(value="r10")
+    @JsonManagedReference(value="r10")
     private List<EmergenciaEntity> emergencias;
 
     //--------------------------------------------------------------
@@ -83,7 +83,7 @@ public class HistorialEntity extends Model {
      * Constructor vacio de la clase.
      */
     public HistorialEntity() {
-        System.out.println("Historial");
+
         id = null;
         alergias  = "NO NAME";
         enfermedades ="NO NAME";

@@ -72,7 +72,7 @@ public class CitaEntity extends Model{
      * Constructor vacio de la clase.
      */
     public CitaEntity() {
-        System.out.println("Cita");
+
         id = null;
         fecha  = null;
         diagnostico ="NO NAME";
@@ -88,10 +88,11 @@ public class CitaEntity extends Model{
      * @param diagnostico
      */
     public CitaEntity(Long id, Long fecha, String diagnostico) {
-        System.out.println("Cita");
+
         this.id = id;
         this.fecha = fecha;
         this.diagnostico = diagnostico;
+
 
     }
 

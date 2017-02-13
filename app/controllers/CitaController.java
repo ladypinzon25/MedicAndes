@@ -4,6 +4,8 @@ import akka.dispatch.MessageDispatcher;
 import com.fasterxml.jackson.databind.JsonNode;
 import dispatchers.AkkaDispatcher;
 import models.CitaEntity;
+import models.MedicoEntity;
+import models.PacienteEntity;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -87,6 +89,32 @@ public class CitaController extends Controller{
 
                     antiguo.update();
                     return antiguo;
+                }
+        ).thenApply(
+                citas -> {
+                    return ok(Json.toJson(citas));
+                }
+        );
+    }
+    public CompletionStage<Result> createCitaPaciente(Long idPaciente, Long idMedico){
+
+        JsonNode n = request().body().asJson();
+
+        CitaEntity cita = Json.fromJson( n , CitaEntity.class ) ;
+        return CompletableFuture.supplyAsync(
+                ()->{
+                    PacienteEntity paciente = PacienteEntity.FINDER.byId(idPaciente);
+                    MedicoEntity medico = MedicoEntity.FINDER.byId(idMedico);
+                    cita.setPaciente(paciente);
+                    cita.setMedico(medico);
+                    cita.setHistorial(paciente.getHistorialPaciente());
+//                    paciente.getHistorialPaciente().
+//                    paciente.addCita(cita);
+//                    medico.addCita(cita);
+                    cita.save();
+//                    paciente.update();
+//                    medico.update();
+                    return cita;
                 }
         ).thenApply(
                 citas -> {

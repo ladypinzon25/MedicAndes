@@ -65,27 +65,27 @@ public class PacienteEntity extends Model{
 
     @OneToOne
     private MarcapasosEntity marcapasos;
-    /**
-     * lista de lecturas del paciente
-     */
-
-    @OneToMany(mappedBy = "paciente")
-    @JsonManagedReference(value="r4")
-    private List<LecturaEntity> lecturas;
+//    /**
+//     * lista de lecturas del paciente
+//     */
+//
+//    @OneToMany(mappedBy = "paciente")
+//    @JsonManagedReference(value="r4")
+//    private List<LecturaEntity> lecturas;
 
     /**
      * citas del paciente
      */
     @OneToMany(mappedBy = "paciente")
-    @JsonBackReference(value="r5")
+    @JsonManagedReference(value="r5")
     private List<CitaEntity> citas;
 
-    /**
-     * examenes del paciente
-     */
-    @OneToMany(mappedBy = "paciente")
-    @JsonBackReference(value="r7")
-    private List<ExamenEntity> examenes;
+//    /**
+//     * examenes del paciente
+//     */
+//    @OneToMany(mappedBy = "paciente")
+//    @JsonManagedReference(value="r7")
+//    private List<ExamenEntity> examenes;
 
     /**
      * historial del paciente
@@ -109,9 +109,9 @@ public class PacienteEntity extends Model{
         medicos = new ArrayList<MedicoEntity>();
         consejosRecibidos = new ArrayList<ConsejoEntity>();
         marcapasos = null;
-        lecturas = new ArrayList<LecturaEntity>();
+        //lecturas = new ArrayList<LecturaEntity>();
         citas = new ArrayList<CitaEntity>();
-        examenes = new ArrayList<ExamenEntity>();
+        //examenes = new ArrayList<ExamenEntity>();
         historialPaciente = null;
     }
 
@@ -189,24 +189,21 @@ public class PacienteEntity extends Model{
 
         this.citas = citas;
     }
-    public List<ExamenEntity> getExamenes() {
+    public void addCita(CitaEntity cita) {
 
-        return examenes;
+        this.citas.add(cita);
     }
 
-    public void setExamenes(List <ExamenEntity> examenes) {
 
-        this.examenes = examenes;
-    }
-    public List<LecturaEntity> getLecturas() {
-
-        return lecturas;
-    }
-
-    public void setLecturas(List <LecturaEntity> lecturas) {
-
-        this.lecturas = lecturas;
-    }
+//    public List<LecturaEntity> getLecturas() {
+//
+//        return lecturas;
+//    }
+//
+//    public void setLecturas(List <LecturaEntity> lecturas) {
+//
+//        this.lecturas = lecturas;
+//    }
     public List<MedicoEntity> getMedicos() {
 
         return medicos;

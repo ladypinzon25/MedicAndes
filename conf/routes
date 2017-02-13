@@ -25,21 +25,26 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 ########################################################################################################################
 
 #Controlador de medico
-GET     /medicos                       controllers.MedicoController.getMedicos
-GET     /medico/:id                    controllers.MedicoController.getMedico(id : Long)
-POST    /medico                        controllers.MedicoController.createMedico
-PUT     /medico/:id                    controllers.MedicoController.updateMedico(id : Long)
+GET     /medicos                        controllers.MedicoController.getMedicos
+GET     /medico/:id                     controllers.MedicoController.getMedico(id : Long)
+POST    /medico                         controllers.MedicoController.createMedico
+PUT     /medico/:id                     controllers.MedicoController.updateMedico(id : Long)
 
 #Controlador de paciente
-GET     /pacientes                       controllers.PacienteController.getPacientes
-GET     /paciente/:id                    controllers.PacienteController.getPaciente(id : Long)
-POST    /paciente                        controllers.PacienteController.createPaciente
-PUT     /paciente/:id                    controllers.PacienteController.updatePaciente(id : Long)
+GET     /pacientes                      controllers.PacienteController.getPacientes
+GET     /paciente/:id                   controllers.PacienteController.getPaciente(id : Long)
+POST    /paciente                       controllers.PacienteController.createPaciente
+PUT     /paciente/:id                   controllers.PacienteController.updatePaciente(id : Long)
 
-#Controlador de citas paciente
-GET     /citas                           controllers.CitaController.getCitas()
-GET     /citas/:idPaciente               controllers.CitaController
-POST    /paciente                        controllers.PacienteController.createPaciente
-PUT     /paciente/:id                    controllers.PacienteController.updatePaciente(id : Long)
+
+#Controlador de citas
+GET     /citas                          controllers.CitaController.getCitas
+GET     /cita/:id                       controllers.CitaController.getCita(id: Long)
+POST    /cita                           controllers.CitaController.createCita
+PUT     /cita/:id                       controllers.CitaController.updateCita(id : Long)
+
+POST    /paciente/:idP&:idM/cita        controllers.CitaController.createCitaPaciente(idP: Long, idM:Long)
+PUT     /paciente/:id                   controllers.PacienteController.updatePaciente(id : Long)
+GET     /paciente/:id/citas             controllers.PacienteController.updatePaciente(id : Long)
 
 

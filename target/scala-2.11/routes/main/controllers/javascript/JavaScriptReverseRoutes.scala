@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Temp/MedicAndes/conf/routes
-// @DATE:Sun Feb 12 10:53:48 COT 2017
+// @DATE:Sun Feb 12 18:34:59 COT 2017
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -78,7 +78,11 @@ package controllers.javascript {
       "controllers.PacienteController.updatePaciente",
       """
         function(id0) {
-          return _wA({method:"PUT", url:"""" + _prefix + { _defaultPrefix } + """" + "paciente/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("id", id0)})
+        
+          if (true) {
+            return _wA({method:"PUT", url:"""" + _prefix + { _defaultPrefix } + """" + "paciente/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("id", id0)})
+          }
+        
         }
       """
     )
@@ -119,6 +123,66 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + """"})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:41
+  class ReverseCitaController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:46
+    def createCitaPaciente: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CitaController.createCitaPaciente",
+      """
+        function(idP0,idM1) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "paciente/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("idP", idP0) + "&" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("idM", idM1) + "/cita"})
+        }
+      """
+    )
+  
+    // @LINE:43
+    def createCita: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CitaController.createCita",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "cita"})
+        }
+      """
+    )
+  
+    // @LINE:42
+    def getCita: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CitaController.getCita",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "cita/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("id", id0)})
+        }
+      """
+    )
+  
+    // @LINE:44
+    def updateCita: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CitaController.updateCita",
+      """
+        function(id0) {
+          return _wA({method:"PUT", url:"""" + _prefix + { _defaultPrefix } + """" + "cita/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("id", id0)})
+        }
+      """
+    )
+  
+    // @LINE:41
+    def getCitas: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CitaController.getCitas",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "citas"})
         }
       """
     )

@@ -59,7 +59,7 @@ public class EmergenciaEntity extends Model {
      * Constructor vacio de la clase.
      */
     public EmergenciaEntity() {
-        System.out.println("Emergencia");
+
         id = null;
         fecha  = null;
         estado ="NO NAME";

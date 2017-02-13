@@ -98,6 +98,7 @@ create table lecturaentity (
   estado                        integer,
   paciente_id                   bigint,
   historial_id                  bigint,
+  marcapasos_id                 bigint,
   constraint pk_lecturaentity primary key (id)
 );
 create sequence Lectura;
@@ -229,6 +230,9 @@ create index ix_lecturaentity_paciente_id on lecturaentity (paciente_id);
 alter table lecturaentity add constraint fk_lecturaentity_historial_id foreign key (historial_id) references historialentity (id) on delete restrict on update restrict;
 create index ix_lecturaentity_historial_id on lecturaentity (historial_id);
 
+alter table lecturaentity add constraint fk_lecturaentity_marcapasos_id foreign key (marcapasos_id) references marcapasosentity (id) on delete restrict on update restrict;
+create index ix_lecturaentity_marcapasos_id on lecturaentity (marcapasos_id);
+
 alter table materiaentity_estudianteentity add constraint fk_materiaentity_estudianteentity_materiaentity foreign key (materiaentity_id) references materiaentity (id) on delete restrict on update restrict;
 create index ix_materiaentity_estudianteentity_materiaentity on materiaentity_estudianteentity (materiaentity_id);
 
@@ -304,6 +308,9 @@ drop index if exists ix_lecturaentity_paciente_id;
 
 alter table if exists lecturaentity drop constraint if exists fk_lecturaentity_historial_id;
 drop index if exists ix_lecturaentity_historial_id;
+
+alter table if exists lecturaentity drop constraint if exists fk_lecturaentity_marcapasos_id;
+drop index if exists ix_lecturaentity_marcapasos_id;
 
 alter table if exists materiaentity_estudianteentity drop constraint if exists fk_materiaentity_estudianteentity_materiaentity;
 drop index if exists ix_materiaentity_estudianteentity_materiaentity;
