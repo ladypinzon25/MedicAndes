@@ -68,7 +68,7 @@ public class PacienteController extends Controller{
         return CompletableFuture.supplyAsync(
                 ()->{
                     PacienteEntity paciente = PacienteEntity.FINDER.byId(idE);
-                    
+
                     paciente.delete();
                     return paciente;
                 }
