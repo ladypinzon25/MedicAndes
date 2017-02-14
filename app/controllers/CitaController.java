@@ -10,6 +10,9 @@ import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
@@ -121,5 +124,85 @@ public class CitaController extends Controller{
                     return ok(Json.toJson(citas));
                 }
         );
+    }
+    public CompletionStage<Result> getCitasPaciente(Long idM)
+    {
+        MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
+
+        return CompletableFuture.
+                supplyAsync(() -> { return PacienteEntity.FINDER.byId(idM).getCitas(); } ,jdbcDispatcher)
+                .thenApply(citas -> {return ok(toJson(citas));}
+                );
+    }
+
+    public CompletionStage<Result> getExamenesPaciente(Long idM)
+    {
+        MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
+
+        return CompletableFuture.
+                supplyAsync(() -> { return PacienteEntity.FINDER.byId(idM).getHistorialPaciente().getExamenesHistorial(); } ,jdbcDispatcher)
+                .thenApply(citas -> {return ok(toJson(citas));}
+                );
+    }
+    public CompletionStage<Result> getLecturasPaciente(Long idM)
+    {
+        MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
+
+        return CompletableFuture.
+                supplyAsync(() -> { return PacienteEntity.FINDER.byId(idM).getHistorialPaciente().getLecturasHistorial(); } ,jdbcDispatcher)
+                .thenApply(citas -> {return ok(toJson(citas));}
+                );
+    }
+    public CompletionStage<Result> getConsejosPaciente(Long idM)
+    {
+        MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
+
+        return CompletableFuture.
+                supplyAsync(() -> { return PacienteEntity.FINDER.byId(idM).getConsejos(); } ,jdbcDispatcher)
+                .thenApply(citas -> {return ok(toJson(citas));}
+                );
+    }
+    public CompletionStage<Result> getEmergenciasPaciente(Long idM)
+    {
+        MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
+
+        return CompletableFuture.
+                supplyAsync(() -> { return PacienteEntity.FINDER.byId(idM).getHistorialPaciente().getEmergencias(); } ,jdbcDispatcher)
+                .thenApply(citas -> {return ok(toJson(citas));}
+                );
+    }
+
+    public CompletionStage<Result> getMarcapasosPaciente(Long idM)
+    {
+        MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
+
+        return CompletableFuture.
+                supplyAsync(() -> { return PacienteEntity.FINDER.byId(idM).getMarcapasos(); } ,jdbcDispatcher)
+                .thenApply(citas -> {return ok(toJson(citas));}
+                );
+    }
+
+    public CompletionStage<Result> getHistorialPaciente(Long idM)
+    {
+        MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
+
+        return CompletableFuture.
+                supplyAsync(() -> { return PacienteEntity.FINDER.byId(idM).getHistorialPaciente(); } ,jdbcDispatcher)
+                .thenApply(citas -> {return ok(toJson(citas));}
+                );
+    }
+
+    public CompletionStage<Result> getLecturasRango( Long idPaciente, String fechaInicio, String fechaFin) {
+
+        MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
+       // String str = "01/01/2015";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        long inicio = LocalDate.parse(fechaInicio, formatter).toEpochDay();
+        long fin = LocalDate.parse(fechaFin, formatter).toEpochDay();
+
+        return CompletableFuture.
+                supplyAsync(() -> { return PacienteEntity.FINDER.byId(idPaciente).getLecturasHistorialEnPeriodoDeTiempo(inicio,fin); } ,jdbcDispatcher)
+                .thenApply(pacienteEntities -> {return ok(toJson(pacienteEntities));}
+                );
     }
 }

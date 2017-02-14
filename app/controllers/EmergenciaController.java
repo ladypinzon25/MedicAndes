@@ -4,6 +4,7 @@ import akka.dispatch.MessageDispatcher;
 import com.fasterxml.jackson.databind.JsonNode;
 import dispatchers.AkkaDispatcher;
 import models.EmergenciaEntity;
+import models.PacienteEntity;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -88,6 +89,29 @@ public class EmergenciaController extends Controller {
 
                     antiguo.update();
                     return antiguo;
+                }
+        ).thenApply(
+                emergencias -> {
+                    return ok(Json.toJson(emergencias));
+                }
+        );
+    }
+
+    public CompletionStage<Result> createEmergenciaPaciente(Long idPaciente){
+
+        JsonNode n = request().body().asJson();
+
+        EmergenciaEntity emergencia = Json.fromJson( n , EmergenciaEntity.class ) ;
+        return CompletableFuture.supplyAsync(
+                ()->{
+                    PacienteEntity paciente = PacienteEntity.FINDER.byId(idPaciente);
+             //       emergencia.setPaciente(paciente);
+                    emergencia.setHistorial(paciente.getHistorialPaciente());
+
+                    paciente.getHistorialPaciente().addEmergencia(emergencia);
+                    emergencia.save();
+                    paciente.getHistorialPaciente().update();
+                    return emergencia;
                 }
         ).thenApply(
                 emergencias -> {

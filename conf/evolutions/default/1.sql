@@ -53,6 +53,7 @@ create table emergenciaentity (
   fecha                         bigint,
   ubicacion                     varchar(255),
   historial_id                  bigint,
+  paciente_id                   bigint,
   constraint pk_emergenciaentity primary key (id)
 );
 create sequence Emergencia;
@@ -96,9 +97,7 @@ create table lecturaentity (
   presion_sanguinea             integer,
   nivel_estres                  integer,
   estado                        integer,
-  paciente_id                   bigint,
   historial_id                  bigint,
-  marcapasos_id                 bigint,
   constraint pk_lecturaentity primary key (id)
 );
 create sequence Lectura;
@@ -215,6 +214,9 @@ create index ix_consejoentity_medico_id on consejoentity (medico_id);
 alter table emergenciaentity add constraint fk_emergenciaentity_historial_id foreign key (historial_id) references historialentity (id) on delete restrict on update restrict;
 create index ix_emergenciaentity_historial_id on emergenciaentity (historial_id);
 
+alter table emergenciaentity add constraint fk_emergenciaentity_paciente_id foreign key (paciente_id) references pacienteentity (id) on delete restrict on update restrict;
+create index ix_emergenciaentity_paciente_id on emergenciaentity (paciente_id);
+
 alter table estudianteentity add constraint fk_estudianteentity_monithor_id foreign key (monithor_id) references monithorentity (id) on delete restrict on update restrict;
 create index ix_estudianteentity_monithor_id on estudianteentity (monithor_id);
 
@@ -224,14 +226,8 @@ create index ix_examenentity_paciente_id on examenentity (paciente_id);
 alter table examenentity add constraint fk_examenentity_historial_id foreign key (historial_id) references historialentity (id) on delete restrict on update restrict;
 create index ix_examenentity_historial_id on examenentity (historial_id);
 
-alter table lecturaentity add constraint fk_lecturaentity_paciente_id foreign key (paciente_id) references pacienteentity (id) on delete restrict on update restrict;
-create index ix_lecturaentity_paciente_id on lecturaentity (paciente_id);
-
 alter table lecturaentity add constraint fk_lecturaentity_historial_id foreign key (historial_id) references historialentity (id) on delete restrict on update restrict;
 create index ix_lecturaentity_historial_id on lecturaentity (historial_id);
-
-alter table lecturaentity add constraint fk_lecturaentity_marcapasos_id foreign key (marcapasos_id) references marcapasosentity (id) on delete restrict on update restrict;
-create index ix_lecturaentity_marcapasos_id on lecturaentity (marcapasos_id);
 
 alter table materiaentity_estudianteentity add constraint fk_materiaentity_estudianteentity_materiaentity foreign key (materiaentity_id) references materiaentity (id) on delete restrict on update restrict;
 create index ix_materiaentity_estudianteentity_materiaentity on materiaentity_estudianteentity (materiaentity_id);
@@ -294,6 +290,9 @@ drop index if exists ix_consejoentity_medico_id;
 alter table if exists emergenciaentity drop constraint if exists fk_emergenciaentity_historial_id;
 drop index if exists ix_emergenciaentity_historial_id;
 
+alter table if exists emergenciaentity drop constraint if exists fk_emergenciaentity_paciente_id;
+drop index if exists ix_emergenciaentity_paciente_id;
+
 alter table if exists estudianteentity drop constraint if exists fk_estudianteentity_monithor_id;
 drop index if exists ix_estudianteentity_monithor_id;
 
@@ -303,14 +302,8 @@ drop index if exists ix_examenentity_paciente_id;
 alter table if exists examenentity drop constraint if exists fk_examenentity_historial_id;
 drop index if exists ix_examenentity_historial_id;
 
-alter table if exists lecturaentity drop constraint if exists fk_lecturaentity_paciente_id;
-drop index if exists ix_lecturaentity_paciente_id;
-
 alter table if exists lecturaentity drop constraint if exists fk_lecturaentity_historial_id;
 drop index if exists ix_lecturaentity_historial_id;
-
-alter table if exists lecturaentity drop constraint if exists fk_lecturaentity_marcapasos_id;
-drop index if exists ix_lecturaentity_marcapasos_id;
 
 alter table if exists materiaentity_estudianteentity drop constraint if exists fk_materiaentity_estudianteentity_materiaentity;
 drop index if exists ix_materiaentity_estudianteentity_materiaentity;

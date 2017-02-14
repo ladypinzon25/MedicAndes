@@ -3,7 +3,9 @@ package controllers;
 import akka.dispatch.MessageDispatcher;
 import com.fasterxml.jackson.databind.JsonNode;
 import dispatchers.AkkaDispatcher;
+import models.HistorialEntity;
 import models.LecturaEntity;
+import models.PacienteEntity;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -90,6 +92,29 @@ public class LecturaController extends Controller {
 
                     antiguo.update();
                     return antiguo;
+                }
+        ).thenApply(
+                lecturas -> {
+                    return ok(Json.toJson(lecturas));
+                }
+        );
+    }
+
+    public CompletionStage<Result> createLecturaPaciente(Long idPaciente){
+
+        JsonNode n = request().body().asJson();
+
+        LecturaEntity lectura = Json.fromJson( n , LecturaEntity.class ) ;
+        return CompletableFuture.supplyAsync(
+                ()->{
+                    PacienteEntity paciente = PacienteEntity.FINDER.byId(idPaciente);
+                    //lectura.setPaciente(paciente);
+                    lectura.setHistorial(paciente.getHistorialPaciente());
+
+                    paciente.getHistorialPaciente().addLectura(lectura);
+                    lectura.save();
+                    paciente.getHistorialPaciente().update();
+                    return lectura;
                 }
         ).thenApply(
                 lecturas -> {

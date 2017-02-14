@@ -171,4 +171,9 @@ public class MedicoEntity extends Model {
 
         this.citas.add(cita);
     }
+
+    public void addConsejo(ConsejoEntity consejo)
+    {
+        this.consejosDados.add(consejo);
+    }
 }

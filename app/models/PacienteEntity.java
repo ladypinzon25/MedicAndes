@@ -16,13 +16,13 @@ import java.util.List;
 @Entity
 //Este es el nombre de la tabla en la base de datos
 @Table(name="pacienteEntity")
-public class PacienteEntity extends Model{
+public class PacienteEntity extends Model {
     //--------------------------------------------------------------
     //                          CONSTANTES
     //--------------------------------------------------------------
 
     //Permite acceso a la base de datos para hacer busquedas
-    public static Finder<Long,PacienteEntity> FINDER = new Finder<>(PacienteEntity.class);
+    public static Finder<Long, PacienteEntity> FINDER = new Finder<>(PacienteEntity.class);
 
     //--------------------------------------------------------------
     //                          ATRIBUTOS
@@ -33,7 +33,7 @@ public class PacienteEntity extends Model{
      */
     @Id
     //los id seran generados de forma secuencial y el nombre del generador es Paciente
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator = "Paciente")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Paciente")
     private Long id;
 
     /**
@@ -57,7 +57,7 @@ public class PacienteEntity extends Model{
      */
 
     @OneToMany(mappedBy = "paciente")
-    @JsonManagedReference(value="r2")
+    @JsonManagedReference(value = "r2")
     private List<ConsejoEntity> consejosRecibidos;
     /**
      * marcapasos del paciente
@@ -65,27 +65,20 @@ public class PacienteEntity extends Model{
 
     @OneToOne
     private MarcapasosEntity marcapasos;
-//    /**
-//     * lista de lecturas del paciente
-//     */
-//
-//    @OneToMany(mappedBy = "paciente")
-//    @JsonManagedReference(value="r4")
-//    private List<LecturaEntity> lecturas;
 
     /**
      * citas del paciente
      */
     @OneToMany(mappedBy = "paciente")
-    @JsonManagedReference(value="r5")
+    @JsonManagedReference(value = "r5")
     private List<CitaEntity> citas;
 
-//    /**
-//     * examenes del paciente
-//     */
-//    @OneToMany(mappedBy = "paciente")
-//    @JsonManagedReference(value="r7")
-//    private List<ExamenEntity> examenes;
+    /**
+     * examenes del paciente
+     */
+    @OneToMany(mappedBy = "paciente")
+    @JsonManagedReference(value="r7")
+    private List<ExamenEntity> examenes;
 
     /**
      * historial del paciente
@@ -104,8 +97,8 @@ public class PacienteEntity extends Model{
     public PacienteEntity() {
 
         id = null;
-        nombre  = "NO NAME";
-        grupoSanguineo ="NO NAME";
+        nombre = "NO NAME";
+        grupoSanguineo = "NO NAME";
         medicos = new ArrayList<MedicoEntity>();
         consejosRecibidos = new ArrayList<ConsejoEntity>();
         marcapasos = null;
@@ -117,6 +110,7 @@ public class PacienteEntity extends Model{
 
     /**
      * Constructor con todos los atributos de la clase.
+     *
      * @param id
      * @param nombre
      * @param grupoSanguineo
@@ -128,6 +122,7 @@ public class PacienteEntity extends Model{
         this.nombre = nombre;
         this.grupoSanguineo = grupoSanguineo;
     }
+
     public PacienteEntity(Long id) {
         this();
         setId(id);
@@ -162,6 +157,7 @@ public class PacienteEntity extends Model{
 
         this.grupoSanguineo = grupoSanguineo;
     }
+
     public MarcapasosEntity getMarcapasos() {
 
         return marcapasos;
@@ -171,6 +167,7 @@ public class PacienteEntity extends Model{
 
         this.marcapasos = marcapasos;
     }
+
     public HistorialEntity getHistorialPaciente() {
 
         return historialPaciente;
@@ -180,22 +177,28 @@ public class PacienteEntity extends Model{
 
         this.historialPaciente = historial;
     }
+
     public List<CitaEntity> getCitas() {
 
         return citas;
     }
 
-    public void setCitas(List <CitaEntity> citas) {
+    public void setCitas(List<CitaEntity> citas) {
 
         this.citas = citas;
     }
+
     public void addCita(CitaEntity cita) {
 
         this.citas.add(cita);
     }
 
+    public void addConsejo(ConsejoEntity consejo) {
 
-//    public List<LecturaEntity> getLecturas() {
+        this.consejosRecibidos.add(consejo);
+    }
+
+    //    public List<LecturaEntity> getLecturas() {
 //
 //        return lecturas;
 //    }
@@ -213,6 +216,7 @@ public class PacienteEntity extends Model{
 
         this.medicos = medicos;
     }
+
     public List<ConsejoEntity> getConsejos() {
 
         return consejosRecibidos;
@@ -223,4 +227,23 @@ public class PacienteEntity extends Model{
         this.consejosRecibidos = consejos;
     }
 
+    public List<LecturaEntity> getLecturasHistorialEnPeriodoDeTiempo(Long inicio, Long fin) {
+
+        List<LecturaEntity> lecturasRecorrer = historialPaciente.getLecturasHistorial();
+        List<LecturaEntity> lecturasRespuesta = new ArrayList<LecturaEntity>();
+
+        for (int i = 0; i < lecturasRecorrer.size(); i++) {
+
+            LecturaEntity actual = lecturasRecorrer.get(i);
+
+            if (actual.getFecha() > inicio && actual.getFecha() < fin) {
+
+                lecturasRespuesta.add(actual);
+            }
+
+        }
+        return lecturasRespuesta;
+
+
+    }
 }

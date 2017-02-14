@@ -4,6 +4,7 @@ import akka.dispatch.MessageDispatcher;
 import com.fasterxml.jackson.databind.JsonNode;
 import dispatchers.AkkaDispatcher;
 import models.CitaEntity;
+import models.HistorialEntity;
 import models.PacienteEntity;
 import play.libs.Json;
 import play.mvc.Controller;
@@ -41,12 +42,15 @@ public class PacienteController extends Controller{
 
     public CompletionStage<Result> createPaciente()
     {
-
         JsonNode n = request().body().asJson();
 
         PacienteEntity paciente = Json.fromJson( n , PacienteEntity.class ) ;
         return CompletableFuture.supplyAsync(
                 ()->{
+                    HistorialEntity nuevo = new HistorialEntity();
+                    nuevo.setId(paciente.getId());
+                    paciente.setHistorialPaciente(nuevo);
+                    nuevo.save();
                     paciente.save();
                     return paciente;
                 }
@@ -64,6 +68,7 @@ public class PacienteController extends Controller{
         return CompletableFuture.supplyAsync(
                 ()->{
                     PacienteEntity paciente = PacienteEntity.FINDER.byId(idE);
+                    
                     paciente.delete();
                     return paciente;
                 }

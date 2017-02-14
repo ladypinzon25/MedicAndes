@@ -57,13 +57,6 @@ public class LecturaEntity extends Model{
      * estado generado en la lectura
      */
     private int estado;
-    /**
-     * paciente al que pertenece la lectura
-     */
-
-    @ManyToOne
-    @JsonBackReference(value="r4")
-    private PacienteEntity paciente;
 
     /**
      * historial al que pertenece las lecturas
@@ -71,12 +64,6 @@ public class LecturaEntity extends Model{
     @ManyToOne
     @JsonBackReference(value="r9")
     private HistorialEntity historial;
-    /**
-     * marcapasos que toma las lecturas
-     */
-    @ManyToOne
-    @JsonBackReference(value="r11")
-    private MarcapasosEntity marcapasos;
 
 
     //--------------------------------------------------------------
@@ -112,9 +99,8 @@ public class LecturaEntity extends Model{
         this.fecha = fecha;
         this.frecuenciaCardiaca = frecuenciaCardiaca;
         this.presionSanguinea = presionSanguinea;
-        this. nivelEstres = nivelEstres;
+        this.nivelEstres = nivelEstres;
         this.estado = estado;
-        this.paciente = null;
         this.historial = null;
     }
 
@@ -178,15 +164,7 @@ public class LecturaEntity extends Model{
 
         this.estado = estado;
     }
-    public PacienteEntity getPaciente() {
 
-        return paciente;
-    }
-
-    public void setPaciente(PacienteEntity paciente) {
-
-        this.paciente = paciente;
-    }
     public HistorialEntity getHistorial() {
 
         return historial;

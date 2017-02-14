@@ -167,6 +167,15 @@ public class HistorialEntity extends Model {
 
         this.lecturasHistorial = lecturas;
     }
+
+    public void addLectura(LecturaEntity lectura){
+        this.lecturasHistorial.add(lectura);
+    }
+
+
+    public void addEmergencia(EmergenciaEntity emergencia){
+        this.emergencias.add(emergencia);
+    }
     public List<EmergenciaEntity> getEmergencias() {
 
         return emergencias;
@@ -176,4 +185,5 @@ public class HistorialEntity extends Model {
 
         this.emergencias = emergencias;
     }
+
 }

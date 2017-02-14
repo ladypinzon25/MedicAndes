@@ -4,6 +4,8 @@ import akka.dispatch.MessageDispatcher;
 import com.fasterxml.jackson.databind.JsonNode;
 import dispatchers.AkkaDispatcher;
 import models.ConsejoEntity;
+import models.MedicoEntity;
+import models.PacienteEntity;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -90,6 +92,32 @@ public class ConsejoController extends Controller {
 
                     antiguo.update();
                     return antiguo;
+                }
+        ).thenApply(
+                consejos -> {
+                    return ok(Json.toJson(consejos));
+                }
+        );
+    }
+
+    public CompletionStage<Result> createConsejoPaciente(Long idPaciente, Long idMedico){
+
+        JsonNode n = request().body().asJson();
+
+        ConsejoEntity consejo = Json.fromJson( n , ConsejoEntity.class ) ;
+        return CompletableFuture.supplyAsync(
+                ()->{
+                    PacienteEntity paciente = PacienteEntity.FINDER.byId(idPaciente);
+                    MedicoEntity medico = MedicoEntity.FINDER.byId(idMedico);
+                    //       emergencia.setPaciente(paciente);
+                    consejo.setMedico(medico);
+                    consejo.setPaciente(paciente);
+                    medico.addConsejo(consejo);
+                    paciente.addConsejo(consejo);
+                    consejo.save();
+                    medico.update();
+                    paciente.update();
+                    return consejo;
                 }
         ).thenApply(
                 consejos -> {

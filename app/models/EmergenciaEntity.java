@@ -51,6 +51,14 @@ public class EmergenciaEntity extends Model {
     @JsonBackReference(value="r10")
     private HistorialEntity historial;
 
+    /**
+     * historial al que pertenece la emergencia
+     */
+    @ManyToOne
+    @JsonBackReference(value="r12")
+    private PacienteEntity paciente;
+
+
     //--------------------------------------------------------------
     //                          Constructores
     //--------------------------------------------------------------
@@ -118,7 +126,7 @@ public class EmergenciaEntity extends Model {
     }
     public String getUbicacion() {
 
-        return estado;
+        return ubicacion;
     }
 
     public void setUbicacion(String ubicacion) {

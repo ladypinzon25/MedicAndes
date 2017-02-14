@@ -4,6 +4,8 @@ import akka.dispatch.MessageDispatcher;
 import com.fasterxml.jackson.databind.JsonNode;
 import dispatchers.AkkaDispatcher;
 import models.MarcapasosEntity;
+import models.MedicoEntity;
+import models.PacienteEntity;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -72,20 +74,49 @@ public class MarcapasosController extends Controller {
                 }
         );
     }
-    public CompletionStage<Result> updateMarcapasos( Long idE)
+    public CompletionStage<Result> updateMarcapasos( Long idP, Long idM)
     {
 
         JsonNode n = request().body().asJson();
         MarcapasosEntity m = Json.fromJson( n , MarcapasosEntity.class ) ;
-        MarcapasosEntity antiguo = MarcapasosEntity.FINDER.byId(idE);
+        PacienteEntity paciente = PacienteEntity.FINDER.byId(idP);
+        MedicoEntity medico = MedicoEntity.FINDER.byId(idM);
 
         return CompletableFuture.supplyAsync(
                 ()->{
-                    antiguo.setId(m.getId());
-                    antiguo.setRitmoCardiaco(m.getRitmoCardiaco());
+                    if(medico != null && medico.getEspecialidad().equals("Cardiologia"))
+                    {
+                        MarcapasosEntity antiguo = paciente.getMarcapasos();
+                        antiguo.setId(m.getId());
+                        antiguo.setRitmoCardiaco(m.getRitmoCardiaco());
+                        antiguo.update();
+                        return antiguo;
+                    }
+                    else
+                    {
+                        return "No tiene autorizacion de cambiar la configuracion del marcapasos";
+                    }
+                }
+        ).thenApply(
+                marcapasoss -> {
+                    return ok(Json.toJson(marcapasoss));
+                }
+        );
+    }
 
-                    antiguo.update();
-                    return antiguo;
+    public CompletionStage<Result> createMarcapasosPaciente(Long idPaciente){
+
+        JsonNode n = request().body().asJson();
+
+        MarcapasosEntity marcapasos = Json.fromJson( n , MarcapasosEntity.class ) ;
+        return CompletableFuture.supplyAsync(
+                ()->{
+                    PacienteEntity paciente = PacienteEntity.FINDER.byId(idPaciente);
+                    paciente.setMarcapasos(marcapasos);
+
+                    marcapasos.save();
+                    paciente.update();
+                    return marcapasos;
                 }
         ).thenApply(
                 marcapasoss -> {
