@@ -18,6 +18,10 @@ import static play.libs.Json.toJson;
  */
 public class ExamenController extends Controller {
 
+    /**
+     * dar examenes -comentario de prueba-
+     * @return
+     */
     public CompletionStage<Result> getExamenes()
     {
         MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
