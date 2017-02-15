@@ -48,3 +48,6 @@ Temporary Items
 
 #idea de intellij
 .idea
+/project
+/project/target
+/target
