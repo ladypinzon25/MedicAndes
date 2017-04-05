@@ -6,6 +6,7 @@ import dispatchers.AkkaDispatcher;
 import models.HistorialEntity;
 import models.LecturaEntity;
 import models.PacienteEntity;
+import models.*;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -14,6 +15,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
 import static play.libs.Json.toJson;
+
 
 /**
  * Created by Lady Pinzon on 11/02/2017.
@@ -100,6 +102,7 @@ public class LecturaController extends Controller {
         );
     }
 
+    /*
     public CompletionStage<Result> createLecturaPaciente(Long idPaciente){
 
         JsonNode n = request().body().asJson();
@@ -121,5 +124,57 @@ public class LecturaController extends Controller {
                     return ok(Json.toJson(lecturas));
                 }
         );
+    }
+    */
+
+
+    public CompletionStage<Result> createLecturaCifrada(Long idPaciente){
+
+        JsonNode n = request().body().asJson();
+        String j = n.toString();
+   //       System.out.println("json: "+ n);
+   //     System.out.println("jsonnode: "+ j);
+        EncriptadoEntity encriptado = new EncriptadoEntity(j);
+  //      System.out.println("encriptado: "+ encriptado.getMensajeCodificado());
+  //      System.out.println("desencriptado: "+ encriptado.getMensajeDesencriptado());
+  //      System.out.println("hash: "+ new String(encriptado.getHashMensaje()));
+  //      System.out.println("hashCalculado: "+ new String(encriptado.getHashMensaje(encriptado.getMensajeCodificado())));
+
+        if(encriptado.validar()) {
+            String mensaje = encriptado.getMensajeDesencriptado();
+            JsonNode json = Json.parse(mensaje);
+            LecturaEntity lectura = Json.fromJson(n, LecturaEntity.class);
+
+            return CompletableFuture.supplyAsync(
+                    () -> {
+                        PacienteEntity paciente = PacienteEntity.FINDER.byId(idPaciente);
+                        //lectura.setPaciente(paciente);
+                        lectura.setHistorial(paciente.getHistorialPaciente());
+
+                        paciente.getHistorialPaciente().addLectura(lectura);
+                        lectura.save();
+                        paciente.getHistorialPaciente().update();
+                        return lectura;
+                    }
+            ).thenApply(
+                    lecturas -> {
+                        return ok(Json.toJson(lecturas));
+                    }
+            );
+        }
+        else
+        {
+            return CompletableFuture.supplyAsync(
+                    () ->
+                    {
+                        return "Error con integridad";
+                    }
+            ).thenApply(
+                    lecturas ->
+                    {
+                        return ok(Json.toJson(lecturas));
+                    }
+            );
+        }
     }
 }
