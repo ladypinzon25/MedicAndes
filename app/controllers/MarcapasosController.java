@@ -74,34 +74,35 @@ public class MarcapasosController extends Controller {
                 }
         );
     }
-    public CompletionStage<Result> updateMarcapasos( Long idP, Long idM)
-    {
+    public CompletionStage<Result> updateMarcapasos( Long idP, Long idM, String token) throws Exception {
 
         JsonNode n = request().body().asJson();
         MarcapasosEntity m = Json.fromJson( n , MarcapasosEntity.class ) ;
         PacienteEntity paciente = PacienteEntity.FINDER.byId(idP);
         MedicoEntity medico = MedicoEntity.FINDER.byId(idM);
 
-        return CompletableFuture.supplyAsync(
-                ()->{
-                    if(medico != null && medico.getEspecialidad().equals("Cardiologia"))
-                    {
-                        MarcapasosEntity antiguo = paciente.getMarcapasos();
-                        antiguo.setId(m.getId());
-                        antiguo.setRitmoCardiaco(m.getRitmoCardiaco());
-                        antiguo.update();
-                        return antiguo;
+        if (UserController.authenticate(token).equals(UserController.CARDIOLOGO)) {
+
+            return CompletableFuture.supplyAsync(
+                    () -> {
+                        if (medico != null && medico.getEspecialidad().equals("Cardiologia")) {
+                            MarcapasosEntity antiguo = paciente.getMarcapasos();
+                            antiguo.setRitmoCardiaco(m.getRitmoCardiaco());
+                            antiguo.update();
+                            return antiguo;
+                        } else {
+                            return "No tiene autorizacion de cambiar la configuracion del marcapasos";
+                        }
                     }
-                    else
-                    {
-                        return "No tiene autorizacion de cambiar la configuracion del marcapasos";
+            ).thenApply(
+                    marcapasoss -> {
+                        return ok(Json.toJson(marcapasoss));
                     }
-                }
-        ).thenApply(
-                marcapasoss -> {
-                    return ok(Json.toJson(marcapasoss));
-                }
-        );
+            );
+        }
+        else{
+            throw new Exception("Authenticacion failure");
+        }
     }
 
     public CompletionStage<Result> createMarcapasosPaciente(Long idPaciente){

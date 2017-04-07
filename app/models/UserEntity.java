@@ -4,6 +4,7 @@ import com.avaje.ebean.Finder;
 import com.avaje.ebean.Model;
 
 import javax.persistence.*;
+import java.security.SecureRandom;
 
 /**
  * Created by ln.bello10 on 06/04/2017.
@@ -100,6 +101,16 @@ public class UserEntity extends Model {
     public void setLogin(String login) {
 
         this.login = login;
+    }
+
+    public String getPassword() {
+
+        return password;
+    }
+
+    public void setPassword(String password) {
+
+        this.password = password;
     }
 
     public String getToken() {

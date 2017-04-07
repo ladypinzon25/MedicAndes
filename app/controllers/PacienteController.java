@@ -20,24 +20,40 @@ import static play.libs.Json.toJson;
  */
 public class PacienteController extends Controller{
 
-    public CompletionStage<Result> getPacientes()
-    {
+    public CompletionStage<Result> getPacientes(String token) throws Exception {
         MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
+        if (UserController.authenticate(token).equals(UserController.MEDICO) || UserController.authenticate(token).equals(UserController.CARDIOLOGO)) {
 
-        return CompletableFuture.
-                supplyAsync(() -> { return PacienteEntity.FINDER.all(); } ,jdbcDispatcher)
-                .thenApply(pacienteEntities -> {return ok(toJson(pacienteEntities));}
-                );
+            return CompletableFuture.
+                    supplyAsync(() -> {
+                        return PacienteEntity.FINDER.all();
+                    }, jdbcDispatcher)
+                    .thenApply(pacienteEntities -> {
+                                return ok(toJson(pacienteEntities));
+                            }
+                    );
+        }
+        else{
+            throw new Exception("Authenticacion failure");
+        }
     }
 
-    public CompletionStage<Result> getPaciente(Long idM)
-    {
+    public CompletionStage<Result> getPaciente(Long idM, String token) throws Exception {
         MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
 
-        return CompletableFuture.
-                supplyAsync(() -> { return PacienteEntity.FINDER.byId(idM); } ,jdbcDispatcher)
-                .thenApply(pacientes -> {return ok(toJson(pacientes));}
-                );
+        if (!UserController.authenticate(token).equals(UserController.REQUIRES_LOGIN)) {
+            return CompletableFuture.
+                    supplyAsync(() -> {
+                        return PacienteEntity.FINDER.byId(idM);
+                    }, jdbcDispatcher)
+                    .thenApply(pacientes -> {
+                                return ok(toJson(pacientes));
+                            }
+                    );
+        }
+        else{
+            throw new Exception("Authenticacion failure");
+        }
     }
 
     public CompletionStage<Result> createPaciente()

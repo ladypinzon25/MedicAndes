@@ -102,7 +102,7 @@ public class LecturaController extends Controller {
         );
     }
 
-    /*
+
     public CompletionStage<Result> createLecturaPaciente(Long idPaciente){
 
         JsonNode n = request().body().asJson();
@@ -125,36 +125,30 @@ public class LecturaController extends Controller {
                 }
         );
     }
-    */
+
 
 
     public CompletionStage<Result> createLecturaCifrada(Long idPaciente){
 
         JsonNode n = request().body().asJson();
         String j = n.toString();
-   //       System.out.println("json: "+ n);
-   //     System.out.println("jsonnode: "+ j);
-        EncriptadoEntity encriptado = new EncriptadoEntity(j);
-  //      System.out.println("encriptado: "+ encriptado.getMensajeCodificado());
-  //      System.out.println("desencriptado: "+ encriptado.getMensajeDesencriptado());
-  //      System.out.println("hash: "+ new String(encriptado.getHashMensaje()));
-  //      System.out.println("hashCalculado: "+ new String(encriptado.getHashMensaje(encriptado.getMensajeCodificado())));
+        EncriptadoEntity lectura = Json.fromJson( n , EncriptadoEntity.class ) ;
 
-        if(encriptado.validar()) {
-            String mensaje = encriptado.getMensajeDesencriptado();
+        if(lectura.validar()) {
+            String mensaje = lectura.getMensajeDesencriptado();
             JsonNode json = Json.parse(mensaje);
-            LecturaEntity lectura = Json.fromJson(n, LecturaEntity.class);
+            LecturaEntity lecturaDesencriptada = Json.fromJson(n, LecturaEntity.class);
 
             return CompletableFuture.supplyAsync(
                     () -> {
                         PacienteEntity paciente = PacienteEntity.FINDER.byId(idPaciente);
                         //lectura.setPaciente(paciente);
-                        lectura.setHistorial(paciente.getHistorialPaciente());
+                        lecturaDesencriptada.setHistorial(paciente.getHistorialPaciente());
 
-                        paciente.getHistorialPaciente().addLectura(lectura);
-                        lectura.save();
+                        paciente.getHistorialPaciente().addLectura(lecturaDesencriptada);
+                        lecturaDesencriptada.save();
                         paciente.getHistorialPaciente().update();
-                        return lectura;
+                        return lecturaDesencriptada;
                     }
             ).thenApply(
                     lecturas -> {

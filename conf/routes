@@ -31,8 +31,8 @@ POST    /medico                         controllers.MedicoController.createMedic
 PUT     /medico/:id                     controllers.MedicoController.updateMedico(id : Long)
 
 #Controlador de paciente
-GET     /pacientes                                        controllers.PacienteController.getPacientes
-GET     /paciente/:id                                     controllers.PacienteController.getPaciente(id : Long)
+GET     /pacientes/tk=:tk                                    controllers.PacienteController.getPacientes(tk: String)
+GET     /paciente/:id/tk=:tk                                 controllers.PacienteController.getPaciente(id : Long,tk: String)
 GET     /paciente/:id/historialRangoFechas/:inicio&:fin   controllers.CitaController.getLecturasRango( id : Long ,inicio : String, fin :String)
 POST    /paciente                                         controllers.PacienteController.createPaciente
 PUT     /paciente/:id                                     controllers.PacienteController.updatePaciente(id : Long)
@@ -54,14 +54,18 @@ POST    /cita                           controllers.CitaController.createCita
 PUT     /cita/:id                       controllers.CitaController.updateCita(id : Long)
 
 POST    /cita/:idP&:idM                 controllers.CitaController.createCitaPaciente(idP: Long, idM:Long)
-POST    /lectura/:idP                   controllers.LecturaController.createLecturaPaciente(idP: Long)
+POST    /lectura/:idP                   controllers.LecturaController.createLecturaCifrada(idP: Long)
+POST    /lecturaPruebas/:idP            controllers.LecturaController.createLecturaPaciente(idP: Long)
 POST    /emergencia/:idP                controllers.EmergenciaController.createEmergenciaPaciente(idP: Long)
 POST    /consejo/:idP&:idM              controllers.ConsejoController.createConsejoPaciente(idP: Long, idM: Long)
 POST    /marcapasos/:idP                controllers.MarcapasosController.createMarcapasosPaciente(idP: Long)
 PUT     /paciente/:id                   controllers.PacienteController.updatePaciente(id : Long)
 PUT     /historial/:id                   controllers.HistorialController.updateHistorial(id : Long)
-PUT     /marcapasos/:idP&:idM           controllers.MarcapasosController.updateMarcapasos(idP : Long, idM: Long)
+PUT     /marcapasos/:idP&:idM/tk=:tk       controllers.MarcapasosController.updateMarcapasos(idP : Long, idM: Long, tk: String)
 GET     /paciente/:id/citas             controllers.PacienteController.updatePaciente(id : Long)
+
+POST    /login/                         controllers.UserController.login()
+
 
 
 
