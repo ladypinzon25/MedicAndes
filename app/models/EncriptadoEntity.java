@@ -11,9 +11,6 @@ import java.security.MessageDigest;
 import java.util.Arrays;
 
 
-/**
- * Created by LuisMesa on 17/11/2016.
- */
 @Entity
 public class EncriptadoEntity extends Model
 {
@@ -55,7 +52,7 @@ public class EncriptadoEntity extends Model
     public static String encriptar(String texto)
     {
 
-        String secretKey = "qualityinfosolutions"; //llave para encriptar datos
+        String secretKey = "qualityinfosolu"; //llave para encriptar datos
         String base64EncryptedString = "";
 
         try
@@ -63,10 +60,10 @@ public class EncriptadoEntity extends Model
 
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] digestOfPassword = md.digest(secretKey.getBytes("utf-8"));
-            byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
+            byte[] keyBytes = Arrays.copyOf(digestOfPassword, 16);
 
-            SecretKey key = new SecretKeySpec(keyBytes, "DESede");
-            Cipher cipher = Cipher.getInstance("DESede");
+            SecretKey key = new SecretKeySpec(keyBytes, "AES");
+            Cipher cipher = Cipher.getInstance("AES");
             cipher.init(Cipher.ENCRYPT_MODE, key);
 
             byte[] plainTextBytes = texto.getBytes("utf-8");
@@ -84,17 +81,17 @@ public class EncriptadoEntity extends Model
 
     public static String desencriptar(String textoEncriptado){
 
-        String secretKey = "qualityinfosolutions"; //llave para desenciptar datos
+        String secretKey = "qualityinfosolu"; //llave para desenciptar datos
         String base64EncryptedString = "";
 
         try {
             byte[] message = Base64.decodeBase64(textoEncriptado.getBytes("utf-8"));
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] digestOfPassword = md.digest(secretKey.getBytes("utf-8"));
-            byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
-            SecretKey key = new SecretKeySpec(keyBytes, "DESede");
+            byte[] keyBytes = Arrays.copyOf(digestOfPassword, 16);
+            SecretKey key = new SecretKeySpec(keyBytes, "AES");
 
-            Cipher decipher = Cipher.getInstance("DESede");
+            Cipher decipher = Cipher.getInstance("AES");
             decipher.init(Cipher.DECRYPT_MODE, key);
 
             byte[] plainText = decipher.doFinal(message);

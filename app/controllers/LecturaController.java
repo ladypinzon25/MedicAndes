@@ -132,7 +132,9 @@ public class LecturaController extends Controller {
 
         JsonNode n = request().body().asJson();
         String j = n.toString();
-        EncriptadoEntity lectura = Json.fromJson( n , EncriptadoEntity.class ) ;
+       EncriptadoEntity lectura = new EncriptadoEntity(j);
+       System.out.println(lectura.getMensajeCodificado());
+   //EncriptadoEntity lectura = Json.fromJson( n , EncriptadoEntity.class ) ;
 
         if(lectura.validar()) {
             String mensaje = lectura.getMensajeDesencriptado();
@@ -148,7 +150,7 @@ public class LecturaController extends Controller {
                         paciente.getHistorialPaciente().addLectura(lecturaDesencriptada);
                         lecturaDesencriptada.save();
                         paciente.getHistorialPaciente().update();
-                        return lecturaDesencriptada;
+                        return lectura;
                     }
             ).thenApply(
                     lecturas -> {
