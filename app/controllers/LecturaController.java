@@ -132,14 +132,14 @@ public class LecturaController extends Controller {
 
         JsonNode n = request().body().asJson();
         String j = n.toString();
-       EncriptadoEntity lectura = new EncriptadoEntity(j);
-       System.out.println(lectura.getMensajeCodificado());
-   //EncriptadoEntity lectura = Json.fromJson( n , EncriptadoEntity.class ) ;
+ //      EncriptadoEntity lectura = new EncriptadoEntity(j);
+ //      System.out.println(lectura.getMensajeCodificado());
+   EncriptadoEntity lectura = Json.fromJson( n , EncriptadoEntity.class ) ;
 
         if(lectura.validar()) {
             String mensaje = lectura.getMensajeDesencriptado();
             JsonNode json = Json.parse(mensaje);
-            LecturaEntity lecturaDesencriptada = Json.fromJson(n, LecturaEntity.class);
+            LecturaEntity lecturaDesencriptada = Json.fromJson(json, LecturaEntity.class);
 
             return CompletableFuture.supplyAsync(
                     () -> {
@@ -150,7 +150,7 @@ public class LecturaController extends Controller {
                         paciente.getHistorialPaciente().addLectura(lecturaDesencriptada);
                         lecturaDesencriptada.save();
                         paciente.getHistorialPaciente().update();
-                        return lectura;
+                        return lecturaDesencriptada;
                     }
             ).thenApply(
                     lecturas -> {
