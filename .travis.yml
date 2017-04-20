@@ -1,0 +1,17 @@
+language: java
+sudo: false
+install: true
+addons:
+  sonarqube:
+    organization: "lnbello10-github"
+    token:
+      secure: "30e3effa7894aa13ed2c722641622dc920ad4763"
+jdk:
+  - oraclejdk8
+script:
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
+      
