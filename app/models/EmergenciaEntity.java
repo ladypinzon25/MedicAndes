@@ -72,7 +72,7 @@ public class EmergenciaEntity extends Model {
      * Constructor vacio de la clase.
      */
     public EmergenciaEntity() {
-
+        System.out.println("Emergencia");
         id = null;
         fecha  = null;
         estado ="NO NAME";
@@ -146,5 +146,15 @@ public class EmergenciaEntity extends Model {
     public void setHistorial(HistorialEntity historial) {
 
         this.historial = historial;
+    }
+
+    public PacienteEntity getPaciente() {
+
+        return paciente;
+    }
+
+    public void setPaciente(PacienteEntity paciente) {
+
+        this.paciente = paciente;
     }
 }

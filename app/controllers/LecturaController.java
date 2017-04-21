@@ -109,20 +109,6 @@ public class LecturaController extends Controller {
 
         LecturaEntity lectura = Json.fromJson( n , LecturaEntity.class ) ;
 
-        lectura.setEstado(LecturaEntity.ESTADO_VERDE);
-
-        MedicoObserver medOb = new MedicoObserver(lectura);
-        EmergenciaObserver emerOb = new EmergenciaObserver(lectura);
-
-        lectura.agregarObservador(medOb);
-        lectura.agregarObservador(emerOb);
-
-        EstadoRojo estadoRojo = new EstadoRojo();
-        if(!estadoRojo.manejar(lectura))
-        {
-            EstadoAmarillo estadoAmarillo = new EstadoAmarillo();
-            estadoAmarillo.manejar(lectura);
-        }
 
         return CompletableFuture.supplyAsync(
                 ()->{
@@ -132,6 +118,23 @@ public class LecturaController extends Controller {
 
                     paciente.getHistorialPaciente().addLectura(lectura);
                     lectura.save();
+
+                    lectura.setEstado(LecturaEntity.ESTADO_VERDE);
+
+                    MedicoObserver medOb = new MedicoObserver(lectura);
+                    EmergenciaObserver emerOb = new EmergenciaObserver(lectura);
+
+                    lectura.agregarObservador(medOb);
+                    lectura.agregarObservador(emerOb);
+
+                    EstadoRojo estadoRojo = new EstadoRojo();
+                    if(!estadoRojo.manejar(lectura))
+                    {
+                        EstadoAmarillo estadoAmarillo = new EstadoAmarillo();
+                        estadoAmarillo.manejar(lectura);
+                    }
+
+                    lectura.update();
                     paciente.getHistorialPaciente().update();
                     return lectura;
                 }
@@ -157,19 +160,7 @@ public class LecturaController extends Controller {
             JsonNode json = Json.parse(mensaje);
             LecturaEntity lecturaDesencriptada = Json.fromJson(json, LecturaEntity.class);
 
-            lecturaDesencriptada.setEstado(LecturaEntity.ESTADO_VERDE);
-            MedicoObserver medOb = new MedicoObserver(lecturaDesencriptada);
-            EmergenciaObserver emerOb = new EmergenciaObserver(lecturaDesencriptada);
 
-            lecturaDesencriptada.agregarObservador(medOb);
-            lecturaDesencriptada.agregarObservador(emerOb);
-
-            EstadoRojo estadoRojo = new EstadoRojo();
-            if(!estadoRojo.manejar(lecturaDesencriptada))
-            {
-                EstadoAmarillo estadoAmarillo = new EstadoAmarillo();
-                estadoAmarillo.manejar(lecturaDesencriptada);
-            }
 
             return CompletableFuture.supplyAsync(
                     () -> {
@@ -179,6 +170,22 @@ public class LecturaController extends Controller {
 
                         paciente.getHistorialPaciente().addLectura(lecturaDesencriptada);
                         lecturaDesencriptada.save();
+
+                        lecturaDesencriptada.setEstado(LecturaEntity.ESTADO_VERDE);
+                        MedicoObserver medOb = new MedicoObserver(lecturaDesencriptada);
+                        EmergenciaObserver emerOb = new EmergenciaObserver(lecturaDesencriptada);
+
+                        lecturaDesencriptada.agregarObservador(medOb);
+                        lecturaDesencriptada.agregarObservador(emerOb);
+
+                        EstadoRojo estadoRojo = new EstadoRojo();
+                        if(!estadoRojo.manejar(lecturaDesencriptada))
+                        {
+                            EstadoAmarillo estadoAmarillo = new EstadoAmarillo();
+                            estadoAmarillo.manejar(lecturaDesencriptada);
+                        }
+
+                        lecturaDesencriptada.update();
                         paciente.getHistorialPaciente().update();
                         return lecturaDesencriptada;
                     }
