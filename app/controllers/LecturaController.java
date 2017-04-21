@@ -110,6 +110,13 @@ public class LecturaController extends Controller {
         LecturaEntity lectura = Json.fromJson( n , LecturaEntity.class ) ;
 
         lectura.setEstado(LecturaEntity.ESTADO_VERDE);
+
+        MedicoObserver medOb = new MedicoObserver(lectura);
+        EmergenciaObserver emerOb = new EmergenciaObserver(lectura);
+
+        lectura.agregarObservador(medOb);
+        lectura.agregarObservador(emerOb);
+
         EstadoRojo estadoRojo = new EstadoRojo();
         if(!estadoRojo.manejar(lectura))
         {
@@ -151,6 +158,12 @@ public class LecturaController extends Controller {
             LecturaEntity lecturaDesencriptada = Json.fromJson(json, LecturaEntity.class);
 
             lecturaDesencriptada.setEstado(LecturaEntity.ESTADO_VERDE);
+            MedicoObserver medOb = new MedicoObserver(lecturaDesencriptada);
+            EmergenciaObserver emerOb = new EmergenciaObserver(lecturaDesencriptada);
+
+            lecturaDesencriptada.agregarObservador(medOb);
+            lecturaDesencriptada.agregarObservador(emerOb);
+
             EstadoRojo estadoRojo = new EstadoRojo();
             if(!estadoRojo.manejar(lecturaDesencriptada))
             {

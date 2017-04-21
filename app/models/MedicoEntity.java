@@ -71,6 +71,9 @@ public class MedicoEntity extends Model {
     @JsonManagedReference(value="r3")
     private List<ConsejoEntity> consejosDados;
 
+    @ManyToMany(mappedBy = "medicos")
+    private List<MensajeEntity> mensajes;
+
 
 
     //--------------------------------------------------------------
@@ -88,6 +91,7 @@ public class MedicoEntity extends Model {
         especialidad ="NO NAME";
         citas = new ArrayList<CitaEntity>();
         pacientes = new ArrayList<PacienteEntity>();
+        mensajes = new ArrayList<MensajeEntity>();
         consejosDados = new ArrayList<ConsejoEntity>();
     }
 
@@ -146,6 +150,16 @@ public class MedicoEntity extends Model {
     public void setPacientes(List <PacienteEntity> pacientes) {
 
         this.pacientes = pacientes;
+    }
+
+    public List<MensajeEntity> getMensajes() {
+
+        return mensajes;
+    }
+
+    public void setMensajes(List <MensajeEntity> mensajes) {
+
+        this.mensajes = mensajes;
     }
 
     public List<CitaEntity> getCitas() {

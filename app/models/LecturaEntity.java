@@ -5,8 +5,10 @@ import javax.persistence.Entity;
 import com.avaje.ebean.Model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import controllers.LecturaObserver;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -60,6 +62,10 @@ public class LecturaEntity extends Model{
      * estado generado en la lectura
      */
     private int estado;
+    /*
+     * Lista de observes de la lectura
+     */
+    private List<LecturaObserver> observers = new ArrayList<LecturaObserver>();;
 
     /**
      * historial al que pertenece las lecturas
@@ -166,6 +172,7 @@ public class LecturaEntity extends Model{
     public void setEstado(int estado) {
 
         this.estado = estado;
+        notificarObservadores();
     }
 
     public HistorialEntity getHistorial() {
@@ -176,5 +183,18 @@ public class LecturaEntity extends Model{
     public void setHistorial(HistorialEntity historial) {
 
         this.historial = historial;
+    }
+
+    public void agregarObservador(LecturaObserver observador)
+    {
+        observers.add(observador);
+    }
+
+    public void notificarObservadores()
+    {
+        for(int i = 0; i < observers.size(); i++)
+        {
+            observers.get(i).update();
+        }
     }
 }

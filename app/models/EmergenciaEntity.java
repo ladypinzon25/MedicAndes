@@ -58,6 +58,11 @@ public class EmergenciaEntity extends Model {
     @JsonBackReference(value="r12")
     private PacienteEntity paciente;
 
+    public static final String INICIADA = "iniciada";
+    public static final String EN_ESPERA = "en espera";
+    public static final String EN_CURSO = "en curso";
+    public static final String FINALIZADA = "finalizada";
+
 
     //--------------------------------------------------------------
     //                          Constructores
