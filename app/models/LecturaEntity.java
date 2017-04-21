@@ -24,6 +24,9 @@ public class LecturaEntity extends Model{
 
     //Permite acceso a la base de datos para hacer busquedas
     public static Model.Finder<Long,LecturaEntity> FINDER = new Model.Finder<>(LecturaEntity.class);
+    public final static int ESTADO_ROJO = 2;
+    public final static int ESTADO_AMARILLO = 1;
+    public final static int ESTADO_VERDE = 0;
 
     //--------------------------------------------------------------
     //                          ATRIBUTOS

@@ -108,6 +108,15 @@ public class LecturaController extends Controller {
         JsonNode n = request().body().asJson();
 
         LecturaEntity lectura = Json.fromJson( n , LecturaEntity.class ) ;
+
+        lectura.setEstado(LecturaEntity.ESTADO_VERDE);
+        EstadoRojo estadoRojo = new EstadoRojo();
+        if(!estadoRojo.manejar(lectura))
+        {
+            EstadoAmarillo estadoAmarillo = new EstadoAmarillo();
+            estadoAmarillo.manejar(lectura);
+        }
+
         return CompletableFuture.supplyAsync(
                 ()->{
                     PacienteEntity paciente = PacienteEntity.FINDER.byId(idPaciente);
@@ -140,6 +149,14 @@ public class LecturaController extends Controller {
             String mensaje = lectura.getMensajeDesencriptado();
             JsonNode json = Json.parse(mensaje);
             LecturaEntity lecturaDesencriptada = Json.fromJson(json, LecturaEntity.class);
+
+            lecturaDesencriptada.setEstado(LecturaEntity.ESTADO_VERDE);
+            EstadoRojo estadoRojo = new EstadoRojo();
+            if(!estadoRojo.manejar(lecturaDesencriptada))
+            {
+                EstadoAmarillo estadoAmarillo = new EstadoAmarillo();
+                estadoAmarillo.manejar(lecturaDesencriptada);
+            }
 
             return CompletableFuture.supplyAsync(
                     () -> {
