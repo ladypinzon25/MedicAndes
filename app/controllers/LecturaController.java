@@ -1,6 +1,8 @@
 package controllers;
 
 import akka.dispatch.MessageDispatcher;
+import com.avaje.ebean.ExpressionList;
+import com.avaje.ebean.Query;
 import com.fasterxml.jackson.databind.JsonNode;
 import dispatchers.AkkaDispatcher;
 import models.HistorialEntity;
@@ -11,9 +13,13 @@ import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
+import static com.avaje.ebean.Expr.eq;
 import static play.libs.Json.toJson;
 
 
@@ -209,5 +215,23 @@ public class LecturaController extends Controller {
                     }
             );
         }
+    }
+
+    public static Queue<LecturaEntity> getLecturasRecientes(Long idHistorial)
+    {
+        Query<LecturaEntity> find = LecturaEntity.FINDER.query();
+        ExpressionList<LecturaEntity> myQuery = find.where();
+
+        if (idHistorial != null) myQuery.add(eq("historial_id", idHistorial));
+        myQuery.orderBy("fecha desc");
+
+        List<LecturaEntity> queryResult = myQuery.findList();
+        Queue<LecturaEntity> colaLecturas = new LinkedList<LecturaEntity>();
+
+        for(int i = 0; i < 15 && i<queryResult.size();i++){
+            colaLecturas.add(queryResult.get(i));
+        }
+
+        return colaLecturas;
     }
 }

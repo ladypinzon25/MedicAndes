@@ -18,7 +18,7 @@ import java.util.List;
 @Entity
 //Este es el nombre de la tabla en la base de datos
 @Table(name="historialEntity")
-public class HistorialEntity extends Model {
+public class HistorialEntity extends Model implements Historial {
 
     //--------------------------------------------------------------
     //                          CONSTANTES
