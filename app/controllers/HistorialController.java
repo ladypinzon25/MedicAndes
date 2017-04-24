@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import dispatchers.AkkaDispatcher;
 import models.HistorialEntity;
 import models.PacienteEntity;
+import models.ProxyHistorial;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -32,9 +33,21 @@ public class HistorialController extends Controller {
     public CompletionStage<Result> getHistorial(Long idM)
     {
         MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
+        ProxyHistorial proxy = new ProxyHistorial(idM);
 
         return CompletableFuture.
-                supplyAsync(() -> { return HistorialEntity.FINDER.byId(idM); } ,jdbcDispatcher)
+                supplyAsync(() -> { return proxy.getHistorialReal(); } ,jdbcDispatcher)
+                .thenApply(historiales -> {return ok(toJson(historiales));}
+                );
+    }
+
+    public CompletionStage<Result> getHistorialProxy(Long idM)
+    {
+        MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
+        ProxyHistorial proxy = new ProxyHistorial(idM);
+
+        return CompletableFuture.
+                supplyAsync(() -> { return proxy.getProxy(); } ,jdbcDispatcher)
                 .thenApply(historiales -> {return ok(toJson(historiales));}
                 );
     }

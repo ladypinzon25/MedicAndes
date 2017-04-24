@@ -14,9 +14,10 @@ public class ProxyHistorial implements Historial {
 
     private HistorialEntity historialReal;
     private Long id;
-    private Queue<LecturaEntity> lecturas;
+    private List<LecturaEntity> lecturas;
 
     public ProxyHistorial(Long id){
+
         lecturas= LecturaController.getLecturasRecientes(id);
         this.id=id;
     }
@@ -26,7 +27,14 @@ public class ProxyHistorial implements Historial {
         return id;
     }
 
-    private HistorialEntity getHistorialReal(){
+    public HistorialEntity getProxy(){
+        HistorialEntity nuevo = new HistorialEntity();
+        nuevo.setId(id);
+        nuevo.setLecturasHistorial(lecturas);
+        return nuevo;
+    }
+
+    public HistorialEntity getHistorialReal(){
         if(historialReal == null)
         {
             historialReal = HistorialEntity.FINDER.byId(id);
@@ -61,14 +69,7 @@ public class ProxyHistorial implements Historial {
     }
 
     @Override
-    public void addLectura(LecturaEntity lectura) {
-        lecturas.remove();
-        lecturas.add(lectura);
-    }
-
-    @Override
     public List<EmergenciaEntity> getEmergencias() {
         return getHistorialReal().getEmergencias();
     }
-
 }

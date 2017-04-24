@@ -19,8 +19,6 @@ public interface Historial {
 
     public List<LecturaEntity> getLecturasHistorial();
 
-    public void addLectura(LecturaEntity lectura);
-
     public List<EmergenciaEntity> getEmergencias();
 
 }

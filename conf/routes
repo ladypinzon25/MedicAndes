@@ -43,7 +43,10 @@ DELETE  /paciente/:id                                     controllers.PacienteCo
 GET     /citas                          controllers.CitaController.getCitas
 GET     /cita                           controllers.CitaController.getCita(id: Long)
 GET     /paciente/:id/citas             controllers.CitaController.getCitasPaciente(id: Long)
-GET     /paciente/:id/historial         controllers.CitaController.getHistorialPaciente(id: Long)
+GET     /paciente/:id/historial         controllers.HistorialController.getHistorialProxy(id: Long)
+
+GET     /paciente/:id/historialCompleto   controllers.HistorialController.getHistorial(id: Long)
+
 GET     /paciente/:id/examenes          controllers.CitaController.getExamenesPaciente(id: Long)
 GET     /paciente/:id/lecturas          controllers.CitaController.getLecturasPaciente(id: Long)
 GET     /paciente/:id/emergencias       controllers.CitaController.getEmergenciasPaciente(id: Long)

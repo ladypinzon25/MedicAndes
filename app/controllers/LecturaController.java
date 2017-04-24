@@ -13,6 +13,7 @@ import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -217,7 +218,7 @@ public class LecturaController extends Controller {
         }
     }
 
-    public static Queue<LecturaEntity> getLecturasRecientes(Long idHistorial)
+    public static List<LecturaEntity> getLecturasRecientes(Long idHistorial)
     {
         Query<LecturaEntity> find = LecturaEntity.FINDER.query();
         ExpressionList<LecturaEntity> myQuery = find.where();
@@ -226,12 +227,11 @@ public class LecturaController extends Controller {
         myQuery.orderBy("fecha desc");
 
         List<LecturaEntity> queryResult = myQuery.findList();
-        Queue<LecturaEntity> colaLecturas = new LinkedList<LecturaEntity>();
+        List<LecturaEntity> rta = new ArrayList<LecturaEntity>();
 
         for(int i = 0; i < 15 && i<queryResult.size();i++){
-            colaLecturas.add(queryResult.get(i));
+            rta.add(queryResult.get(i));
         }
-
-        return colaLecturas;
+        return rta;
     }
 }
