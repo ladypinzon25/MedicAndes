@@ -1,0 +1,102 @@
+@(paciente: PacienteEntity)
+@index2 {
+    <!-- start: Content -->
+    <div id="content" class="span10">
+
+
+        <ul class="breadcrumb">
+            <li>
+                <a href="index.html">Pacientes</a>
+                <i class="icon-angle-right"></i>
+            </li>
+            <li>
+                <a href="../historial/@paciente.getId">@paciente.getNombre</a>
+                <i class="icon-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">Mensajes</a>
+                <i class="icon-angle-right"></i>
+                <p id ="idPaciente" hidden>@paciente.getId</p>
+            </li>
+        </ul>
+
+        @*TABLA DE MARCAPASOS*@
+        <div class="row-fluid sortable ui-sortable">
+            <div class="row-fluid sortable">
+                <div class="box span6">
+                    <div class="box-header">
+                        <h2><i class="halflings-icon white align-justify"></i><span class="break"></span>Mensajes</h2>
+                        <div class="box-icon">
+                            <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                            <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                            <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+                        </div>
+                    </div>
+                    <div class="box-content">
+                    <div class="titleMenssage">
+                        <h4 class="modal-title">Enviar mensaje a @paciente.getNombre</h4>
+                    </div>
+
+                        <form>
+                            @*<label for="fname">Fecha*@
+                                @*<input type="text" id="nFechaMensaje" name="fname">*@
+                            @*</label>*@
+                            <label for="fname">Mensaje
+                                <input type="text" id="nMensaje" name="fname">
+                            </label>
+                            <label for="fname">Dieta
+                                <input type="text" id="nDieta" name="fname">
+                            </label>
+                            <label for="fname">Actividad fisica
+                                <input type="text" id="nActividad" name="fname">
+                            </label>
+                            <label for="fname">Medicamentos
+                                <input type="text" id="nMedicamento" name="fname">
+                            </label>
+
+                        </form>
+
+                        <button  class="btn btn-primary" data-dismiss="modal" onclick="enviarMensaje()">Enviar mensaje</button>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div> <!--/.fluid-container-->
+    </div>
+
+
+
+        <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+                <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modificar marcapasos de @paciente.getNombre</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <label for="fname">Ingrese el nuevo ritmo cardiaco</label>
+                        <input type="text" id="nFrec" name="fname">
+
+                    </form>
+
+                    <button  class="btn btn-primary" data-dismiss="modal" onclick="editarMarcapasos()">Editar frencuencia</button>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+}

@@ -13,8 +13,14 @@
 #
 ########################################################################################################################
 # An example controller showing a sample home page
-GET     /                           controllers.HomeController.index2
-# An example controller showing how to use dependency injection
+GET     /                                controllers.HomeController.index
+GET     /app/home                        controllers.HomeController.home
+GET     /app/pacientes                   controllers.HomeController.pacientes
+GET     /app/historial/:id               controllers.HomeController.historial(id: Long)
+GET     /app/marcapasos/:id              controllers.HomeController.marcapasos(id: Long)
+GET     /app/mensajes/:id                controllers.HomeController.mensajes(id: Long)
+POST    /mensajes/:idM&:idP              controllers.PacienteController.enviarMensajePaciente(idM : Long, idP: Long)
+# An example controller showing how to use dependency injectioni
 GET     /count                      controllers.CountController.count
 # An example controller showing how to write asynchronous code
 GET     /message                    controllers.AsyncController.message
@@ -37,8 +43,9 @@ GET     /paciente/:id/historialRangoFechas/:inicio&:fin   controllers.CitaContro
 POST    /paciente                                         controllers.PacienteController.createPaciente
 PUT     /paciente/:id                                     controllers.PacienteController.updatePaciente(id : Long)
 DELETE  /paciente/:id                                     controllers.PacienteController.deletePaciente(id : Long)
-
-
+GET     /pacientes                                        controllers.PacienteController.getPacientes2
+GET     /consejos/                                        controllers.ConsejoController.getConsejos
+POST     /consejos/crear                                   controllers.ConsejoController.createConsejo
 #Controlador de citas
 GET     /citas                          controllers.CitaController.getCitas
 GET     /cita                           controllers.CitaController.getCita(id: Long)
@@ -60,9 +67,10 @@ POST    /emergencia/:idP                controllers.EmergenciaController.createE
 POST    /consejo/:idP&:idM              controllers.ConsejoController.createConsejoPaciente(idP: Long, idM: Long)
 POST    /marcapasos/:idP                controllers.MarcapasosController.createMarcapasosPaciente(idP: Long)
 PUT     /paciente/:id                   controllers.PacienteController.updatePaciente(id : Long)
-PUT     /historial/:id                   controllers.HistorialController.updateHistorial(id : Long)
-PUT     /marcapasos/:idP&:idM/tk=:tk       controllers.MarcapasosController.updateMarcapasos(idP : Long, idM: Long, tk: String)
+PUT     /historial/:id                  controllers.HistorialController.updateHistorial(id : Long)
+PUT     /marcapasos/:idP&:idM/tk=:tk    controllers.MarcapasosController.updateMarcapasos(idP : Long, idM: Long, tk: String)
 GET     /paciente/:id/citas             controllers.PacienteController.updatePaciente(id : Long)
+PUT     /marcapasos2/:idP                controllers.MarcapasosController.updateMarcapasos2(idP : Long)
 
 POST    /login/                         controllers.UserController.login()
 

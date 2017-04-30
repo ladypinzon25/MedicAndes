@@ -3,9 +3,7 @@ package controllers;
 import akka.dispatch.MessageDispatcher;
 import com.fasterxml.jackson.databind.JsonNode;
 import dispatchers.AkkaDispatcher;
-import models.CitaEntity;
-import models.HistorialEntity;
-import models.PacienteEntity;
+import models.*;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -36,6 +34,17 @@ public class PacienteController extends Controller{
         else{
             throw new Exception("Authenticacion failure");
         }
+    }
+    public CompletionStage<Result> getPacientes2() throws Exception {
+
+            return CompletableFuture.
+                    supplyAsync(() -> {
+                        return PacienteEntity.FINDER.all();
+                    })
+                    .thenApply(pacienteEntities -> {
+                                return ok(toJson(pacienteEntities));
+                            }
+                    );
     }
 
     public CompletionStage<Result> getPaciente(Long idM, String token) throws Exception {
@@ -114,6 +123,31 @@ public class PacienteController extends Controller{
                         return ok(Json.toJson(pacientes));
                     }
             );
+
+
+    }
+    public CompletionStage<Result> enviarMensajePaciente(Long idM, Long idP) {
+        JsonNode n = request().body().asJson();
+        ConsejoEntity c = Json.fromJson(n, ConsejoEntity.class);
+        System.out.println(c.getFecha());
+        return CompletableFuture.supplyAsync(
+                ()->{
+                    PacienteEntity paciente = PacienteEntity.FINDER.byId(idP);
+                    MedicoEntity medico = MedicoEntity.FINDER.byId(idM);
+                    c.setPaciente(paciente);
+                    c.setMedico(medico);
+                    c.save();
+//                    paciente.addConsejo(c);
+                    paciente.update();
+
+//                    paciente.getConsejos().add(nuevoConsejo);
+                    return paciente.getConsejos();
+                }
+        ).thenApply(
+                pacientes -> {
+                    return ok(Json.toJson(pacientes));
+                }
+        );
 
 
     }

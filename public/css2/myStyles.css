@@ -1,0 +1,53 @@
+
+@font-face{
+    font-family: 'Brownhill Script';
+    src:url('../fonts/Brownhill Script.ttf')
+}
+.navbar-inner, .navbar-inner a
+{
+    background: #FFFFFF;
+    color:#333!important;
+}
+.navbar-inner a:hover,.navbar-inner li:hover
+{
+    background: #dadada;
+    color:#a94442;
+}
+.navBarBtn i,.navBarBtn p
+{
+    color:#333!important;
+
+}
+.homeHTML
+{
+    background: -webkit-linear-gradient(to right, #abbaab, #ffffff); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #abbaab, #ffffff)!important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    min-height: 90vh!important;
+}
+.bienvenido
+{
+    text-align: center;
+    font-family: 'Brownhill Script';
+    background: inherit!important;
+}
+.bienvenido h1
+{
+    font-size:20vw;
+    margin-top: 15vh;
+    /*color:#953b39;*/
+}
+.bienvenido h3
+{
+    margin-top: 30vh;
+    font-size:5vw;
+    /*color:#2a62bc;*/
+}
+.titleMenssage{
+
+    margin: 10px;
+}
+textarea
+{
+    width: 90%;
+    padding: 5%;
+}

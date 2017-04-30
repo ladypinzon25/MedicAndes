@@ -1,0 +1,93 @@
+@(paciente: PacienteEntity)
+@index2 {
+    <!-- start: Content -->
+    <div id="content" class="span10">
+
+
+        <ul class="breadcrumb">
+            <li>
+                <a href="index.html">Pacientes</a>
+                <i class="icon-angle-right"></i>
+            </li>
+            <li>
+                <a href="../historial/@paciente.getId">@paciente.getNombre</a>
+                <i class="icon-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">Marcapasos</a>
+                <i class="icon-angle-right"></i>
+                <p id ="idPaciente" hidden>@paciente.getId</p>
+            </li>
+        </ul>
+
+        @*TABLA DE MARCAPASOS*@
+        <div class="row-fluid sortable ui-sortable">
+            <div class="row-fluid sortable">
+                <div class="box span6">
+                    <div class="box-header">
+                        <h2><i class="halflings-icon white align-justify"></i><span class="break"></span>Marcapasos</h2>
+                        <div class="box-icon">
+                            <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                            <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                            <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="box-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>RitmoCardiaco</th>
+                                    <th>Modificar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="center">@paciente.getMarcapasos.getRitmoCardiaco</td>
+                                    <td class="center">
+                                        <a class="btn btn-info btn-lg" data-toggle="modal" href="#myModal">
+                                            <i class="halflings-icon white edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+        </div>
+    </div> <!--/.fluid-container-->
+</div>
+
+
+
+        <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+                <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modificar marcapasos de @paciente.getNombre</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <label for="fname">Ingrese el nuevo ritmo cardiaco</label>
+                        <input type="text" id="nFrec" name="fname">
+
+                    </form>
+
+                        <button  class="btn btn-primary" data-dismiss="modal" onclick="editarMarcapasos()">Editar frencuencia</button>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+}

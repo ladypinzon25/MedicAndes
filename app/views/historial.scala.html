@@ -1,0 +1,257 @@
+@(paciente: PacienteEntity)
+@index2 {
+    <!-- start: Content -->
+    <div id="content" class="span10">
+
+
+        <ul class="breadcrumb">
+            <li>
+                <a href="index.html">Pacientes</a>
+                <i class="icon-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">@paciente.getNombre</a>
+                <i class="icon-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">Historial</a>
+                <i class="icon-angle-right"></i>
+            </li>
+        </ul>
+
+        @*TABLA DE EMERGENCIAS*@
+<div class="row-fluid sortable ui-sortable">
+        <div class="row-fluid sortable">
+            <div class="box span6">
+                <div class="box-header">
+                    <h2><i class="halflings-icon white align-justify"></i><span class="break"></span>Emergencias</h2>
+                    <div class="box-icon">
+                        <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                        <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                        <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+                    </div>
+                </div>
+
+                <div class="box-content">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Estado</th>
+                                <th>Ubicacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @for(emergencia<-paciente.getHistorialPaciente.getEmergencias) {
+                            <tr>
+                                <td class="center">@emergencia.getFecha</td>
+                                <td class="center">@emergencia.getEstado</td>
+                                <td class="center">@emergencia.getUbicacion</td>
+                            </tr>
+                        }
+
+                        </tbody>
+                    </table>
+                    <div class="pagination pagination-centered">
+                        <ul>
+                            <li><a href="#">Prev</a></li>
+                            <li class="active">
+                                <a href="#">1</a>
+                            </li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">Next</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            @*//TABLA DE LECTURAS*@
+
+            <div class="box span6">
+                <div class="box-header">
+                    <h2><i class="halflings-icon white align-justify"></i><span class="break"></span>Lecturas</h2>
+                    <div class="box-icon">
+                        <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                        <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                        <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Frecuencia cardiaca</th>
+                                <th>Presion sanguinea</th>
+                                <th>Nivel de estres</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for(lectura<-paciente.getHistorialPaciente.getLecturasHistorial) {
+                                <tr>
+                                    <td class="center">@lectura.getFecha</td>
+                                    <td class="center">@lectura.getFrecuenciaCardiaca</td>
+                                    <td class="center">@lectura.getPresionSanguinea</td>
+                                    <td class="center">@lectura.getNivelEstres</td>
+                                    <td class="center">@lectura.getEstado</td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                    <div class="pagination pagination-centered">
+                        <ul>
+                            <li><a href="#">Prev</a></li>
+                            <li class="active">
+                                <a href="#">1</a>
+                            </li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">Next</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+            @*//TABLA DE EXAMENES*@
+        <div class="row-fluid sortable ui-sortable">
+            <div class="box span6">
+                <div class="box-header">
+                    <h2><i class="halflings-icon white align-justify"></i><span class="break"></span>Examenes</h2>
+                    <div class="box-icon">
+                        <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                        <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                        <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Tipo</th>
+                                <th>Resultado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @for(examen<-paciente.getHistorialPaciente.getExamenesHistorial) {
+                            <tr>
+                                <td class="center">@examen.getFecha</td>
+                                <td class="center">@examen.getTipo</td>
+                                <td class="center">@examen.getResultado</td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                    <div class="pagination pagination-centered">
+                        <ul>
+                            <li><a href="#">Prev</a></li>
+                            <li class="active">
+                                <a href="#">1</a>
+                            </li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">Next</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            @*//TABLA DE CITAS*@
+
+            <div class="box span6">
+                <div class="box-header">
+                    <h2><i class="halflings-icon white align-justify"></i><span class="break"></span>Citas</h2>
+                    <div class="box-icon">
+                        <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                        <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                        <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Diagnostico</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @for(cita<-paciente.getHistorialPaciente.getCitasHistorial) {
+                            <tr>
+                                <td class="center">@cita.getFecha</td>
+                                <td class="center">@cita.getDiagnostico</td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                    <div class="pagination pagination-centered">
+                        <ul>
+                            <li><a href="#">Prev</a></li>
+                            <li class="active">
+                                <a href="#">1</a>
+                            </li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">Next</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+            @*//TABLA DE ENFERMEDADES Y ALERGIAS*@
+
+            <div class="box span6">
+                <div class="box-header">
+                    <h2><i class="halflings-icon white align-justify"></i><span class="break"></span>Afecciones</h2>
+                    <div class="box-icon">
+                        <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                        <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                        <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Alergias</th>
+                                <th>Enfermedades</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td class="center">@paciente.getHistorialPaciente.getAlergias</td>
+                                <td class="center">@paciente.getHistorialPaciente.getEnfermedades</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <div class="pagination pagination-centered">
+                        <ul>
+                            <li><a href="#">Prev</a></li>
+                            <li class="active">
+                                <a href="#">1</a>
+                            </li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">Next</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div> <!--/.fluid-container-->
+
+
+}

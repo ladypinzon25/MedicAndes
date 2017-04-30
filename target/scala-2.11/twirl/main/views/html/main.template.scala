@@ -84,10 +84,10 @@ Seq[Any](format.raw/*7.32*/("""
 object main extends main_Scope0.main
               /*
                   -- GENERATED --
-                  DATE: Sat Feb 11 16:53:32 COT 2017
-                  SOURCE: C:/Temp/Monithor-master/app/views/main.scala.html
-                  HASH: 3b0e369b5cb3894f709284e812b9286b0c522b66
-                  MATRIX: 1002->260|1127->290|1155->292|1306->416|1332->421|1408->470|1436->477|1475->489
+                  DATE: Sun Apr 30 17:52:23 COT 2017
+                  SOURCE: C:/Temp/Nueva carpeta (2)/MedicAndes-master/app/views/main.scala.html
+                  HASH: 04716bf6c928f25de6c0871f4c384ce0a6c1f3e8
+                  MATRIX: 1007->266|1132->296|1162->300|1318->429|1344->434|1427->490|1455->497|1502->517
                   LINES: 32->7|37->7|39->9|44->14|44->14|51->21|51->21|59->29
                   -- GENERATED --
               */

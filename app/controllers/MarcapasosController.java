@@ -74,12 +74,34 @@ public class MarcapasosController extends Controller {
                 }
         );
     }
+    public CompletionStage<Result> updateMarcapasos2( Long idP) throws Exception {
+
+        JsonNode n = request().body().asJson();
+        MarcapasosEntity m = Json.fromJson( n , MarcapasosEntity.class ) ;
+        PacienteEntity paciente = PacienteEntity.FINDER.byId(idP);
+System.out.print(m.getRitmoCardiaco()+ "AQUIIIIII");
+            return CompletableFuture.supplyAsync(
+                    () -> {
+
+                            MarcapasosEntity antiguo = paciente.getMarcapasos();
+                            antiguo.setRitmoCardiaco(m.getRitmoCardiaco());
+                            antiguo.update();
+                            return antiguo;
+
+                    }
+            ).thenApply(
+                    marcapasoss -> {
+                        return ok(Json.toJson(marcapasoss));
+                    }
+            );
+    }
     public CompletionStage<Result> updateMarcapasos( Long idP, Long idM, String token) throws Exception {
 
         JsonNode n = request().body().asJson();
         MarcapasosEntity m = Json.fromJson( n , MarcapasosEntity.class ) ;
         PacienteEntity paciente = PacienteEntity.FINDER.byId(idP);
         MedicoEntity medico = MedicoEntity.FINDER.byId(idM);
+
 
         if (UserController.authenticate(token).equals(UserController.CARDIOLOGO)) {
 

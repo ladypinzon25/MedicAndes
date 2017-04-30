@@ -101,7 +101,17 @@ public class ConsejoEntity extends Model {
      */
     public ConsejoEntity(Long id, Long fecha, String mensaje, String dieta, String actividadFisica, String medicamentos) {
         System.out.println("Consejo");
-        this.id = id;
+//        this.id = id;
+        this.fecha = fecha;
+        this.mensaje = mensaje;
+        this.dieta = dieta;
+        this.actividadFisica = actividadFisica;
+        this.medicamentos = medicamentos;
+
+    }
+    public ConsejoEntity( Long fecha, String mensaje, String dieta, String actividadFisica, String medicamentos) {
+        System.out.println("Consejo");
+//        this.id = id;
         this.fecha = fecha;
         this.mensaje = mensaje;
         this.dieta = dieta;

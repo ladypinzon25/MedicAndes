@@ -1,0 +1,68 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+########################################################################################################################
+#
+#                                               ###    ########  ####
+#                                              ## ##   ##     ##  ##
+#                                             ##   ##  ##     ##  ##
+#                                            ##     ## ########   ##
+#                                            ######### ##         ##
+#                                            ##     ## ##         ##
+#                                            ##     ## ##        ####
+#
+########################################################################################################################
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index2
+# An example controller showing how to use dependency injection
+GET     /count                      controllers.CountController.count
+# An example controller showing how to write asynchronous code
+GET     /message                    controllers.AsyncController.message
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+########################################################################################################################
+
+#Controlador de medico
+GET     /medicos                        controllers.MedicoController.getMedicos
+GET     /medico/:id                     controllers.MedicoController.getMedico(id : Long)
+POST    /medico                         controllers.MedicoController.createMedico
+PUT     /medico/:id                     controllers.MedicoController.updateMedico(id : Long)
+
+#Controlador de paciente
+GET     /pacientes                                        controllers.PacienteController.getPacientes
+GET     /paciente/:id                                     controllers.PacienteController.getPaciente(id : Long)
+GET     /paciente/:id/historialRangoFechas/:inicio&:fin   controllers.CitaController.getLecturasRango( id : Long ,inicio : String, fin :String)
+POST    /paciente                                         controllers.PacienteController.createPaciente
+PUT     /paciente/:id                                     controllers.PacienteController.updatePaciente(id : Long)
+DELETE  /paciente/:id                                     controllers.PacienteController.deletePaciente(id : Long)
+
+
+#Controlador de citas
+GET     /citas                          controllers.CitaController.getCitas
+GET     /cita                           controllers.CitaController.getCita(id: Long)
+GET     /paciente/:id/citas             controllers.CitaController.getCitasPaciente(id: Long)
+GET     /paciente/:id/historial         controllers.CitaController.getHistorialPaciente(id: Long)
+GET     /paciente/:id/examenes          controllers.CitaController.getExamenesPaciente(id: Long)
+GET     /paciente/:id/lecturas          controllers.CitaController.getLecturasPaciente(id: Long)
+GET     /paciente/:id/emergencias       controllers.CitaController.getEmergenciasPaciente(id: Long)
+GET     /paciente/:id/consejos          controllers.CitaController.getConsejosPaciente(id: Long)
+GET     /paciente/:id/marcapasos        controllers.CitaController.getMarcapasosPaciente(id: Long)
+#GET     /pacientes/:id/cita/:idCita    controllers.PacienteController.getPacientes
+POST    /cita                           controllers.CitaController.createCita
+PUT     /cita/:id                       controllers.CitaController.updateCita(id : Long)
+
+POST    /cita/:idP&:idM                 controllers.CitaController.createCitaPaciente(idP: Long, idM:Long)
+POST    /lectura/:idP                   controllers.LecturaController.createLecturaPaciente(idP: Long)
+POST    /emergencia/:idP                controllers.EmergenciaController.createEmergenciaPaciente(idP: Long)
+POST    /consejo/:idP&:idM              controllers.ConsejoController.createConsejoPaciente(idP: Long, idM: Long)
+POST    /marcapasos/:idP                controllers.MarcapasosController.createMarcapasosPaciente(idP: Long)
+PUT     /paciente/:id                   controllers.PacienteController.updatePaciente(id : Long)
+PUT     /historial/:id                   controllers.HistorialController.updateHistorial(id : Long)
+PUT     /marcapasos/:idP&:idM           controllers.MarcapasosController.updateMarcapasos(idP : Long, idM: Long)
+GET     /paciente/:id/citas             controllers.PacienteController.updatePaciente(id : Long)
+
+
+
+

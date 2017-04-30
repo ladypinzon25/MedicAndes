@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Temp/MedicAndes/conf/routes
-// @DATE:Mon Feb 13 19:33:36 COT 2017
+// @SOURCE:C:/Temp/Nueva carpeta (2)/MedicAndes-master/conf/routes
+// @DATE:Sun Apr 30 17:52:21 COT 2017
 
 package controllers;
 
@@ -13,6 +13,7 @@ public class routes {
   public static final controllers.ReverseCountController CountController = new controllers.ReverseCountController(RoutesPrefix.byNamePrefix());
   public static final controllers.ReverseMarcapasosController MarcapasosController = new controllers.ReverseMarcapasosController(RoutesPrefix.byNamePrefix());
   public static final controllers.ReversePacienteController PacienteController = new controllers.ReversePacienteController(RoutesPrefix.byNamePrefix());
+  public static final controllers.ReverseUserController UserController = new controllers.ReverseUserController(RoutesPrefix.byNamePrefix());
   public static final controllers.ReverseHomeController HomeController = new controllers.ReverseHomeController(RoutesPrefix.byNamePrefix());
   public static final controllers.ReverseCitaController CitaController = new controllers.ReverseCitaController(RoutesPrefix.byNamePrefix());
   public static final controllers.ReverseAsyncController AsyncController = new controllers.ReverseAsyncController(RoutesPrefix.byNamePrefix());
@@ -28,6 +29,7 @@ public class routes {
     public static final controllers.javascript.ReverseCountController CountController = new controllers.javascript.ReverseCountController(RoutesPrefix.byNamePrefix());
     public static final controllers.javascript.ReverseMarcapasosController MarcapasosController = new controllers.javascript.ReverseMarcapasosController(RoutesPrefix.byNamePrefix());
     public static final controllers.javascript.ReversePacienteController PacienteController = new controllers.javascript.ReversePacienteController(RoutesPrefix.byNamePrefix());
+    public static final controllers.javascript.ReverseUserController UserController = new controllers.javascript.ReverseUserController(RoutesPrefix.byNamePrefix());
     public static final controllers.javascript.ReverseHomeController HomeController = new controllers.javascript.ReverseHomeController(RoutesPrefix.byNamePrefix());
     public static final controllers.javascript.ReverseCitaController CitaController = new controllers.javascript.ReverseCitaController(RoutesPrefix.byNamePrefix());
     public static final controllers.javascript.ReverseAsyncController AsyncController = new controllers.javascript.ReverseAsyncController(RoutesPrefix.byNamePrefix());

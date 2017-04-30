@@ -1,0 +1,26 @@
+.myLogo
+{
+    padding-top: 20px;
+}
+.service h2, .service h3, .service h4
+{
+    color:#333333;
+}
+.service-img
+{
+    background: #ff6374;
+}
+
+.service-img:after {
+
+     border-top: 40px solid #ff6374;
+}
+.service-img:before {
+
+    border-bottom: 40px solid #ff6374;
+}
+.nav li a
+{
+    font-size: 1.6vw!important;
+}
+
