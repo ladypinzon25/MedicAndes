@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Temp/Nueva carpeta (2)/MedicAndes-master/conf/routes
-// @DATE:Sun Apr 30 17:52:21 COT 2017
+// @SOURCE:C:/Users/Camilo/Documents/GitHub/MedicAndes/conf/routes
+// @DATE:Sun Apr 30 19:12:19 COT 2017
 
 package controllers;
 
@@ -10,6 +10,7 @@ import router.RoutesPrefix;
 public class routes {
   
   public static final controllers.ReverseAssets Assets = new controllers.ReverseAssets(RoutesPrefix.byNamePrefix());
+  public static final controllers.ReverseMobileController MobileController = new controllers.ReverseMobileController(RoutesPrefix.byNamePrefix());
   public static final controllers.ReverseCountController CountController = new controllers.ReverseCountController(RoutesPrefix.byNamePrefix());
   public static final controllers.ReverseMarcapasosController MarcapasosController = new controllers.ReverseMarcapasosController(RoutesPrefix.byNamePrefix());
   public static final controllers.ReversePacienteController PacienteController = new controllers.ReversePacienteController(RoutesPrefix.byNamePrefix());
@@ -26,6 +27,7 @@ public class routes {
   public static class javascript {
     
     public static final controllers.javascript.ReverseAssets Assets = new controllers.javascript.ReverseAssets(RoutesPrefix.byNamePrefix());
+    public static final controllers.javascript.ReverseMobileController MobileController = new controllers.javascript.ReverseMobileController(RoutesPrefix.byNamePrefix());
     public static final controllers.javascript.ReverseCountController CountController = new controllers.javascript.ReverseCountController(RoutesPrefix.byNamePrefix());
     public static final controllers.javascript.ReverseMarcapasosController MarcapasosController = new controllers.javascript.ReverseMarcapasosController(RoutesPrefix.byNamePrefix());
     public static final controllers.javascript.ReversePacienteController PacienteController = new controllers.javascript.ReversePacienteController(RoutesPrefix.byNamePrefix());

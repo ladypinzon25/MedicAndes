@@ -28,6 +28,10 @@ GET     /message                    controllers.AsyncController.message
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
+#Mobile
+GET     /mobile/pacientes                        controllers.MobileController.mobilePacientes
+GET    /mobile/citas                              controllers.MobileController.mobileCitas
+#GET     /mobile/paciente/:id                        controllers.MobileController.mobilePaciente(id: Long)
 ########################################################################################################################
 
 #Controlador de medico

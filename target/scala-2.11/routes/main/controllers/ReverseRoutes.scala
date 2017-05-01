@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Temp/Nueva carpeta (2)/MedicAndes-master/conf/routes
-// @DATE:Sun Apr 30 17:52:21 COT 2017
+// @SOURCE:C:/Users/Camilo/Documents/GitHub/MedicAndes/conf/routes
+// @DATE:Sun Apr 30 19:12:19 COT 2017
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -28,6 +28,27 @@ package controllers {
   
   }
 
+  // @LINE:32
+  class ReverseMobileController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:33
+    def mobileCitas(): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "mobile/citas")
+    }
+  
+    // @LINE:32
+    def mobilePacientes(): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "mobile/pacientes")
+    }
+  
+  }
+
   // @LINE:24
   class ReverseCountController(_prefix: => String) {
     def _defaultPrefix: String = {
@@ -43,26 +64,26 @@ package controllers {
   
   }
 
-  // @LINE:68
+  // @LINE:72
   class ReverseMarcapasosController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:71
+    // @LINE:75
     def updateMarcapasos(idP:Long, idM:Long, tk:String): Call = {
       import ReverseRouteContext.empty
       Call("PUT", _prefix + { _defaultPrefix } + "marcapasos/" + implicitly[PathBindable[Long]].unbind("idP", idP) + "&" + implicitly[PathBindable[Long]].unbind("idM", idM) + "/tk=" + implicitly[PathBindable[String]].unbind("tk", dynamicString(tk)))
     }
   
-    // @LINE:73
+    // @LINE:77
     def updateMarcapasos2(idP:Long): Call = {
       import ReverseRouteContext.empty
       Call("PUT", _prefix + { _defaultPrefix } + "marcapasos2/" + implicitly[PathBindable[Long]].unbind("idP", idP))
     }
   
-    // @LINE:68
+    // @LINE:72
     def createMarcapasosPaciente(idP:Long): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "marcapasos/" + implicitly[PathBindable[Long]].unbind("idP", idP))
@@ -77,18 +98,18 @@ package controllers {
     }
 
   
-    // @LINE:45
+    // @LINE:49
     def deletePaciente(id:Long): Call = {
       import ReverseRouteContext.empty
       Call("DELETE", _prefix + { _defaultPrefix } + "paciente/" + implicitly[PathBindable[Long]].unbind("id", id))
     }
   
-    // @LINE:44
+    // @LINE:48
     def updatePaciente(id:Long): Call = {
     
       (id: @unchecked) match {
       
-        // @LINE:44
+        // @LINE:48
         case (id)  =>
           import ReverseRouteContext.empty
           Call("PUT", _prefix + { _defaultPrefix } + "paciente/" + implicitly[PathBindable[Long]].unbind("id", id))
@@ -97,13 +118,13 @@ package controllers {
     
     }
   
-    // @LINE:40
+    // @LINE:44
     def getPacientes(tk:String): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "pacientes/tk=" + implicitly[PathBindable[String]].unbind("tk", dynamicString(tk)))
     }
   
-    // @LINE:46
+    // @LINE:50
     def getPacientes2(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "pacientes")
@@ -115,13 +136,13 @@ package controllers {
       Call("POST", _prefix + { _defaultPrefix } + "mensajes/" + implicitly[PathBindable[Long]].unbind("idM", idM) + "&" + implicitly[PathBindable[Long]].unbind("idP", idP))
     }
   
-    // @LINE:43
+    // @LINE:47
     def createPaciente(): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "paciente")
     }
   
-    // @LINE:41
+    // @LINE:45
     def getPaciente(id:Long, tk:String): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "paciente/" + implicitly[PathBindable[Long]].unbind("id", id) + "/tk=" + implicitly[PathBindable[String]].unbind("tk", dynamicString(tk)))
@@ -129,14 +150,14 @@ package controllers {
   
   }
 
-  // @LINE:75
+  // @LINE:79
   class ReverseUserController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:75
+    // @LINE:79
     def login(): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "login/")
@@ -189,86 +210,86 @@ package controllers {
   
   }
 
-  // @LINE:42
+  // @LINE:46
   class ReverseCitaController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:63
+    // @LINE:67
     def createCitaPaciente(idP:Long, idM:Long): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "cita/" + implicitly[PathBindable[Long]].unbind("idP", idP) + "&" + implicitly[PathBindable[Long]].unbind("idM", idM))
     }
   
-    // @LINE:55
+    // @LINE:59
     def getLecturasPaciente(id:Long): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "paciente/" + implicitly[PathBindable[Long]].unbind("id", id) + "/lecturas")
     }
   
-    // @LINE:60
+    // @LINE:64
     def createCita(): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "cita")
     }
   
-    // @LINE:56
+    // @LINE:60
     def getEmergenciasPaciente(id:Long): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "paciente/" + implicitly[PathBindable[Long]].unbind("id", id) + "/emergencias")
     }
   
-    // @LINE:54
+    // @LINE:58
     def getExamenesPaciente(id:Long): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "paciente/" + implicitly[PathBindable[Long]].unbind("id", id) + "/examenes")
     }
   
-    // @LINE:42
+    // @LINE:46
     def getLecturasRango(id:Long, inicio:String, fin:String): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "paciente/" + implicitly[PathBindable[Long]].unbind("id", id) + "/historialRangoFechas/" + implicitly[PathBindable[String]].unbind("inicio", dynamicString(inicio)) + "&" + implicitly[PathBindable[String]].unbind("fin", dynamicString(fin)))
     }
   
-    // @LINE:58
+    // @LINE:62
     def getMarcapasosPaciente(id:Long): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "paciente/" + implicitly[PathBindable[Long]].unbind("id", id) + "/marcapasos")
     }
   
-    // @LINE:51
+    // @LINE:55
     def getCita(id:Long): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "cita" + queryString(List(Some(implicitly[QueryStringBindable[Long]].unbind("id", id)))))
     }
   
-    // @LINE:53
+    // @LINE:57
     def getHistorialPaciente(id:Long): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "paciente/" + implicitly[PathBindable[Long]].unbind("id", id) + "/historial")
     }
   
-    // @LINE:61
+    // @LINE:65
     def updateCita(id:Long): Call = {
       import ReverseRouteContext.empty
       Call("PUT", _prefix + { _defaultPrefix } + "cita/" + implicitly[PathBindable[Long]].unbind("id", id))
     }
   
-    // @LINE:57
+    // @LINE:61
     def getConsejosPaciente(id:Long): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "paciente/" + implicitly[PathBindable[Long]].unbind("id", id) + "/consejos")
     }
   
-    // @LINE:50
+    // @LINE:54
     def getCitas(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "citas")
     }
   
-    // @LINE:52
+    // @LINE:56
     def getCitasPaciente(id:Long): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "paciente/" + implicitly[PathBindable[Long]].unbind("id", id) + "/citas")
@@ -291,14 +312,14 @@ package controllers {
   
   }
 
-  // @LINE:66
+  // @LINE:70
   class ReverseEmergenciaController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:66
+    // @LINE:70
     def createEmergenciaPaciente(idP:Long): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "emergencia/" + implicitly[PathBindable[Long]].unbind("idP", idP))
@@ -306,14 +327,14 @@ package controllers {
   
   }
 
-  // @LINE:70
+  // @LINE:74
   class ReverseHistorialController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:70
+    // @LINE:74
     def updateHistorial(id:Long): Call = {
       import ReverseRouteContext.empty
       Call("PUT", _prefix + { _defaultPrefix } + "historial/" + implicitly[PathBindable[Long]].unbind("id", id))
@@ -321,26 +342,26 @@ package controllers {
   
   }
 
-  // @LINE:47
+  // @LINE:51
   class ReverseConsejoController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:47
+    // @LINE:51
     def getConsejos(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "consejos/")
     }
   
-    // @LINE:67
+    // @LINE:71
     def createConsejoPaciente(idP:Long, idM:Long): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "consejo/" + implicitly[PathBindable[Long]].unbind("idP", idP) + "&" + implicitly[PathBindable[Long]].unbind("idM", idM))
     }
   
-    // @LINE:48
+    // @LINE:52
     def createConsejo(): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "consejos/crear")
@@ -348,20 +369,20 @@ package controllers {
   
   }
 
-  // @LINE:64
+  // @LINE:68
   class ReverseLecturaController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:64
+    // @LINE:68
     def createLecturaCifrada(idP:Long): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "lectura/" + implicitly[PathBindable[Long]].unbind("idP", idP))
     }
   
-    // @LINE:65
+    // @LINE:69
     def createLecturaPaciente(idP:Long): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "lecturaPruebas/" + implicitly[PathBindable[Long]].unbind("idP", idP))
@@ -369,32 +390,32 @@ package controllers {
   
   }
 
-  // @LINE:34
+  // @LINE:38
   class ReverseMedicoController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:34
+    // @LINE:38
     def getMedicos(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "medicos")
     }
   
-    // @LINE:37
+    // @LINE:41
     def updateMedico(id:Long): Call = {
       import ReverseRouteContext.empty
       Call("PUT", _prefix + { _defaultPrefix } + "medico/" + implicitly[PathBindable[Long]].unbind("id", id))
     }
   
-    // @LINE:35
+    // @LINE:39
     def getMedico(id:Long): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "medico/" + implicitly[PathBindable[Long]].unbind("id", id))
     }
   
-    // @LINE:36
+    // @LINE:40
     def createMedico(): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "medico")

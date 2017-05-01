@@ -67,4 +67,5 @@ public class HomeController extends Controller {
 
         return ok(mensajes.render(paciente));
     }
+
 }

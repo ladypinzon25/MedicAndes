@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Temp/Nueva carpeta (2)/MedicAndes-master/conf/routes
-// @DATE:Sun Apr 30 17:52:21 COT 2017
+// @SOURCE:C:/Users/Camilo/Documents/GitHub/MedicAndes/conf/routes
+// @DATE:Sun Apr 30 19:12:19 COT 2017
 
 
 package router {

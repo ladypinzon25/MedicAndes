@@ -1,0 +1,86 @@
+2017-04-30 18:42:36,322 [INFO] from application in ForkJoinPool-1-worker-1 - Creating Pool for datasource 'default'
+2017-04-30 18:42:36,549 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-1 - Database [default] connected at jdbc:postgresql://localhost:5432/medicAndes
+2017-04-30 18:42:36,768 [WARN] from application in ForkJoinPool-1-worker-1 - application.conf @ file:/C:/Users/Camilo/Documents/GitHub/MedicAndes/target/scala-2.11/classes/application.conf: 377: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2017-04-30 18:42:37,690 [WARN] from com.avaje.ebeaninternal.server.deploy.BeanDescriptorManager in ForkJoinPool-1-worker-1 - Bean [models.EncriptadoEntity] has no unique id set
+2017-04-30 18:42:38,061 [INFO] from application in ForkJoinPool-1-worker-1 - ApplicationTimer demo: Starting application at 2017-04-30T23:42:38.060Z
+2017-04-30 18:42:38,642 [INFO] from play.api.Play in ForkJoinPool-1-worker-1 - Application started (Dev)
+2017-04-30 18:47:36,119 [INFO] from application in application-akka.actor.default-dispatcher-8 - ApplicationTimer demo: Stopping application at 2017-04-30T23:47:36.119Z after 298s.
+2017-04-30 18:47:36,129 [INFO] from application in application-akka.actor.default-dispatcher-8 - Shutting down connection pool.
+2017-04-30 18:47:36,940 [INFO] from application in application-akka.actor.default-dispatcher-8 - Creating Pool for datasource 'default'
+2017-04-30 18:47:37,305 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-8 - Database [default] connected at jdbc:postgresql://localhost:5432/medicAndes
+2017-04-30 18:47:37,593 [WARN] from com.avaje.ebeaninternal.server.deploy.BeanDescriptorManager in application-akka.actor.default-dispatcher-8 - Bean [models.EncriptadoEntity] has no unique id set
+2017-04-30 18:47:37,624 [WARN] from application in application-akka.actor.default-dispatcher-8 - application.conf @ file:/C:/Users/Camilo/Documents/GitHub/MedicAndes/target/scala-2.11/classes/application.conf: 377: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2017-04-30 18:47:37,640 [INFO] from application in application-akka.actor.default-dispatcher-8 - ApplicationTimer demo: Starting application at 2017-04-30T23:47:37.640Z
+2017-04-30 18:47:38,852 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-8 - Application started (Dev)
+2017-04-30 18:58:00,879 [INFO] from application in application-akka.actor.default-dispatcher-5 - ApplicationTimer demo: Stopping application at 2017-04-30T23:58:00.879Z after 623s.
+2017-04-30 18:58:00,879 [INFO] from application in application-akka.actor.default-dispatcher-5 - Shutting down connection pool.
+2017-04-30 18:58:01,089 [INFO] from application in application-akka.actor.default-dispatcher-5 - Creating Pool for datasource 'default'
+2017-04-30 18:58:01,149 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-5 - Database [default] connected at jdbc:postgresql://localhost:5432/medicAndes
+2017-04-30 18:58:01,250 [WARN] from com.avaje.ebeaninternal.server.deploy.BeanDescriptorManager in application-akka.actor.default-dispatcher-5 - Bean [models.EncriptadoEntity] has no unique id set
+2017-04-30 18:58:01,273 [WARN] from application in application-akka.actor.default-dispatcher-5 - application.conf @ file:/C:/Users/Camilo/Documents/GitHub/MedicAndes/target/scala-2.11/classes/application.conf: 377: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2017-04-30 18:58:01,308 [INFO] from application in application-akka.actor.default-dispatcher-5 - ApplicationTimer demo: Starting application at 2017-04-30T23:58:01.308Z
+2017-04-30 18:58:01,549 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-5 - Application started (Dev)
+2017-04-30 18:58:42,630 [INFO] from application in application-akka.actor.default-dispatcher-2 - ApplicationTimer demo: Stopping application at 2017-04-30T23:58:42.630Z after 41s.
+2017-04-30 18:58:42,631 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
+2017-04-30 18:58:42,890 [INFO] from application in application-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
+2017-04-30 18:58:42,970 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-2 - Database [default] connected at jdbc:postgresql://localhost:5432/medicAndes
+2017-04-30 18:58:43,110 [WARN] from com.avaje.ebeaninternal.server.deploy.BeanDescriptorManager in application-akka.actor.default-dispatcher-2 - Bean [models.EncriptadoEntity] has no unique id set
+2017-04-30 18:58:43,130 [WARN] from application in application-akka.actor.default-dispatcher-2 - application.conf @ file:/C:/Users/Camilo/Documents/GitHub/MedicAndes/target/scala-2.11/classes/application.conf: 377: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2017-04-30 18:58:43,148 [INFO] from application in application-akka.actor.default-dispatcher-2 - ApplicationTimer demo: Starting application at 2017-04-30T23:58:43.148Z
+2017-04-30 18:58:43,396 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-2 - Application started (Dev)
+2017-04-30 19:00:29,996 [INFO] from application in application-akka.actor.default-dispatcher-3 - ApplicationTimer demo: Stopping application at 2017-05-01T00:00:29.996Z after 106s.
+2017-04-30 19:00:29,997 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.
+2017-04-30 19:00:30,270 [INFO] from application in application-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'default'
+2017-04-30 19:00:30,363 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-3 - Database [default] connected at jdbc:postgresql://localhost:5432/medicAndes
+2017-04-30 19:00:30,368 [WARN] from application in application-akka.actor.default-dispatcher-3 - application.conf @ file:/C:/Users/Camilo/Documents/GitHub/MedicAndes/target/scala-2.11/classes/application.conf: 377: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2017-04-30 19:00:30,520 [WARN] from com.avaje.ebeaninternal.server.deploy.BeanDescriptorManager in application-akka.actor.default-dispatcher-3 - Bean [models.EncriptadoEntity] has no unique id set
+2017-04-30 19:00:30,580 [INFO] from application in application-akka.actor.default-dispatcher-3 - ApplicationTimer demo: Starting application at 2017-05-01T00:00:30.580Z
+2017-04-30 19:00:30,797 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-3 - Application started (Dev)
+2017-04-30 19:01:07,161 [INFO] from application in application-akka.actor.default-dispatcher-16 - ApplicationTimer demo: Stopping application at 2017-05-01T00:01:07.161Z after 37s.
+2017-04-30 19:01:07,161 [INFO] from application in application-akka.actor.default-dispatcher-16 - Shutting down connection pool.
+2017-04-30 19:01:07,401 [INFO] from application in application-akka.actor.default-dispatcher-16 - Creating Pool for datasource 'default'
+2017-04-30 19:01:07,476 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-16 - Database [default] connected at jdbc:postgresql://localhost:5432/medicAndes
+2017-04-30 19:01:07,568 [WARN] from com.avaje.ebeaninternal.server.deploy.BeanDescriptorManager in application-akka.actor.default-dispatcher-16 - Bean [models.EncriptadoEntity] has no unique id set
+2017-04-30 19:01:07,587 [WARN] from application in application-akka.actor.default-dispatcher-16 - application.conf @ file:/C:/Users/Camilo/Documents/GitHub/MedicAndes/target/scala-2.11/classes/application.conf: 377: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2017-04-30 19:01:07,603 [INFO] from application in application-akka.actor.default-dispatcher-16 - ApplicationTimer demo: Starting application at 2017-05-01T00:01:07.603Z
+2017-04-30 19:01:07,797 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-16 - Application started (Dev)
+2017-04-30 19:05:11,365 [INFO] from application in application-akka.actor.default-dispatcher-12 - ApplicationTimer demo: Stopping application at 2017-05-01T00:05:11.365Z after 244s.
+2017-04-30 19:05:11,365 [INFO] from application in application-akka.actor.default-dispatcher-12 - Shutting down connection pool.
+2017-04-30 19:05:11,545 [INFO] from application in application-akka.actor.default-dispatcher-12 - Creating Pool for datasource 'default'
+2017-04-30 19:05:11,613 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-12 - Database [default] connected at jdbc:postgresql://localhost:5432/medicAndes
+2017-04-30 19:05:11,615 [WARN] from application in application-akka.actor.default-dispatcher-12 - application.conf @ file:/C:/Users/Camilo/Documents/GitHub/MedicAndes/target/scala-2.11/classes/application.conf: 377: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2017-04-30 19:05:11,704 [WARN] from com.avaje.ebeaninternal.server.deploy.BeanDescriptorManager in application-akka.actor.default-dispatcher-12 - Bean [models.EncriptadoEntity] has no unique id set
+2017-04-30 19:05:11,754 [INFO] from application in application-akka.actor.default-dispatcher-12 - ApplicationTimer demo: Starting application at 2017-05-01T00:05:11.754Z
+2017-04-30 19:05:11,986 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-12 - Application started (Dev)
+2017-04-30 19:11:43,663 [INFO] from application in application-akka.actor.default-dispatcher-7 - ApplicationTimer demo: Stopping application at 2017-05-01T00:11:43.663Z after 392s.
+2017-04-30 19:11:43,664 [INFO] from application in application-akka.actor.default-dispatcher-7 - Shutting down connection pool.
+2017-04-30 19:11:43,875 [INFO] from application in application-akka.actor.default-dispatcher-7 - Creating Pool for datasource 'default'
+2017-04-30 19:11:43,956 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-7 - Database [default] connected at jdbc:postgresql://localhost:5432/medicAndes
+2017-04-30 19:11:44,061 [WARN] from com.avaje.ebeaninternal.server.deploy.BeanDescriptorManager in application-akka.actor.default-dispatcher-7 - Bean [models.EncriptadoEntity] has no unique id set
+2017-04-30 19:11:44,077 [WARN] from application in application-akka.actor.default-dispatcher-7 - application.conf @ file:/C:/Users/Camilo/Documents/GitHub/MedicAndes/target/scala-2.11/classes/application.conf: 377: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2017-04-30 19:11:44,091 [INFO] from application in application-akka.actor.default-dispatcher-7 - ApplicationTimer demo: Starting application at 2017-05-01T00:11:44.091Z
+2017-04-30 19:11:44,307 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-7 - Application started (Dev)
+2017-04-30 19:12:33,540 [INFO] from application in application-akka.actor.default-dispatcher-9 - ApplicationTimer demo: Stopping application at 2017-05-01T00:12:33.540Z after 49s.
+2017-04-30 19:12:33,540 [INFO] from application in application-akka.actor.default-dispatcher-9 - Shutting down connection pool.
+2017-04-30 19:12:33,745 [INFO] from application in application-akka.actor.default-dispatcher-9 - Creating Pool for datasource 'default'
+2017-04-30 19:12:33,813 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-9 - Database [default] connected at jdbc:postgresql://localhost:5432/medicAndes
+2017-04-30 19:12:33,919 [WARN] from com.avaje.ebeaninternal.server.deploy.BeanDescriptorManager in application-akka.actor.default-dispatcher-9 - Bean [models.EncriptadoEntity] has no unique id set
+2017-04-30 19:12:33,931 [WARN] from application in application-akka.actor.default-dispatcher-9 - application.conf @ file:/C:/Users/Camilo/Documents/GitHub/MedicAndes/target/scala-2.11/classes/application.conf: 377: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2017-04-30 19:12:33,941 [INFO] from application in application-akka.actor.default-dispatcher-9 - ApplicationTimer demo: Starting application at 2017-05-01T00:12:33.940Z
+2017-04-30 19:12:34,162 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-9 - Application started (Dev)
+2017-04-30 19:14:48,737 [INFO] from application in application-akka.actor.default-dispatcher-5 - ApplicationTimer demo: Stopping application at 2017-05-01T00:14:48.737Z after 135s.
+2017-04-30 19:14:48,737 [INFO] from application in application-akka.actor.default-dispatcher-5 - Shutting down connection pool.
+2017-04-30 19:14:48,876 [INFO] from application in application-akka.actor.default-dispatcher-5 - Creating Pool for datasource 'default'
+2017-04-30 19:14:48,918 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-5 - Database [default] connected at jdbc:postgresql://localhost:5432/medicAndes
+2017-04-30 19:14:48,923 [WARN] from application in application-akka.actor.default-dispatcher-5 - application.conf @ file:/C:/Users/Camilo/Documents/GitHub/MedicAndes/target/scala-2.11/classes/application.conf: 377: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2017-04-30 19:14:48,964 [WARN] from com.avaje.ebeaninternal.server.deploy.BeanDescriptorManager in application-akka.actor.default-dispatcher-5 - Bean [models.EncriptadoEntity] has no unique id set
+2017-04-30 19:14:48,997 [INFO] from application in application-akka.actor.default-dispatcher-5 - ApplicationTimer demo: Starting application at 2017-05-01T00:14:48.997Z
+2017-04-30 19:14:49,117 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-5 - Application started (Dev)
+2017-04-30 19:15:11,851 [INFO] from application in application-akka.actor.default-dispatcher-9 - ApplicationTimer demo: Stopping application at 2017-05-01T00:15:11.851Z after 23s.
+2017-04-30 19:15:11,852 [INFO] from application in application-akka.actor.default-dispatcher-9 - Shutting down connection pool.
+2017-04-30 19:15:11,999 [INFO] from application in application-akka.actor.default-dispatcher-9 - Creating Pool for datasource 'default'
+2017-04-30 19:15:12,060 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-9 - Database [default] connected at jdbc:postgresql://localhost:5432/medicAndes
+2017-04-30 19:15:12,119 [WARN] from com.avaje.ebeaninternal.server.deploy.BeanDescriptorManager in application-akka.actor.default-dispatcher-9 - Bean [models.EncriptadoEntity] has no unique id set
+2017-04-30 19:15:12,127 [WARN] from application in application-akka.actor.default-dispatcher-9 - application.conf @ file:/C:/Users/Camilo/Documents/GitHub/MedicAndes/target/scala-2.11/classes/application.conf: 377: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2017-04-30 19:15:12,162 [INFO] from application in application-akka.actor.default-dispatcher-9 - ApplicationTimer demo: Starting application at 2017-05-01T00:15:12.162Z
+2017-04-30 19:15:12,297 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-9 - Application started (Dev)

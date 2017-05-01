@@ -1,7 +1,7 @@
 [0m[[0mdebug[0m] [0mCopy resource mappings: [0m
-[0m[[0mdebug[0m] [0m	(C:\Temp\Nueva carpeta (2)\MedicAndes-master\conf\application.conf,C:\Temp\Nueva carpeta (2)\MedicAndes-master\target\scala-2.11\classes\application.conf)[0m
-[0m[[0mdebug[0m] [0m	(C:\Temp\Nueva carpeta (2)\MedicAndes-master\conf\evolutions,C:\Temp\Nueva carpeta (2)\MedicAndes-master\target\scala-2.11\classes\evolutions)[0m
-[0m[[0mdebug[0m] [0m	(C:\Temp\Nueva carpeta (2)\MedicAndes-master\conf\logback.xml,C:\Temp\Nueva carpeta (2)\MedicAndes-master\target\scala-2.11\classes\logback.xml)[0m
-[0m[[0mdebug[0m] [0m	(C:\Temp\Nueva carpeta (2)\MedicAndes-master\conf\routes,C:\Temp\Nueva carpeta (2)\MedicAndes-master\target\scala-2.11\classes\routes)[0m
-[0m[[0mdebug[0m] [0m	(C:\Temp\Nueva carpeta (2)\MedicAndes-master\conf\evolutions\default,C:\Temp\Nueva carpeta (2)\MedicAndes-master\target\scala-2.11\classes\evolutions\default)[0m
-[0m[[0mdebug[0m] [0m	(C:\Temp\Nueva carpeta (2)\MedicAndes-master\conf\evolutions\default\1.sql,C:\Temp\Nueva carpeta (2)\MedicAndes-master\target\scala-2.11\classes\evolutions\default\1.sql)[0m
+[0m[[0mdebug[0m] [0m	(C:\Users\Camilo\Documents\GitHub\MedicAndes\conf\application.conf,C:\Users\Camilo\Documents\GitHub\MedicAndes\target\scala-2.11\classes\application.conf)[0m
+[0m[[0mdebug[0m] [0m	(C:\Users\Camilo\Documents\GitHub\MedicAndes\conf\evolutions,C:\Users\Camilo\Documents\GitHub\MedicAndes\target\scala-2.11\classes\evolutions)[0m
+[0m[[0mdebug[0m] [0m	(C:\Users\Camilo\Documents\GitHub\MedicAndes\conf\logback.xml,C:\Users\Camilo\Documents\GitHub\MedicAndes\target\scala-2.11\classes\logback.xml)[0m
+[0m[[0mdebug[0m] [0m	(C:\Users\Camilo\Documents\GitHub\MedicAndes\conf\routes,C:\Users\Camilo\Documents\GitHub\MedicAndes\target\scala-2.11\classes\routes)[0m
+[0m[[0mdebug[0m] [0m	(C:\Users\Camilo\Documents\GitHub\MedicAndes\conf\evolutions\default,C:\Users\Camilo\Documents\GitHub\MedicAndes\target\scala-2.11\classes\evolutions\default)[0m
+[0m[[0mdebug[0m] [0m	(C:\Users\Camilo\Documents\GitHub\MedicAndes\conf\evolutions\default\1.sql,C:\Users\Camilo\Documents\GitHub\MedicAndes\target\scala-2.11\classes\evolutions\default\1.sql)[0m
