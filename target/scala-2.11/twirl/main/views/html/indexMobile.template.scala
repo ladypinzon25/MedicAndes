@@ -283,10 +283,10 @@ Seq[Any](format.raw/*1.1*/("""<!doctype html>
 object indexMobile extends indexMobile_Scope0.indexMobile
               /*
                   -- GENERATED --
-                  DATE: Mon May 01 09:02:11 COT 2017
-                  SOURCE: C:/Temp/MedicAndes/app/views/indexMobile.scala.html
-                  HASH: f047b1a57de4335baa47fe5b1925ed5c9a11ba8e
-                  MATRIX: 839->0|2752->1885|2781->1886|2816->1894|2999->2050|3027->2051|3060->2057
+                  DATE: Mon May 01 22:46:29 COT 2017
+                  SOURCE: C:/Users/Camilo/Documents/GitHub/MedicAndes/app/views/indexMobile.scala.html
+                  HASH: 25de39916f38c7a198ed9dee7d5dcde952df6d2a
+                  MATRIX: 839->0|2717->1850|2746->1851|2780->1858|2956->2007|2984->2008|3016->2013
                   LINES: 32->1|67->36|67->36|68->37|75->44|75->44|76->45
                   -- GENERATED --
               */

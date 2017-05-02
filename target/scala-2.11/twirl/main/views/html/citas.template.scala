@@ -125,8 +125,8 @@ Seq[Any](format.raw/*1.24*/("""
 object citas extends citas_Scope0.citas
               /*
                   -- GENERATED --
-                  DATE: Mon May 01 18:49:40 COT 2017
-                  SOURCE: C:/Temp/MedicAndes/app/views/citas.scala.html
+                  DATE: Mon May 01 22:46:27 COT 2017
+                  SOURCE: C:/Users/Camilo/Documents/GitHub/MedicAndes/app/views/citas.scala.html
                   HASH: e99641f0b297b40579d854fdf43efa53ad96b865
                   MATRIX: 751->1|868->23|896->26|909->32|948->34|980->40|1307->340|1322->346|1349->352|4094->3067
                   LINES: 27->1|32->1|33->2|33->2|33->2|34->3|43->12|43->12|43->12|106->75

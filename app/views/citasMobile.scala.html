@@ -49,7 +49,7 @@
   </header>
   <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
     <header class="demo-drawer-header">
-      <img src="imagesM/user.jpg" class="demo-avatar">
+      <img src="@routes.Assets.versioned("imagesM/user.jpg")" class="demo-avatar">
       <div class="demo-avatar-dropdown">
         <span>hello#example.com</span>
         <div class="mdl-layout-spacer"></div>
@@ -66,8 +66,8 @@
     </header>
     <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
       <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
-      <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">event</i>Citas</a>
-      <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Pacientes</a>
+      <a class="mdl-navigation__link" href="citas"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">event</i>Citas</a>
+      <a class="mdl-navigation__link" href="pacientes"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Pacientes</a>
       <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">settings</i>Configuración</a>
       <div class="mdl-layout-spacer"></div>
       <!--<a class="mdl-navigation__link" href=""><i class="mdl-color-text&#45;&#45;blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>-->
@@ -76,75 +76,26 @@
   <main class="mdl-layout__content mdl-color--grey-100">
     <div class="mdl-grid demo-content">
       <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
-        <!--Card Element-->
+        @for(citaActual <- citas){
+          <!--Card Element-->
         <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
           <div class="mdl-card__title mdl-card--expand mdl-color--teal-300">
 
-              <h1 class="mdl-card__title-text inlineWords">18</h1>
-              <h6 class="mdl-card__title-name inlineWords">Lady Pinzón</h6>
-              <h3 class="mdl-card__title-text">Mayo - 2017</h3>
+              <h1 class="mdl-card__title-text inlineWords">@citaActual.getPaciente().getGrupoSanguineo()</h1>
+              <h6 class="mdl-card__title-name inlineWords">@citaActual.getPaciente().getNombre()</h6>
+              <h3 class="mdl-card__title-text">Mayo - 2017_____ @citaActual.getFecha()</h3>
               <h5 class="mdl-card__title-text">13:00 - 15:00</h5>
 
           </div>
           <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas congue tincidunt nisi, ut gravida risus sodales quis.
+            @citaActual.getDiagnostico()
           </div>
           <div class="mdl-card__actions mdl-card--border">
             <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">Read More</a>
           </div>
         </div>
-        <div class="demo-separator mdl-cell--1-col"></div>
-        <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
-          <div class="mdl-card__title mdl-card--expand mdl-color--teal-300">
-
-            <h1 class="mdl-card__title-text inlineWords">18</h1>
-            <h6 class="mdl-card__title-name inlineWords">Lady Pinzón</h6>
-            <h3 class="mdl-card__title-text">Mayo - 2017</h3>
-            <h5 class="mdl-card__title-text">13:00 - 15:00</h5>
-
-          </div>
-          <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas congue tincidunt nisi, ut gravida risus sodales quis.
-          </div>
-          <div class="mdl-card__actions mdl-card--border">
-            <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">Read More</a>
-          </div>
-        </div>
-        <div class="demo-separator mdl-cell--1-col"></div>
-        <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
-          <div class="mdl-card__title mdl-card--expand mdl-color--teal-300">
-
-            <h1 class="mdl-card__title-text inlineWords">18</h1>
-            <h6 class="mdl-card__title-name inlineWords">Lady Pinzón</h6>
-            <h3 class="mdl-card__title-text">Mayo - 2017</h3>
-            <h5 class="mdl-card__title-text">13:00 - 15:00</h5>
-
-          </div>
-          <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas congue tincidunt nisi, ut gravida risus sodales quis.
-          </div>
-          <div class="mdl-card__actions mdl-card--border">
-            <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">Read More</a>
-          </div>
-        </div>
-        <div class="demo-separator mdl-cell--1-col"></div>
-        <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
-          <div class="mdl-card__title mdl-card--expand mdl-color--teal-300">
-
-            <h1 class="mdl-card__title-text inlineWords">18</h1>
-            <h6 class="mdl-card__title-name inlineWords">Lady Pinzón</h6>
-            <h3 class="mdl-card__title-text">Mayo - 2017</h3>
-            <h5 class="mdl-card__title-text">13:00 - 15:00</h5>
-
-          </div>
-          <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas congue tincidunt nisi, ut gravida risus sodales quis.
-          </div>
-          <div class="mdl-card__actions mdl-card--border">
-            <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">Read More</a>
-          </div>
-        </div>
-        <div class="demo-separator mdl-cell--1-col"></div>
+      <div class="demo-separator mdl-cell--1-col"></div>
+        }
 
       </div>
     </div>

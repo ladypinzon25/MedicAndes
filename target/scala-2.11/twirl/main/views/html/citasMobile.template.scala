@@ -80,7 +80,7 @@ Seq[Any](format.raw/*1.26*/("""
   </header>
   <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
     <header class="demo-drawer-header">
-      <img src="imagesM/user.jpg" class="demo-avatar">
+      <img src=""""),_display_(/*52.18*/routes/*52.24*/.Assets.versioned("imagesM/user.jpg")),format.raw/*52.61*/("""" class="demo-avatar">
       <div class="demo-avatar-dropdown">
         <span>hello#example.com</span>
         <div class="mdl-layout-spacer"></div>
@@ -97,8 +97,8 @@ Seq[Any](format.raw/*1.26*/("""
     </header>
     <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
       <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
-      <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">event</i>Citas</a>
-      <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Pacientes</a>
+      <a class="mdl-navigation__link" href="citas"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">event</i>Citas</a>
+      <a class="mdl-navigation__link" href="pacientes"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Pacientes</a>
       <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">settings</i>Configuración</a>
       <div class="mdl-layout-spacer"></div>
       <!--<a class="mdl-navigation__link" href=""><i class="mdl-color-text&#45;&#45;blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>-->
@@ -107,77 +107,28 @@ Seq[Any](format.raw/*1.26*/("""
   <main class="mdl-layout__content mdl-color--grey-100">
     <div class="mdl-grid demo-content">
       <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
-        <!--Card Element-->
+        """),_display_(/*79.10*/for(citaActual <- citas) yield /*79.34*/{_display_(Seq[Any](format.raw/*79.35*/("""
+          """),format.raw/*80.11*/("""<!--Card Element-->
         <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
           <div class="mdl-card__title mdl-card--expand mdl-color--teal-300">
 
-              <h1 class="mdl-card__title-text inlineWords">18</h1>
-              <h6 class="mdl-card__title-name inlineWords">Lady Pinzón</h6>
-              <h3 class="mdl-card__title-text">Mayo - 2017</h3>
+              <h1 class="mdl-card__title-text inlineWords">"""),_display_(/*84.61*/citaActual/*84.71*/.getPaciente().getGrupoSanguineo()),format.raw/*84.105*/("""</h1>
+              <h6 class="mdl-card__title-name inlineWords">"""),_display_(/*85.61*/citaActual/*85.71*/.getPaciente().getNombre()),format.raw/*85.97*/("""</h6>
+              <h3 class="mdl-card__title-text">Mayo - 2017_____ """),_display_(/*86.66*/citaActual/*86.76*/.getFecha()),format.raw/*86.87*/("""</h3>
               <h5 class="mdl-card__title-text">13:00 - 15:00</h5>
 
           </div>
           <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas congue tincidunt nisi, ut gravida risus sodales quis.
-          </div>
+            """),_display_(/*91.14*/citaActual/*91.24*/.getDiagnostico()),format.raw/*91.41*/("""
+          """),format.raw/*92.11*/("""</div>
           <div class="mdl-card__actions mdl-card--border">
             <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">Read More</a>
           </div>
         </div>
-        <div class="demo-separator mdl-cell--1-col"></div>
-        <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
-          <div class="mdl-card__title mdl-card--expand mdl-color--teal-300">
+      <div class="demo-separator mdl-cell--1-col"></div>
+        """)))}),format.raw/*98.10*/("""
 
-            <h1 class="mdl-card__title-text inlineWords">18</h1>
-            <h6 class="mdl-card__title-name inlineWords">Lady Pinzón</h6>
-            <h3 class="mdl-card__title-text">Mayo - 2017</h3>
-            <h5 class="mdl-card__title-text">13:00 - 15:00</h5>
-
-          </div>
-          <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas congue tincidunt nisi, ut gravida risus sodales quis.
-          </div>
-          <div class="mdl-card__actions mdl-card--border">
-            <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">Read More</a>
-          </div>
-        </div>
-        <div class="demo-separator mdl-cell--1-col"></div>
-        <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
-          <div class="mdl-card__title mdl-card--expand mdl-color--teal-300">
-
-            <h1 class="mdl-card__title-text inlineWords">18</h1>
-            <h6 class="mdl-card__title-name inlineWords">Lady Pinzón</h6>
-            <h3 class="mdl-card__title-text">Mayo - 2017</h3>
-            <h5 class="mdl-card__title-text">13:00 - 15:00</h5>
-
-          </div>
-          <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas congue tincidunt nisi, ut gravida risus sodales quis.
-          </div>
-          <div class="mdl-card__actions mdl-card--border">
-            <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">Read More</a>
-          </div>
-        </div>
-        <div class="demo-separator mdl-cell--1-col"></div>
-        <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
-          <div class="mdl-card__title mdl-card--expand mdl-color--teal-300">
-
-            <h1 class="mdl-card__title-text inlineWords">18</h1>
-            <h6 class="mdl-card__title-name inlineWords">Lady Pinzón</h6>
-            <h3 class="mdl-card__title-text">Mayo - 2017</h3>
-            <h5 class="mdl-card__title-text">13:00 - 15:00</h5>
-
-          </div>
-          <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas congue tincidunt nisi, ut gravida risus sodales quis.
-          </div>
-          <div class="mdl-card__actions mdl-card--border">
-            <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">Read More</a>
-          </div>
-        </div>
-        <div class="demo-separator mdl-cell--1-col"></div>
-
-      </div>
+      """),format.raw/*100.7*/("""</div>
     </div>
   </main>
 </div>
@@ -204,11 +155,11 @@ Seq[Any](format.raw/*1.26*/("""
 object citasMobile extends citasMobile_Scope0.citasMobile
               /*
                   -- GENERATED --
-                  DATE: Mon May 01 09:02:10 COT 2017
-                  SOURCE: C:/Temp/MedicAndes/app/views/citasMobile.scala.html
-                  HASH: f21838260ebfe8bcea5e890bcc6208e7cc175554
-                  MATRIX: 767->1|886->25|914->27|2077->1163|2092->1169|2153->1209|2550->1579|2565->1585|2622->1621|2682->1653|2711->1654|2746->1662|2929->1818|2957->1819|2988->1823
-                  LINES: 27->1|32->1|33->2|56->25|56->25|56->25|60->29|60->29|60->29|62->31|62->31|63->32|70->39|70->39|71->40
+                  DATE: Tue May 02 16:59:37 COT 2017
+                  SOURCE: C:/Users/Camilo/Documents/GitHub/MedicAndes/app/views/citasMobile.scala.html
+                  HASH: 3dd07b93ef5189e2c3c4795316b122e7bad8282a
+                  MATRIX: 767->1|886->25|914->27|2077->1163|2092->1169|2153->1209|2550->1579|2565->1585|2622->1621|2682->1653|2711->1654|2746->1662|2929->1818|2957->1819|2988->1823|3563->2371|3578->2377|3636->2414|5588->4339|5628->4363|5667->4364|5707->4376|6029->4671|6048->4681|6104->4715|6198->4782|6217->4792|6264->4818|6363->4890|6382->4900|6414->4911|6624->5094|6643->5104|6681->5121|6721->5133|7014->5395|7052->5405
+                  LINES: 27->1|32->1|33->2|56->25|56->25|56->25|60->29|60->29|60->29|62->31|62->31|63->32|70->39|70->39|71->40|83->52|83->52|83->52|110->79|110->79|110->79|111->80|115->84|115->84|115->84|116->85|116->85|116->85|117->86|117->86|117->86|122->91|122->91|122->91|123->92|129->98|131->100
                   -- GENERATED --
               */
           

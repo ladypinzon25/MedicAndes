@@ -98,7 +98,7 @@ Seq[Any](format.raw/*1.34*/("""
     <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
       <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
       <a class="mdl-navigation__link" href="citas"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">event</i>Citas</a>
-      <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Pacientes</a>
+      <a class="mdl-navigation__link" href="pacientes"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Pacientes</a>
       <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">settings</i>Configuración</a>
       <div class="mdl-layout-spacer"></div>
       <!--<a class="mdl-navigation__link" href=""><i class="mdl-color-text&#45;&#45;blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>-->
@@ -154,10 +154,10 @@ Seq[Any](format.raw/*1.34*/("""
 object pacientesMobile extends pacientesMobile_Scope0.pacientesMobile
               /*
                   -- GENERATED --
-                  DATE: Mon May 01 09:02:12 COT 2017
-                  SOURCE: C:/Temp/MedicAndes/app/views/pacientesMobile.scala.html
-                  HASH: 60e3cbdb87c1007936c2fc8ca42d52d77db35bf0
-                  MATRIX: 779->1|906->33|934->35|2097->1171|2112->1177|2173->1217|2570->1587|2585->1593|2642->1629|2702->1661|2731->1662|2766->1670|2949->1826|2977->1827|3008->1831|3587->2383|3602->2389|3660->2426|5613->4352|5661->4384|5701->4386|5738->4396|6114->4745|6137->4759|6168->4769|6212->4785|6432->4978|6455->4992|6482->4998|6780->5265|6819->5277
+                  DATE: Tue May 02 16:48:41 COT 2017
+                  SOURCE: C:/Users/Camilo/Documents/GitHub/MedicAndes/app/views/pacientesMobile.scala.html
+                  HASH: efc2e53591443a532bffd0ec5aac70718977ca19
+                  MATRIX: 779->1|906->33|934->35|2097->1171|2112->1177|2173->1217|2570->1587|2585->1593|2642->1629|2702->1661|2731->1662|2766->1670|2949->1826|2977->1827|3008->1831|3587->2383|3602->2389|3660->2426|5622->4361|5670->4393|5710->4395|5747->4405|6123->4754|6146->4768|6177->4778|6221->4794|6441->4987|6464->5001|6491->5007|6789->5274|6828->5286
                   LINES: 27->1|32->1|33->2|56->25|56->25|56->25|60->29|60->29|60->29|62->31|62->31|63->32|70->39|70->39|71->40|83->52|83->52|83->52|110->79|110->79|110->79|111->80|116->85|116->85|116->85|117->86|122->91|122->91|122->91|126->95|129->98
                   -- GENERATED --
               */
