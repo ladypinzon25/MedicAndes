@@ -64,8 +64,14 @@ public class HomeController extends Controller {
     public Result mensajes(Long pId)
     {
         PacienteEntity paciente = PacienteEntity.FINDER.byId(pId);
+        MedicoEntity medico = MedicoEntity.FINDER.byId(1L);
 
-        return ok(mensajes.render(paciente));
+        return ok(mensajes.render(paciente, medico));
     }
+    public Result citas()
+    {
+        MedicoEntity medico = MedicoEntity.FINDER.byId(1L);
 
+        return ok(citas.render(medico));
+    }
 }
