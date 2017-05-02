@@ -62,7 +62,7 @@
                                         <li><a class="menu" href="#about">¿Quienes somos?</a></li>
                                         <li><a class="menu" href="#service">Nuestros servicios</a></li>
                                         <li><a class="menu" href="#team">Vinculate</a>
-                                        <li><a class="menu">Log In</a>
+                                        <li><a class="menu" data-toggle="modal" href="#myModal">Log In</a>
                                     </ul>
                                 </div><!-- /navbar-collapse -->
                             </div><!-- / .container-fluid -->
@@ -361,6 +361,42 @@
             </div>
         </footer>
 
+            <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">x</button>
+                        <h4 class="modal-title">LOGIN</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row">
+                            @*<label for="fname">Ingrese su id perteneciente a la entidad</label>*@
+                            <div class="col-md-12">
+                                <input type="text" id="idUsuario" name="fname" placeholder="Ingrese su ID">
+                            </div>
+                            @*<label for="fname">Ingrese la clave</label>*@
+                            <div class="col-md-12">
+                                <input type="password" id="nClave" name="fname" placeholder="Ingrese su clave">
+                            </div>
+
+                        </form>
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <a href="http://localhost:9000/app/home" class="btn btn-default col-md-4">Ingresar a MedicAndes</a>
+                            <div class="col-md-4"></div>
+                        </div>
+                    </div>
+                    @*<div class="modal-footer">*@
+                        @*<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>*@
+                    @*</div>*@
+                </div>
+
+            </div>
+        </div>
+
             <!-- script tags
 	============================================================= -->
         <script src="@routes.Assets.versioned("js/jquery-2.1.1.js")"></script>
@@ -370,4 +406,5 @@
         <script src="@routes.Assets.versioned("js/bootstrap.min.js")"></script>
         <script src="@routes.Assets.versioned("js/custom.js")"></script>
     </body>
+
 </html>

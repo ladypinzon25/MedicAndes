@@ -4,6 +4,7 @@ import akka.dispatch.MessageDispatcher;
 import com.fasterxml.jackson.databind.JsonNode;
 import dispatchers.AkkaDispatcher;
 import models.CitaEntity;
+import models.HistorialEntity;
 import models.MedicoEntity;
 import models.PacienteEntity;
 import play.libs.Json;
@@ -13,6 +14,7 @@ import play.mvc.Result;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
@@ -51,6 +53,35 @@ public class CitaController extends Controller{
         CitaEntity cita = Json.fromJson( n , CitaEntity.class ) ;
         return CompletableFuture.supplyAsync(
                 ()->{
+                    cita.save();
+                    return cita;
+                }
+        ).thenApply(
+                citas -> {
+                    return ok(Json.toJson(citas));
+                }
+        );
+    }
+    public CompletionStage<Result> createCita2(Long pIdPaciente, Long idMedico)
+    {
+
+        JsonNode n = request().body().asJson();
+
+        CitaEntity cita = Json.fromJson( n , CitaEntity.class ) ;
+        return CompletableFuture.supplyAsync(
+                ()->{
+                    PacienteEntity pacienteBuscado = PacienteEntity.FINDER.byId(pIdPaciente);
+                    MedicoEntity medicoBuscado = MedicoEntity.FINDER.byId(idMedico);
+                    HistorialEntity historial = HistorialEntity.FINDER.byId(pIdPaciente);
+
+                    if(pacienteBuscado== null||medicoBuscado==null)
+                    {
+                        return "El paciente o el medico no exiten en la base de datos";
+                    }
+
+                    cita.setMedico(medicoBuscado);
+                    cita.setPaciente(pacienteBuscado);
+                    cita.setHistorial(historial);
                     cita.save();
                     return cita;
                 }

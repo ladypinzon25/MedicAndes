@@ -51,3 +51,16 @@ textarea
     width: 90%;
     padding: 5%;
 }
+.fc-header{
+
+    width:100%;
+}
+.fc-content{
+
+    position: relative;
+    min-height: 1px;
+}
+.hiddenElement
+{
+    display: none;
+}

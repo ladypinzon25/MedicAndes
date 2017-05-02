@@ -914,7 +914,11 @@ function calendars(){
 		editable: true,
 		droppable: true, // this allows things to be dropped onto the calendar !!!
 		drop: function(date, allDay) { // this function is called when something is dropped
-		
+
+			//LM
+			var hiddenButton=$('#hiddenButton');
+			hiddenButton.click();
+
 			// retrieve the dropped element's stored Event Object
 			var originalEventObject = $(this).data('eventObject');
 			

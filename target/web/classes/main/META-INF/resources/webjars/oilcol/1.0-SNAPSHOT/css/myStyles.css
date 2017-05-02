@@ -23,4 +23,33 @@
 {
     font-size: 1.6vw!important;
 }
+#myModal{
+    display: block;
+    padding-right: 15px;
+    top: 50px;
 
+    /*height: 100vh;*/
+}
+.modal-dialog
+{
+    width: 30vw;
+    height: 30vw;
+    margin-top: 100px;
+}
+.modal-title
+{
+    text-align: center;
+}
+.modal-body input, .modal-body button
+{
+    width: 50%;
+    margin: 11px 24% 10px 25%;
+}
+#myModal input
+{
+    text-align: center;
+}
+#myModal a
+{
+    margin-top: 10px;
+}

@@ -24,17 +24,18 @@ function editarMarcapasos() {
 function enviarMensaje() {
 
     var idPaciente=document.getElementById('idPaciente').innerHTML;
+    var idMedico=document.getElementById('nMedico').innerHTML;
     var s = idPaciente.split(" ");
+    var m = idMedico.split(" ");
     var nMensaje =document.getElementById('nMensaje').value;
-    // var nFecha =document.getElementById('nFechaMensaje').value;
-    nFecha = new Date().getTime();
+    var nFecha = new Date().getTime();
     var nDieta =document.getElementById('nDieta').value;
     var nActividad =document.getElementById('nActividad').value;
     var nMedicamento =document.getElementById('nMedicamento').value;
 
     $.ajax({
         type: 'POST',
-        url: "http://localhost:9000/mensajes/"+s[0],
+        url: "http://localhost:9000/mensajes/"+s[0]+"&"+m[0],
         data: JSON.stringify({
             "mensaje":nMensaje,
             "fecha":nFecha,
@@ -49,6 +50,30 @@ function enviarMensaje() {
         contentType: "application/json"
     });
     window.setTimeout(window.location.href=window.location.href, 2000);
-}/**
+}
+function agendarCita() {
+
+    var idPaciente=document.getElementById('nIdPaciente').value;
+    var idMedico=document.getElementById('nMedico').innerHTML;
+
+    nFecha = new Date().getTime();
+
+
+    $.ajax({
+        type: 'POST',
+        url: "http://localhost:9000/app/agendarCita/"+idPaciente+"&"+idMedico,
+        data: JSON.stringify({
+            "diagnostico": "",
+            "fecha":nFecha,
+        }),
+        error: function(e) {
+            console.log(e);
+        },
+        dataType: "json",
+        contentType: "application/json"
+    });
+    // window.setTimeout(window.location.href=window.location.href, 2000);
+}
+/**
  * Created by Lady Pinzon on 30/04/2017.
  */

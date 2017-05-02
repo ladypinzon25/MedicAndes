@@ -21,15 +21,15 @@ import play.data._
 import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 
-class mensajes extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template1[PacienteEntity,play.twirl.api.HtmlFormat.Appendable] {
+class mensajes extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template2[PacienteEntity,MedicoEntity,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(paciente: PacienteEntity):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(paciente: PacienteEntity)(medico: MedicoEntity):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*1.28*/("""
+Seq[Any](format.raw/*1.50*/("""
 """),_display_(/*2.2*/index2/*2.8*/ {_display_(Seq[Any](format.raw/*2.10*/("""
     """),format.raw/*3.5*/("""<!-- start: Content -->
     <div id="content" class="span10">
@@ -39,20 +39,21 @@ Seq[Any](format.raw/*1.28*/("""
             <li>
                 <a href="index.html">Pacientes</a>
                 <i class="icon-angle-right"></i>
+                <p id ="nMedico" hidden>"""),_display_(/*11.42*/medico/*11.48*/.getId),format.raw/*11.54*/("""</p>
             </li>
             <li>
-                <a href="../historial/"""),_display_(/*13.40*/paciente/*13.48*/.getId),format.raw/*13.54*/("""">"""),_display_(/*13.57*/paciente/*13.65*/.getNombre),format.raw/*13.75*/("""</a>
+                <a href="../historial/"""),_display_(/*14.40*/paciente/*14.48*/.getId),format.raw/*14.54*/("""">"""),_display_(/*14.57*/paciente/*14.65*/.getNombre),format.raw/*14.75*/("""</a>
                 <i class="icon-angle-right"></i>
             </li>
             <li>
                 <a href="#">Mensajes</a>
                 <i class="icon-angle-right"></i>
-                <p id ="idPaciente" hidden>"""),_display_(/*19.45*/paciente/*19.53*/.getId),format.raw/*19.59*/("""</p>
+                <p id ="idPaciente" hidden>"""),_display_(/*20.45*/paciente/*20.53*/.getId),format.raw/*20.59*/("""</p>
             </li>
         </ul>
 
-        """),format.raw/*23.32*/("""
-        """),format.raw/*24.9*/("""<div class="row-fluid sortable ui-sortable">
+        """),format.raw/*24.32*/("""
+        """),format.raw/*25.9*/("""<div class="row-fluid sortable ui-sortable">
             <div class="row-fluid sortable">
                 <div class="box span6">
                     <div class="box-header">
@@ -65,14 +66,12 @@ Seq[Any](format.raw/*1.28*/("""
                     </div>
                     <div class="box-content">
                     <div class="titleMenssage">
-                        <h4 class="modal-title">Enviar mensaje a """),_display_(/*37.67*/paciente/*37.75*/.getNombre),format.raw/*37.85*/("""</h4>
+                        <h4 class="modal-title">Enviar mensaje a """),_display_(/*38.67*/paciente/*38.75*/.getNombre),format.raw/*38.85*/("""</h4>
                     </div>
 
                         <form>
-                            """),format.raw/*41.57*/("""
-                                """),format.raw/*42.88*/("""
-                            """),format.raw/*43.41*/("""
-                            """),format.raw/*44.29*/("""<label for="fname">Mensaje
+
+                            <label for="fname">Mensaje
                                 <input type="text" id="nMensaje" name="fname">
                             </label>
                             <label for="fname">Dieta
@@ -109,7 +108,7 @@ Seq[Any](format.raw/*1.28*/("""
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Modificar marcapasos de """),_display_(/*81.70*/paciente/*81.78*/.getNombre),format.raw/*81.88*/("""</h4>
+                    <h4 class="modal-title">Modificar marcapasos de """),_display_(/*80.70*/paciente/*80.78*/.getNombre),format.raw/*80.88*/("""</h4>
                 </div>
                 <div class="modal-body">
                     <form>
@@ -135,9 +134,9 @@ Seq[Any](format.raw/*1.28*/("""
     }
   }
 
-  def render(paciente:PacienteEntity): play.twirl.api.HtmlFormat.Appendable = apply(paciente)
+  def render(paciente:PacienteEntity,medico:MedicoEntity): play.twirl.api.HtmlFormat.Appendable = apply(paciente)(medico)
 
-  def f:((PacienteEntity) => play.twirl.api.HtmlFormat.Appendable) = (paciente) => apply(paciente)
+  def f:((PacienteEntity) => (MedicoEntity) => play.twirl.api.HtmlFormat.Appendable) = (paciente) => (medico) => apply(paciente)(medico)
 
   def ref: this.type = this
 
@@ -150,11 +149,11 @@ Seq[Any](format.raw/*1.28*/("""
 object mensajes extends mensajes_Scope0.mensajes
               /*
                   -- GENERATED --
-                  DATE: Sun Apr 30 18:21:07 COT 2017
-                  SOURCE: C:/Users/Camilo/Documents/GitHub/MedicAndes/app/views/mensajes.scala.html
-                  HASH: 769580e66e9a50b4fe452e217b87329619264a50
-                  MATRIX: 759->1|880->27|908->30|921->36|960->38|992->44|1316->341|1333->349|1360->355|1390->358|1407->366|1438->376|1694->605|1711->613|1738->619|1816->692|1853->702|2779->1601|2796->1609|2827->1619|2952->1744|3014->1833|3072->1875|3130->1905|4732->3480|4749->3488|4780->3498
-                  LINES: 27->1|32->1|33->2|33->2|33->2|34->3|44->13|44->13|44->13|44->13|44->13|44->13|50->19|50->19|50->19|54->23|55->24|68->37|68->37|68->37|72->41|73->42|74->43|75->44|112->81|112->81|112->81
+                  DATE: Mon May 01 19:13:35 COT 2017
+                  SOURCE: C:/Temp/MedicAndes/app/views/mensajes.scala.html
+                  HASH: 138c3530ee9ddf0bf30819dfbe1f2263d1270f43
+                  MATRIX: 772->1|915->49|943->52|956->58|995->60|1027->66|1316->328|1331->334|1358->340|1467->422|1484->430|1511->436|1541->439|1558->447|1589->457|1845->686|1862->694|1889->700|1967->773|2004->783|2930->1682|2947->1690|2978->1700|4679->3374|4696->3382|4727->3392
+                  LINES: 27->1|32->1|33->2|33->2|33->2|34->3|42->11|42->11|42->11|45->14|45->14|45->14|45->14|45->14|45->14|51->20|51->20|51->20|55->24|56->25|69->38|69->38|69->38|111->80|111->80|111->80
                   -- GENERATED --
               */
           

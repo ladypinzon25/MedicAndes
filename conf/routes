@@ -16,6 +16,8 @@
 GET     /                                controllers.HomeController.index
 GET     /app/home                        controllers.HomeController.home
 GET     /app/pacientes                   controllers.HomeController.pacientes
+GET     /app/citas                       controllers.HomeController.citas
+POST    /app/agendarCita/:idPaciente&:idMedico   controllers.CitaController.createCita2(idPaciente: Long, idMedico: Long)
 GET     /app/historial/:id               controllers.HomeController.historial(id: Long)
 GET     /app/marcapasos/:id              controllers.HomeController.marcapasos(id: Long)
 GET     /app/mensajes/:id                controllers.HomeController.mensajes(id: Long)

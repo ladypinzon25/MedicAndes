@@ -1,4 +1,4 @@
-@(paciente: PacienteEntity)
+@(paciente: PacienteEntity)(medico: MedicoEntity)
 @index2 {
     <!-- start: Content -->
     <div id="content" class="span10">
@@ -8,6 +8,7 @@
             <li>
                 <a href="index.html">Pacientes</a>
                 <i class="icon-angle-right"></i>
+                <p id ="nMedico" hidden>@medico.getId</p>
             </li>
             <li>
                 <a href="../historial/@paciente.getId">@paciente.getNombre</a>
@@ -38,9 +39,7 @@
                     </div>
 
                         <form>
-                            @*<label for="fname">Fecha*@
-                                @*<input type="text" id="nFechaMensaje" name="fname">*@
-                            @*</label>*@
+
                             <label for="fname">Mensaje
                                 <input type="text" id="nMensaje" name="fname">
                             </label>

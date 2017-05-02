@@ -74,8 +74,8 @@ Seq[Any](format.raw/*1.24*/("""
 object home extends home_Scope0.home
               /*
                   -- GENERATED --
-                  DATE: Sun Apr 30 18:21:05 COT 2017
-                  SOURCE: C:/Users/Camilo/Documents/GitHub/MedicAndes/app/views/home.scala.html
+                  DATE: Mon May 01 09:02:10 COT 2017
+                  SOURCE: C:/Temp/MedicAndes/app/views/home.scala.html
                   HASH: 6304a51e2c7194a78faba57e888150d34097a420
                   MATRIX: 749->1|866->23|896->28|909->34|946->35|978->41|1463->499|1478->505|1509->515|1538->516
                   LINES: 27->1|32->1|34->3|34->3|34->3|35->4|51->20|51->20|51->20|51->20

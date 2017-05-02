@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/Camilo/Documents/GitHub/MedicAndes/conf/routes
-// @DATE:Sun Apr 30 19:12:19 COT 2017
+// @SOURCE:C:/Temp/MedicAndes/conf/routes
+// @DATE:Mon May 01 15:57:50 COT 2017
 
 package controllers;
 
