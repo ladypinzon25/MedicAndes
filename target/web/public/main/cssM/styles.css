@@ -319,3 +319,7 @@ h5.mdl-card__title-text
     padding: 0 5px 10px 10px;
     margin: 0;
 }
+
+.pacientes .historyName {
+    font-size: 9vw;
+}

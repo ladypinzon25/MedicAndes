@@ -29,4 +29,10 @@ public class MobileController extends Controller {
         List<CitaEntity> citas = CitaEntity.FINDER.all();
         return ok(citasMobile.render(citas));
     }
+
+    public Result mobilePaciente(Long id){
+        PacienteEntity paciente = PacienteEntity.FINDER.byId(id);
+
+        return ok(mediPacienteMobile.render(paciente));
+    }
 }

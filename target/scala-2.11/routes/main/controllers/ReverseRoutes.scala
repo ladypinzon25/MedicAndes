@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/Camilo/Documents/GitHub/MedicAndes/conf/routes
-// @DATE:Mon May 01 22:46:27 COT 2017
+// @DATE:Tue May 02 22:44:08 COT 2017
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -45,6 +45,12 @@ package controllers {
     def mobilePacientes(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "mobile/pacientes")
+    }
+  
+    // @LINE:36
+    def mobilePaciente(id:Long): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "mobile/paciente/" + implicitly[PathBindable[Long]].unbind("id", id))
     }
   
   }

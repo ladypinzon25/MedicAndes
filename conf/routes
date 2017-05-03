@@ -33,7 +33,7 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 #Mobile
 GET     /mobile/pacientes                        controllers.MobileController.mobilePacientes
 GET    /mobile/citas                              controllers.MobileController.mobileCitas
-#GET     /mobile/paciente/:id                        controllers.MobileController.mobilePaciente(id: Long)
+GET     /mobile/paciente/:id                        controllers.MobileController.mobilePaciente(id: Long)
 ########################################################################################################################
 
 #Controlador de medico

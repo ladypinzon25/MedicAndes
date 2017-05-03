@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/Camilo/Documents/GitHub/MedicAndes/conf/routes
-// @DATE:Mon May 01 22:46:27 COT 2017
+// @DATE:Tue May 02 22:44:08 COT 2017
 
 package router
 
@@ -105,6 +105,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """mobile/pacientes""", """controllers.MobileController.mobilePacientes"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """mobile/citas""", """controllers.MobileController.mobileCitas"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """mobile/paciente/""" + "$" + """id<[^/]+>""", """controllers.MobileController.mobilePaciente(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """medicos""", """controllers.MedicoController.getMedicos"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """medico/""" + "$" + """id<[^/]+>""", """controllers.MedicoController.getMedico(id:Long)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """medico""", """controllers.MedicoController.createMedico"""),
@@ -400,11 +401,28 @@ class Routes(
     )
   )
 
+  // @LINE:36
+  private[this] lazy val controllers_MobileController_mobilePaciente14_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("mobile/paciente/"), DynamicPart("id", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_MobileController_mobilePaciente14_invoker = createInvoker(
+    MobileController_8.mobilePaciente(fakeValue[Long]),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.MobileController",
+      "mobilePaciente",
+      Seq(classOf[Long]),
+      "GET",
+      """""",
+      this.prefix + """mobile/paciente/""" + "$" + """id<[^/]+>"""
+    )
+  )
+
   // @LINE:40
-  private[this] lazy val controllers_MedicoController_getMedicos14_route = Route("GET",
+  private[this] lazy val controllers_MedicoController_getMedicos15_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("medicos")))
   )
-  private[this] lazy val controllers_MedicoController_getMedicos14_invoker = createInvoker(
+  private[this] lazy val controllers_MedicoController_getMedicos15_invoker = createInvoker(
     MedicoController_13.getMedicos,
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -418,10 +436,10 @@ class Routes(
   )
 
   // @LINE:41
-  private[this] lazy val controllers_MedicoController_getMedico15_route = Route("GET",
+  private[this] lazy val controllers_MedicoController_getMedico16_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("medico/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_MedicoController_getMedico15_invoker = createInvoker(
+  private[this] lazy val controllers_MedicoController_getMedico16_invoker = createInvoker(
     MedicoController_13.getMedico(fakeValue[Long]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -435,10 +453,10 @@ class Routes(
   )
 
   // @LINE:42
-  private[this] lazy val controllers_MedicoController_createMedico16_route = Route("POST",
+  private[this] lazy val controllers_MedicoController_createMedico17_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("medico")))
   )
-  private[this] lazy val controllers_MedicoController_createMedico16_invoker = createInvoker(
+  private[this] lazy val controllers_MedicoController_createMedico17_invoker = createInvoker(
     MedicoController_13.createMedico,
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -452,10 +470,10 @@ class Routes(
   )
 
   // @LINE:43
-  private[this] lazy val controllers_MedicoController_updateMedico17_route = Route("PUT",
+  private[this] lazy val controllers_MedicoController_updateMedico18_route = Route("PUT",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("medico/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_MedicoController_updateMedico17_invoker = createInvoker(
+  private[this] lazy val controllers_MedicoController_updateMedico18_invoker = createInvoker(
     MedicoController_13.updateMedico(fakeValue[Long]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -469,10 +487,10 @@ class Routes(
   )
 
   // @LINE:46
-  private[this] lazy val controllers_PacienteController_getPacientes18_route = Route("GET",
+  private[this] lazy val controllers_PacienteController_getPacientes19_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("pacientes/tk="), DynamicPart("tk", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_PacienteController_getPacientes18_invoker = createInvoker(
+  private[this] lazy val controllers_PacienteController_getPacientes19_invoker = createInvoker(
     PacienteController_2.getPacientes(fakeValue[String]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -486,10 +504,10 @@ class Routes(
   )
 
   // @LINE:47
-  private[this] lazy val controllers_PacienteController_getPaciente19_route = Route("GET",
+  private[this] lazy val controllers_PacienteController_getPaciente20_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("paciente/"), DynamicPart("id", """[^/]+""",true), StaticPart("/tk="), DynamicPart("tk", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_PacienteController_getPaciente19_invoker = createInvoker(
+  private[this] lazy val controllers_PacienteController_getPaciente20_invoker = createInvoker(
     PacienteController_2.getPaciente(fakeValue[Long], fakeValue[String]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -503,10 +521,10 @@ class Routes(
   )
 
   // @LINE:48
-  private[this] lazy val controllers_CitaController_getLecturasRango20_route = Route("GET",
+  private[this] lazy val controllers_CitaController_getLecturasRango21_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("paciente/"), DynamicPart("id", """[^/]+""",true), StaticPart("/historialRangoFechas/"), DynamicPart("inicio", """[^/]+""",true), StaticPart("&"), DynamicPart("fin", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_CitaController_getLecturasRango20_invoker = createInvoker(
+  private[this] lazy val controllers_CitaController_getLecturasRango21_invoker = createInvoker(
     CitaController_10.getLecturasRango(fakeValue[Long], fakeValue[String], fakeValue[String]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -520,10 +538,10 @@ class Routes(
   )
 
   // @LINE:49
-  private[this] lazy val controllers_PacienteController_createPaciente21_route = Route("POST",
+  private[this] lazy val controllers_PacienteController_createPaciente22_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("paciente")))
   )
-  private[this] lazy val controllers_PacienteController_createPaciente21_invoker = createInvoker(
+  private[this] lazy val controllers_PacienteController_createPaciente22_invoker = createInvoker(
     PacienteController_2.createPaciente,
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -537,10 +555,10 @@ class Routes(
   )
 
   // @LINE:50
-  private[this] lazy val controllers_PacienteController_updatePaciente22_route = Route("PUT",
+  private[this] lazy val controllers_PacienteController_updatePaciente23_route = Route("PUT",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("paciente/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_PacienteController_updatePaciente22_invoker = createInvoker(
+  private[this] lazy val controllers_PacienteController_updatePaciente23_invoker = createInvoker(
     PacienteController_2.updatePaciente(fakeValue[Long]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -554,10 +572,10 @@ class Routes(
   )
 
   // @LINE:51
-  private[this] lazy val controllers_PacienteController_deletePaciente23_route = Route("DELETE",
+  private[this] lazy val controllers_PacienteController_deletePaciente24_route = Route("DELETE",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("paciente/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_PacienteController_deletePaciente23_invoker = createInvoker(
+  private[this] lazy val controllers_PacienteController_deletePaciente24_invoker = createInvoker(
     PacienteController_2.deletePaciente(fakeValue[Long]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -571,10 +589,10 @@ class Routes(
   )
 
   // @LINE:52
-  private[this] lazy val controllers_PacienteController_getPacientes224_route = Route("GET",
+  private[this] lazy val controllers_PacienteController_getPacientes225_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("pacientes")))
   )
-  private[this] lazy val controllers_PacienteController_getPacientes224_invoker = createInvoker(
+  private[this] lazy val controllers_PacienteController_getPacientes225_invoker = createInvoker(
     PacienteController_2.getPacientes2,
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -588,10 +606,10 @@ class Routes(
   )
 
   // @LINE:53
-  private[this] lazy val controllers_ConsejoController_getConsejos25_route = Route("GET",
+  private[this] lazy val controllers_ConsejoController_getConsejos26_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("consejos/")))
   )
-  private[this] lazy val controllers_ConsejoController_getConsejos25_invoker = createInvoker(
+  private[this] lazy val controllers_ConsejoController_getConsejos26_invoker = createInvoker(
     ConsejoController_0.getConsejos,
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -605,10 +623,10 @@ class Routes(
   )
 
   // @LINE:54
-  private[this] lazy val controllers_ConsejoController_createConsejo26_route = Route("POST",
+  private[this] lazy val controllers_ConsejoController_createConsejo27_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("consejos/crear")))
   )
-  private[this] lazy val controllers_ConsejoController_createConsejo26_invoker = createInvoker(
+  private[this] lazy val controllers_ConsejoController_createConsejo27_invoker = createInvoker(
     ConsejoController_0.createConsejo,
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -622,10 +640,10 @@ class Routes(
   )
 
   // @LINE:56
-  private[this] lazy val controllers_CitaController_getCitas27_route = Route("GET",
+  private[this] lazy val controllers_CitaController_getCitas28_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("citas")))
   )
-  private[this] lazy val controllers_CitaController_getCitas27_invoker = createInvoker(
+  private[this] lazy val controllers_CitaController_getCitas28_invoker = createInvoker(
     CitaController_10.getCitas,
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -639,10 +657,10 @@ class Routes(
   )
 
   // @LINE:57
-  private[this] lazy val controllers_CitaController_getCita28_route = Route("GET",
+  private[this] lazy val controllers_CitaController_getCita29_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("cita")))
   )
-  private[this] lazy val controllers_CitaController_getCita28_invoker = createInvoker(
+  private[this] lazy val controllers_CitaController_getCita29_invoker = createInvoker(
     CitaController_10.getCita(fakeValue[Long]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -656,10 +674,10 @@ class Routes(
   )
 
   // @LINE:58
-  private[this] lazy val controllers_CitaController_getCitasPaciente29_route = Route("GET",
+  private[this] lazy val controllers_CitaController_getCitasPaciente30_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("paciente/"), DynamicPart("id", """[^/]+""",true), StaticPart("/citas")))
   )
-  private[this] lazy val controllers_CitaController_getCitasPaciente29_invoker = createInvoker(
+  private[this] lazy val controllers_CitaController_getCitasPaciente30_invoker = createInvoker(
     CitaController_10.getCitasPaciente(fakeValue[Long]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -673,10 +691,10 @@ class Routes(
   )
 
   // @LINE:59
-  private[this] lazy val controllers_CitaController_getHistorialPaciente30_route = Route("GET",
+  private[this] lazy val controllers_CitaController_getHistorialPaciente31_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("paciente/"), DynamicPart("id", """[^/]+""",true), StaticPart("/historial")))
   )
-  private[this] lazy val controllers_CitaController_getHistorialPaciente30_invoker = createInvoker(
+  private[this] lazy val controllers_CitaController_getHistorialPaciente31_invoker = createInvoker(
     CitaController_10.getHistorialPaciente(fakeValue[Long]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -690,10 +708,10 @@ class Routes(
   )
 
   // @LINE:60
-  private[this] lazy val controllers_CitaController_getExamenesPaciente31_route = Route("GET",
+  private[this] lazy val controllers_CitaController_getExamenesPaciente32_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("paciente/"), DynamicPart("id", """[^/]+""",true), StaticPart("/examenes")))
   )
-  private[this] lazy val controllers_CitaController_getExamenesPaciente31_invoker = createInvoker(
+  private[this] lazy val controllers_CitaController_getExamenesPaciente32_invoker = createInvoker(
     CitaController_10.getExamenesPaciente(fakeValue[Long]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -707,10 +725,10 @@ class Routes(
   )
 
   // @LINE:61
-  private[this] lazy val controllers_CitaController_getLecturasPaciente32_route = Route("GET",
+  private[this] lazy val controllers_CitaController_getLecturasPaciente33_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("paciente/"), DynamicPart("id", """[^/]+""",true), StaticPart("/lecturas")))
   )
-  private[this] lazy val controllers_CitaController_getLecturasPaciente32_invoker = createInvoker(
+  private[this] lazy val controllers_CitaController_getLecturasPaciente33_invoker = createInvoker(
     CitaController_10.getLecturasPaciente(fakeValue[Long]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -724,10 +742,10 @@ class Routes(
   )
 
   // @LINE:62
-  private[this] lazy val controllers_CitaController_getEmergenciasPaciente33_route = Route("GET",
+  private[this] lazy val controllers_CitaController_getEmergenciasPaciente34_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("paciente/"), DynamicPart("id", """[^/]+""",true), StaticPart("/emergencias")))
   )
-  private[this] lazy val controllers_CitaController_getEmergenciasPaciente33_invoker = createInvoker(
+  private[this] lazy val controllers_CitaController_getEmergenciasPaciente34_invoker = createInvoker(
     CitaController_10.getEmergenciasPaciente(fakeValue[Long]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -741,10 +759,10 @@ class Routes(
   )
 
   // @LINE:63
-  private[this] lazy val controllers_CitaController_getConsejosPaciente34_route = Route("GET",
+  private[this] lazy val controllers_CitaController_getConsejosPaciente35_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("paciente/"), DynamicPart("id", """[^/]+""",true), StaticPart("/consejos")))
   )
-  private[this] lazy val controllers_CitaController_getConsejosPaciente34_invoker = createInvoker(
+  private[this] lazy val controllers_CitaController_getConsejosPaciente35_invoker = createInvoker(
     CitaController_10.getConsejosPaciente(fakeValue[Long]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -758,10 +776,10 @@ class Routes(
   )
 
   // @LINE:64
-  private[this] lazy val controllers_CitaController_getMarcapasosPaciente35_route = Route("GET",
+  private[this] lazy val controllers_CitaController_getMarcapasosPaciente36_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("paciente/"), DynamicPart("id", """[^/]+""",true), StaticPart("/marcapasos")))
   )
-  private[this] lazy val controllers_CitaController_getMarcapasosPaciente35_invoker = createInvoker(
+  private[this] lazy val controllers_CitaController_getMarcapasosPaciente36_invoker = createInvoker(
     CitaController_10.getMarcapasosPaciente(fakeValue[Long]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -775,10 +793,10 @@ class Routes(
   )
 
   // @LINE:66
-  private[this] lazy val controllers_CitaController_createCita36_route = Route("POST",
+  private[this] lazy val controllers_CitaController_createCita37_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("cita")))
   )
-  private[this] lazy val controllers_CitaController_createCita36_invoker = createInvoker(
+  private[this] lazy val controllers_CitaController_createCita37_invoker = createInvoker(
     CitaController_10.createCita,
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -792,10 +810,10 @@ class Routes(
   )
 
   // @LINE:67
-  private[this] lazy val controllers_CitaController_updateCita37_route = Route("PUT",
+  private[this] lazy val controllers_CitaController_updateCita38_route = Route("PUT",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("cita/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_CitaController_updateCita37_invoker = createInvoker(
+  private[this] lazy val controllers_CitaController_updateCita38_invoker = createInvoker(
     CitaController_10.updateCita(fakeValue[Long]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -809,10 +827,10 @@ class Routes(
   )
 
   // @LINE:69
-  private[this] lazy val controllers_CitaController_createCitaPaciente38_route = Route("POST",
+  private[this] lazy val controllers_CitaController_createCitaPaciente39_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("cita/"), DynamicPart("idP", """[^/]+""",true), StaticPart("&"), DynamicPart("idM", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_CitaController_createCitaPaciente38_invoker = createInvoker(
+  private[this] lazy val controllers_CitaController_createCitaPaciente39_invoker = createInvoker(
     CitaController_10.createCitaPaciente(fakeValue[Long], fakeValue[Long]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -826,10 +844,10 @@ class Routes(
   )
 
   // @LINE:70
-  private[this] lazy val controllers_LecturaController_createLecturaCifrada39_route = Route("POST",
+  private[this] lazy val controllers_LecturaController_createLecturaCifrada40_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("lectura/"), DynamicPart("idP", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_LecturaController_createLecturaCifrada39_invoker = createInvoker(
+  private[this] lazy val controllers_LecturaController_createLecturaCifrada40_invoker = createInvoker(
     LecturaController_11.createLecturaCifrada(fakeValue[Long]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -843,10 +861,10 @@ class Routes(
   )
 
   // @LINE:71
-  private[this] lazy val controllers_LecturaController_createLecturaPaciente40_route = Route("POST",
+  private[this] lazy val controllers_LecturaController_createLecturaPaciente41_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("lecturaPruebas/"), DynamicPart("idP", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_LecturaController_createLecturaPaciente40_invoker = createInvoker(
+  private[this] lazy val controllers_LecturaController_createLecturaPaciente41_invoker = createInvoker(
     LecturaController_11.createLecturaPaciente(fakeValue[Long]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -860,10 +878,10 @@ class Routes(
   )
 
   // @LINE:72
-  private[this] lazy val controllers_EmergenciaController_createEmergenciaPaciente41_route = Route("POST",
+  private[this] lazy val controllers_EmergenciaController_createEmergenciaPaciente42_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("emergencia/"), DynamicPart("idP", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_EmergenciaController_createEmergenciaPaciente41_invoker = createInvoker(
+  private[this] lazy val controllers_EmergenciaController_createEmergenciaPaciente42_invoker = createInvoker(
     EmergenciaController_6.createEmergenciaPaciente(fakeValue[Long]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -877,10 +895,10 @@ class Routes(
   )
 
   // @LINE:73
-  private[this] lazy val controllers_ConsejoController_createConsejoPaciente42_route = Route("POST",
+  private[this] lazy val controllers_ConsejoController_createConsejoPaciente43_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("consejo/"), DynamicPart("idP", """[^/]+""",true), StaticPart("&"), DynamicPart("idM", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_ConsejoController_createConsejoPaciente42_invoker = createInvoker(
+  private[this] lazy val controllers_ConsejoController_createConsejoPaciente43_invoker = createInvoker(
     ConsejoController_0.createConsejoPaciente(fakeValue[Long], fakeValue[Long]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -894,10 +912,10 @@ class Routes(
   )
 
   // @LINE:74
-  private[this] lazy val controllers_MarcapasosController_createMarcapasosPaciente43_route = Route("POST",
+  private[this] lazy val controllers_MarcapasosController_createMarcapasosPaciente44_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("marcapasos/"), DynamicPart("idP", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_MarcapasosController_createMarcapasosPaciente43_invoker = createInvoker(
+  private[this] lazy val controllers_MarcapasosController_createMarcapasosPaciente44_invoker = createInvoker(
     MarcapasosController_7.createMarcapasosPaciente(fakeValue[Long]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -911,10 +929,10 @@ class Routes(
   )
 
   // @LINE:75
-  private[this] lazy val controllers_PacienteController_updatePaciente44_route = Route("PUT",
+  private[this] lazy val controllers_PacienteController_updatePaciente45_route = Route("PUT",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("paciente/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_PacienteController_updatePaciente44_invoker = createInvoker(
+  private[this] lazy val controllers_PacienteController_updatePaciente45_invoker = createInvoker(
     PacienteController_2.updatePaciente(fakeValue[Long]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -928,10 +946,10 @@ class Routes(
   )
 
   // @LINE:76
-  private[this] lazy val controllers_HistorialController_updateHistorial45_route = Route("PUT",
+  private[this] lazy val controllers_HistorialController_updateHistorial46_route = Route("PUT",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("historial/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_HistorialController_updateHistorial45_invoker = createInvoker(
+  private[this] lazy val controllers_HistorialController_updateHistorial46_invoker = createInvoker(
     HistorialController_1.updateHistorial(fakeValue[Long]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -945,10 +963,10 @@ class Routes(
   )
 
   // @LINE:77
-  private[this] lazy val controllers_MarcapasosController_updateMarcapasos46_route = Route("PUT",
+  private[this] lazy val controllers_MarcapasosController_updateMarcapasos47_route = Route("PUT",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("marcapasos/"), DynamicPart("idP", """[^/]+""",true), StaticPart("&"), DynamicPart("idM", """[^/]+""",true), StaticPart("/tk="), DynamicPart("tk", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_MarcapasosController_updateMarcapasos46_invoker = createInvoker(
+  private[this] lazy val controllers_MarcapasosController_updateMarcapasos47_invoker = createInvoker(
     MarcapasosController_7.updateMarcapasos(fakeValue[Long], fakeValue[Long], fakeValue[String]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -962,10 +980,10 @@ class Routes(
   )
 
   // @LINE:78
-  private[this] lazy val controllers_PacienteController_updatePaciente47_route = Route("GET",
+  private[this] lazy val controllers_PacienteController_updatePaciente48_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("paciente/"), DynamicPart("id", """[^/]+""",true), StaticPart("/citas")))
   )
-  private[this] lazy val controllers_PacienteController_updatePaciente47_invoker = createInvoker(
+  private[this] lazy val controllers_PacienteController_updatePaciente48_invoker = createInvoker(
     PacienteController_2.updatePaciente(fakeValue[Long]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -979,10 +997,10 @@ class Routes(
   )
 
   // @LINE:79
-  private[this] lazy val controllers_MarcapasosController_updateMarcapasos248_route = Route("PUT",
+  private[this] lazy val controllers_MarcapasosController_updateMarcapasos249_route = Route("PUT",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("marcapasos2/"), DynamicPart("idP", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_MarcapasosController_updateMarcapasos248_invoker = createInvoker(
+  private[this] lazy val controllers_MarcapasosController_updateMarcapasos249_invoker = createInvoker(
     MarcapasosController_7.updateMarcapasos2(fakeValue[Long]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -996,10 +1014,10 @@ class Routes(
   )
 
   // @LINE:81
-  private[this] lazy val controllers_UserController_login49_route = Route("POST",
+  private[this] lazy val controllers_UserController_login50_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("login/")))
   )
-  private[this] lazy val controllers_UserController_login49_invoker = createInvoker(
+  private[this] lazy val controllers_UserController_login50_invoker = createInvoker(
     UserController_9.login(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -1099,220 +1117,226 @@ class Routes(
         controllers_MobileController_mobileCitas13_invoker.call(MobileController_8.mobileCitas)
       }
   
+    // @LINE:36
+    case controllers_MobileController_mobilePaciente14_route(params) =>
+      call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_MobileController_mobilePaciente14_invoker.call(MobileController_8.mobilePaciente(id))
+      }
+  
     // @LINE:40
-    case controllers_MedicoController_getMedicos14_route(params) =>
+    case controllers_MedicoController_getMedicos15_route(params) =>
       call { 
-        controllers_MedicoController_getMedicos14_invoker.call(MedicoController_13.getMedicos)
+        controllers_MedicoController_getMedicos15_invoker.call(MedicoController_13.getMedicos)
       }
   
     // @LINE:41
-    case controllers_MedicoController_getMedico15_route(params) =>
+    case controllers_MedicoController_getMedico16_route(params) =>
       call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_MedicoController_getMedico15_invoker.call(MedicoController_13.getMedico(id))
+        controllers_MedicoController_getMedico16_invoker.call(MedicoController_13.getMedico(id))
       }
   
     // @LINE:42
-    case controllers_MedicoController_createMedico16_route(params) =>
+    case controllers_MedicoController_createMedico17_route(params) =>
       call { 
-        controllers_MedicoController_createMedico16_invoker.call(MedicoController_13.createMedico)
+        controllers_MedicoController_createMedico17_invoker.call(MedicoController_13.createMedico)
       }
   
     // @LINE:43
-    case controllers_MedicoController_updateMedico17_route(params) =>
+    case controllers_MedicoController_updateMedico18_route(params) =>
       call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_MedicoController_updateMedico17_invoker.call(MedicoController_13.updateMedico(id))
+        controllers_MedicoController_updateMedico18_invoker.call(MedicoController_13.updateMedico(id))
       }
   
     // @LINE:46
-    case controllers_PacienteController_getPacientes18_route(params) =>
+    case controllers_PacienteController_getPacientes19_route(params) =>
       call(params.fromPath[String]("tk", None)) { (tk) =>
-        controllers_PacienteController_getPacientes18_invoker.call(PacienteController_2.getPacientes(tk))
+        controllers_PacienteController_getPacientes19_invoker.call(PacienteController_2.getPacientes(tk))
       }
   
     // @LINE:47
-    case controllers_PacienteController_getPaciente19_route(params) =>
+    case controllers_PacienteController_getPaciente20_route(params) =>
       call(params.fromPath[Long]("id", None), params.fromPath[String]("tk", None)) { (id, tk) =>
-        controllers_PacienteController_getPaciente19_invoker.call(PacienteController_2.getPaciente(id, tk))
+        controllers_PacienteController_getPaciente20_invoker.call(PacienteController_2.getPaciente(id, tk))
       }
   
     // @LINE:48
-    case controllers_CitaController_getLecturasRango20_route(params) =>
+    case controllers_CitaController_getLecturasRango21_route(params) =>
       call(params.fromPath[Long]("id", None), params.fromPath[String]("inicio", None), params.fromPath[String]("fin", None)) { (id, inicio, fin) =>
-        controllers_CitaController_getLecturasRango20_invoker.call(CitaController_10.getLecturasRango(id, inicio, fin))
+        controllers_CitaController_getLecturasRango21_invoker.call(CitaController_10.getLecturasRango(id, inicio, fin))
       }
   
     // @LINE:49
-    case controllers_PacienteController_createPaciente21_route(params) =>
+    case controllers_PacienteController_createPaciente22_route(params) =>
       call { 
-        controllers_PacienteController_createPaciente21_invoker.call(PacienteController_2.createPaciente)
+        controllers_PacienteController_createPaciente22_invoker.call(PacienteController_2.createPaciente)
       }
   
     // @LINE:50
-    case controllers_PacienteController_updatePaciente22_route(params) =>
+    case controllers_PacienteController_updatePaciente23_route(params) =>
       call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_PacienteController_updatePaciente22_invoker.call(PacienteController_2.updatePaciente(id))
+        controllers_PacienteController_updatePaciente23_invoker.call(PacienteController_2.updatePaciente(id))
       }
   
     // @LINE:51
-    case controllers_PacienteController_deletePaciente23_route(params) =>
+    case controllers_PacienteController_deletePaciente24_route(params) =>
       call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_PacienteController_deletePaciente23_invoker.call(PacienteController_2.deletePaciente(id))
+        controllers_PacienteController_deletePaciente24_invoker.call(PacienteController_2.deletePaciente(id))
       }
   
     // @LINE:52
-    case controllers_PacienteController_getPacientes224_route(params) =>
+    case controllers_PacienteController_getPacientes225_route(params) =>
       call { 
-        controllers_PacienteController_getPacientes224_invoker.call(PacienteController_2.getPacientes2)
+        controllers_PacienteController_getPacientes225_invoker.call(PacienteController_2.getPacientes2)
       }
   
     // @LINE:53
-    case controllers_ConsejoController_getConsejos25_route(params) =>
+    case controllers_ConsejoController_getConsejos26_route(params) =>
       call { 
-        controllers_ConsejoController_getConsejos25_invoker.call(ConsejoController_0.getConsejos)
+        controllers_ConsejoController_getConsejos26_invoker.call(ConsejoController_0.getConsejos)
       }
   
     // @LINE:54
-    case controllers_ConsejoController_createConsejo26_route(params) =>
+    case controllers_ConsejoController_createConsejo27_route(params) =>
       call { 
-        controllers_ConsejoController_createConsejo26_invoker.call(ConsejoController_0.createConsejo)
+        controllers_ConsejoController_createConsejo27_invoker.call(ConsejoController_0.createConsejo)
       }
   
     // @LINE:56
-    case controllers_CitaController_getCitas27_route(params) =>
+    case controllers_CitaController_getCitas28_route(params) =>
       call { 
-        controllers_CitaController_getCitas27_invoker.call(CitaController_10.getCitas)
+        controllers_CitaController_getCitas28_invoker.call(CitaController_10.getCitas)
       }
   
     // @LINE:57
-    case controllers_CitaController_getCita28_route(params) =>
+    case controllers_CitaController_getCita29_route(params) =>
       call(params.fromQuery[Long]("id", None)) { (id) =>
-        controllers_CitaController_getCita28_invoker.call(CitaController_10.getCita(id))
+        controllers_CitaController_getCita29_invoker.call(CitaController_10.getCita(id))
       }
   
     // @LINE:58
-    case controllers_CitaController_getCitasPaciente29_route(params) =>
+    case controllers_CitaController_getCitasPaciente30_route(params) =>
       call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_CitaController_getCitasPaciente29_invoker.call(CitaController_10.getCitasPaciente(id))
+        controllers_CitaController_getCitasPaciente30_invoker.call(CitaController_10.getCitasPaciente(id))
       }
   
     // @LINE:59
-    case controllers_CitaController_getHistorialPaciente30_route(params) =>
+    case controllers_CitaController_getHistorialPaciente31_route(params) =>
       call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_CitaController_getHistorialPaciente30_invoker.call(CitaController_10.getHistorialPaciente(id))
+        controllers_CitaController_getHistorialPaciente31_invoker.call(CitaController_10.getHistorialPaciente(id))
       }
   
     // @LINE:60
-    case controllers_CitaController_getExamenesPaciente31_route(params) =>
+    case controllers_CitaController_getExamenesPaciente32_route(params) =>
       call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_CitaController_getExamenesPaciente31_invoker.call(CitaController_10.getExamenesPaciente(id))
+        controllers_CitaController_getExamenesPaciente32_invoker.call(CitaController_10.getExamenesPaciente(id))
       }
   
     // @LINE:61
-    case controllers_CitaController_getLecturasPaciente32_route(params) =>
+    case controllers_CitaController_getLecturasPaciente33_route(params) =>
       call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_CitaController_getLecturasPaciente32_invoker.call(CitaController_10.getLecturasPaciente(id))
+        controllers_CitaController_getLecturasPaciente33_invoker.call(CitaController_10.getLecturasPaciente(id))
       }
   
     // @LINE:62
-    case controllers_CitaController_getEmergenciasPaciente33_route(params) =>
+    case controllers_CitaController_getEmergenciasPaciente34_route(params) =>
       call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_CitaController_getEmergenciasPaciente33_invoker.call(CitaController_10.getEmergenciasPaciente(id))
+        controllers_CitaController_getEmergenciasPaciente34_invoker.call(CitaController_10.getEmergenciasPaciente(id))
       }
   
     // @LINE:63
-    case controllers_CitaController_getConsejosPaciente34_route(params) =>
+    case controllers_CitaController_getConsejosPaciente35_route(params) =>
       call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_CitaController_getConsejosPaciente34_invoker.call(CitaController_10.getConsejosPaciente(id))
+        controllers_CitaController_getConsejosPaciente35_invoker.call(CitaController_10.getConsejosPaciente(id))
       }
   
     // @LINE:64
-    case controllers_CitaController_getMarcapasosPaciente35_route(params) =>
+    case controllers_CitaController_getMarcapasosPaciente36_route(params) =>
       call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_CitaController_getMarcapasosPaciente35_invoker.call(CitaController_10.getMarcapasosPaciente(id))
+        controllers_CitaController_getMarcapasosPaciente36_invoker.call(CitaController_10.getMarcapasosPaciente(id))
       }
   
     // @LINE:66
-    case controllers_CitaController_createCita36_route(params) =>
+    case controllers_CitaController_createCita37_route(params) =>
       call { 
-        controllers_CitaController_createCita36_invoker.call(CitaController_10.createCita)
+        controllers_CitaController_createCita37_invoker.call(CitaController_10.createCita)
       }
   
     // @LINE:67
-    case controllers_CitaController_updateCita37_route(params) =>
+    case controllers_CitaController_updateCita38_route(params) =>
       call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_CitaController_updateCita37_invoker.call(CitaController_10.updateCita(id))
+        controllers_CitaController_updateCita38_invoker.call(CitaController_10.updateCita(id))
       }
   
     // @LINE:69
-    case controllers_CitaController_createCitaPaciente38_route(params) =>
+    case controllers_CitaController_createCitaPaciente39_route(params) =>
       call(params.fromPath[Long]("idP", None), params.fromPath[Long]("idM", None)) { (idP, idM) =>
-        controllers_CitaController_createCitaPaciente38_invoker.call(CitaController_10.createCitaPaciente(idP, idM))
+        controllers_CitaController_createCitaPaciente39_invoker.call(CitaController_10.createCitaPaciente(idP, idM))
       }
   
     // @LINE:70
-    case controllers_LecturaController_createLecturaCifrada39_route(params) =>
+    case controllers_LecturaController_createLecturaCifrada40_route(params) =>
       call(params.fromPath[Long]("idP", None)) { (idP) =>
-        controllers_LecturaController_createLecturaCifrada39_invoker.call(LecturaController_11.createLecturaCifrada(idP))
+        controllers_LecturaController_createLecturaCifrada40_invoker.call(LecturaController_11.createLecturaCifrada(idP))
       }
   
     // @LINE:71
-    case controllers_LecturaController_createLecturaPaciente40_route(params) =>
+    case controllers_LecturaController_createLecturaPaciente41_route(params) =>
       call(params.fromPath[Long]("idP", None)) { (idP) =>
-        controllers_LecturaController_createLecturaPaciente40_invoker.call(LecturaController_11.createLecturaPaciente(idP))
+        controllers_LecturaController_createLecturaPaciente41_invoker.call(LecturaController_11.createLecturaPaciente(idP))
       }
   
     // @LINE:72
-    case controllers_EmergenciaController_createEmergenciaPaciente41_route(params) =>
+    case controllers_EmergenciaController_createEmergenciaPaciente42_route(params) =>
       call(params.fromPath[Long]("idP", None)) { (idP) =>
-        controllers_EmergenciaController_createEmergenciaPaciente41_invoker.call(EmergenciaController_6.createEmergenciaPaciente(idP))
+        controllers_EmergenciaController_createEmergenciaPaciente42_invoker.call(EmergenciaController_6.createEmergenciaPaciente(idP))
       }
   
     // @LINE:73
-    case controllers_ConsejoController_createConsejoPaciente42_route(params) =>
+    case controllers_ConsejoController_createConsejoPaciente43_route(params) =>
       call(params.fromPath[Long]("idP", None), params.fromPath[Long]("idM", None)) { (idP, idM) =>
-        controllers_ConsejoController_createConsejoPaciente42_invoker.call(ConsejoController_0.createConsejoPaciente(idP, idM))
+        controllers_ConsejoController_createConsejoPaciente43_invoker.call(ConsejoController_0.createConsejoPaciente(idP, idM))
       }
   
     // @LINE:74
-    case controllers_MarcapasosController_createMarcapasosPaciente43_route(params) =>
+    case controllers_MarcapasosController_createMarcapasosPaciente44_route(params) =>
       call(params.fromPath[Long]("idP", None)) { (idP) =>
-        controllers_MarcapasosController_createMarcapasosPaciente43_invoker.call(MarcapasosController_7.createMarcapasosPaciente(idP))
+        controllers_MarcapasosController_createMarcapasosPaciente44_invoker.call(MarcapasosController_7.createMarcapasosPaciente(idP))
       }
   
     // @LINE:75
-    case controllers_PacienteController_updatePaciente44_route(params) =>
+    case controllers_PacienteController_updatePaciente45_route(params) =>
       call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_PacienteController_updatePaciente44_invoker.call(PacienteController_2.updatePaciente(id))
+        controllers_PacienteController_updatePaciente45_invoker.call(PacienteController_2.updatePaciente(id))
       }
   
     // @LINE:76
-    case controllers_HistorialController_updateHistorial45_route(params) =>
+    case controllers_HistorialController_updateHistorial46_route(params) =>
       call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_HistorialController_updateHistorial45_invoker.call(HistorialController_1.updateHistorial(id))
+        controllers_HistorialController_updateHistorial46_invoker.call(HistorialController_1.updateHistorial(id))
       }
   
     // @LINE:77
-    case controllers_MarcapasosController_updateMarcapasos46_route(params) =>
+    case controllers_MarcapasosController_updateMarcapasos47_route(params) =>
       call(params.fromPath[Long]("idP", None), params.fromPath[Long]("idM", None), params.fromPath[String]("tk", None)) { (idP, idM, tk) =>
-        controllers_MarcapasosController_updateMarcapasos46_invoker.call(MarcapasosController_7.updateMarcapasos(idP, idM, tk))
+        controllers_MarcapasosController_updateMarcapasos47_invoker.call(MarcapasosController_7.updateMarcapasos(idP, idM, tk))
       }
   
     // @LINE:78
-    case controllers_PacienteController_updatePaciente47_route(params) =>
+    case controllers_PacienteController_updatePaciente48_route(params) =>
       call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_PacienteController_updatePaciente47_invoker.call(PacienteController_2.updatePaciente(id))
+        controllers_PacienteController_updatePaciente48_invoker.call(PacienteController_2.updatePaciente(id))
       }
   
     // @LINE:79
-    case controllers_MarcapasosController_updateMarcapasos248_route(params) =>
+    case controllers_MarcapasosController_updateMarcapasos249_route(params) =>
       call(params.fromPath[Long]("idP", None)) { (idP) =>
-        controllers_MarcapasosController_updateMarcapasos248_invoker.call(MarcapasosController_7.updateMarcapasos2(idP))
+        controllers_MarcapasosController_updateMarcapasos249_invoker.call(MarcapasosController_7.updateMarcapasos2(idP))
       }
   
     // @LINE:81
-    case controllers_UserController_login49_route(params) =>
+    case controllers_UserController_login50_route(params) =>
       call { 
-        controllers_UserController_login49_invoker.call(UserController_9.login())
+        controllers_UserController_login50_invoker.call(UserController_9.login())
       }
   }
 }

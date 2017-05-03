@@ -185,5 +185,4 @@ public class HistorialEntity extends Model {
 
         this.emergencias = emergencias;
     }
-
 }

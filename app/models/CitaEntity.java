@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Clase que representa una cita medica
@@ -159,5 +160,9 @@ public class CitaEntity extends Model{
         this.historial = historial;
     }
 
+    public Date getDia(){
+        Date d = new Date (fecha*1000);
+        return d;
+    }
 
 }
