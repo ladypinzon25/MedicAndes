@@ -18,6 +18,22 @@ import java.util.List;
 public class MobileController extends Controller {
 
 
+    public static Result enviarMensaje(long idM, long idP) {
+        return play.mvc.Results.TODO;
+    }
+
+    public Result mensajes(Long pId)
+    {
+        PacienteEntity paciente = PacienteEntity.FINDER.byId(pId);
+        MedicoEntity medico = MedicoEntity.FINDER.byId(1L);
+
+        return ok(mensajeMobile.render(paciente, medico));
+    }
+
+    public Result mobileIndex() {
+        return ok(indexMobile.render());
+    }
+
     public Result mobilePacientes()
     {
         List<PacienteEntity> pacientes = PacienteEntity.FINDER.all();

@@ -64,9 +64,7 @@
               <span class="visuallyhidden">Accounts</span>
             </button>
             <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-              <li class="mdl-menu__item">hello#example.com</li>
-              <li class="mdl-menu__item">info#example.com</li>
-              <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
+              <li class="mdl-menu__item" ><i class="material-icons">remove</i><a href="/mobile" style="text-decoration: none; color:#000000;">Log out</a></li>
             </ul>
           </div>
         </header>
@@ -85,7 +83,10 @@
 
               <!-- Accent-colored raised button with ripple -->
             <a class=" mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="/mobile/pacientes">
-              <h7><</h7> Regresar
+              < Regresar
+            </a>
+            <a class=" mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="/mobile/mensajes/@paciente.getId()">
+              Consejo
             </a>
             <div class="demo-separator mdl-cell--2-col"></div>
             <div class="demo-separator mdl-cell--2-col"></div>
@@ -95,7 +96,6 @@
                 <div class="mdl-card__title mdl-card--expand">
                   <h3 class="patientName">
                     Cantidad emergencias:
-
                   </h3>
                 </div>
                 <br>
@@ -129,6 +129,19 @@
             </div>
             <div class="mdl-card__actions mdl-card--border">
               <h5 style="text-align:center"> @paciente.getHistorialPaciente().getEnfermedades() </h5>
+            </div>
+          </div>
+          <div class="demo-separator mdl-cell--1-col"></div>
+          <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--6-col-desktop">
+            <div class="mdl-card__title mdl-card--expand mdl-color--teal-300">
+              <div class="mdl-card__title mdl-card--expand">
+                <h2 style="color:whitesmoke" class="historyName">
+                  Grupo sanguíneo:
+                </h2>
+              </div>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+              <h5 style="text-align:center"> @paciente.getGrupoSanguineo()</h5>
             </div>
           </div>
 

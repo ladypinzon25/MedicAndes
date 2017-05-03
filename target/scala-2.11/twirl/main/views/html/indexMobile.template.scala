@@ -102,7 +102,7 @@ Seq[Any](format.raw/*1.1*/("""<!doctype html>
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
-          <img src="imagesM/user.jpg" class="demo-avatar">
+          <img src=""""),_display_(/*74.22*/routes/*74.28*/.Assets.versioned("imagesM/user.jpg")),format.raw/*74.65*/("""" class="demo-avatar">
           <div class="demo-avatar-dropdown">
             <span>hello#example.com</span>
             <div class="mdl-layout-spacer"></div>
@@ -111,9 +111,7 @@ Seq[Any](format.raw/*1.1*/("""<!doctype html>
               <span class="visuallyhidden">Accounts</span>
             </button>
             <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-              <li class="mdl-menu__item">hello#example.com</li>
-              <li class="mdl-menu__item">info#example.com</li>
-              <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
+              <li class="mdl-menu__item" ><i class="material-icons">remove</i><a href="/mobile" style="text-decoration: none; color:#000000;">Log out</a></li>
             </ul>
           </div>
         </header>
@@ -283,11 +281,11 @@ Seq[Any](format.raw/*1.1*/("""<!doctype html>
 object indexMobile extends indexMobile_Scope0.indexMobile
               /*
                   -- GENERATED --
-                  DATE: Mon May 01 22:46:29 COT 2017
+                  DATE: Wed May 03 10:16:20 COT 2017
                   SOURCE: C:/Users/Camilo/Documents/GitHub/MedicAndes/app/views/indexMobile.scala.html
-                  HASH: 25de39916f38c7a198ed9dee7d5dcde952df6d2a
-                  MATRIX: 839->0|2717->1850|2746->1851|2780->1858|2956->2007|2984->2008|3016->2013
-                  LINES: 32->1|67->36|67->36|68->37|75->44|75->44|76->45
+                  HASH: 48c1ebdff96a5f20c5ab7d84753fe7396bc1acef
+                  MATRIX: 839->0|2717->1850|2746->1851|2780->1858|2956->2007|2984->2008|3016->2013|4574->3544|4589->3550|4647->3587
+                  LINES: 32->1|67->36|67->36|68->37|75->44|75->44|76->45|105->74|105->74|105->74
                   -- GENERATED --
               */
           

@@ -89,9 +89,7 @@ Seq[Any](format.raw/*1.26*/("""
           <span class="visuallyhidden">Accounts</span>
         </button>
         <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-          <li class="mdl-menu__item">hello#example.com</li>
-          <li class="mdl-menu__item">info#example.com</li>
-          <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
+          <li class="mdl-menu__item" ><i class="material-icons">remove</i><a href="/mobile" style="text-decoration: none; color:#000000;">Log out</a></li>
         </ul>
       </div>
     </header>
@@ -107,24 +105,24 @@ Seq[Any](format.raw/*1.26*/("""
   <main class="mdl-layout__content mdl-color--grey-100">
     <div class="mdl-grid demo-content">
       <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
-        """),_display_(/*79.10*/for(citaActual <- citas) yield /*79.34*/{_display_(Seq[Any](format.raw/*79.35*/("""
-          """),format.raw/*80.11*/("""<!--Card Element-->
+        """),_display_(/*77.10*/for(citaActual <- citas) yield /*77.34*/{_display_(Seq[Any](format.raw/*77.35*/("""
+          """),format.raw/*78.11*/("""<!--Card Element-->
         <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
           <div class="mdl-card__title mdl-card--expand mdl-color--teal-300">
 
-              <h1 class="mdl-card__title-text inlineWords">"""),_display_(/*84.61*/citaActual/*84.71*/.getPaciente().getGrupoSanguineo()),format.raw/*84.105*/("""</h1>
-              <h6 class="mdl-card__title-name inlineWords">"""),_display_(/*85.61*/citaActual/*85.71*/.getPaciente().getNombre()),format.raw/*85.97*/("""</h6>
-              <h4 class="mdl-card__title-text">"""),_display_(/*86.49*/citaActual/*86.59*/.getDia()),format.raw/*86.68*/("""</h4>
+              <h1 class="mdl-card__title-text inlineWords">"""),_display_(/*82.61*/citaActual/*82.71*/.getPaciente().getGrupoSanguineo()),format.raw/*82.105*/("""</h1>
+              <h6 class="mdl-card__title-name inlineWords">"""),_display_(/*83.61*/citaActual/*83.71*/.getPaciente().getNombre()),format.raw/*83.97*/("""</h6>
+              <h4 class="mdl-card__title-text">"""),_display_(/*84.49*/citaActual/*84.59*/.getDia()),format.raw/*84.68*/("""</h4>
 
           </div>
           <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-            """),_display_(/*90.14*/citaActual/*90.24*/.getDiagnostico()),format.raw/*90.41*/("""
-          """),format.raw/*91.11*/("""</div>
+            """),_display_(/*88.14*/if(citaActual.getDiagnostico()==null)/*88.51*/{_display_(Seq[Any](format.raw/*88.52*/("""--""")))}/*88.55*/else/*88.59*/{_display_(_display_(/*88.61*/citaActual/*88.71*/.getDiagnostico()))}),format.raw/*88.89*/("""
+          """),format.raw/*89.11*/("""</div>
         </div>
       <div class="demo-separator mdl-cell--1-col"></div>
-        """)))}),format.raw/*94.10*/("""
+        """)))}),format.raw/*92.10*/("""
 
-      """),format.raw/*96.7*/("""</div>
+      """),format.raw/*94.7*/("""</div>
     </div>
   </main>
 </div>
@@ -151,11 +149,11 @@ Seq[Any](format.raw/*1.26*/("""
 object citasMobile extends citasMobile_Scope0.citasMobile
               /*
                   -- GENERATED --
-                  DATE: Tue May 02 20:05:28 COT 2017
+                  DATE: Wed May 03 10:12:25 COT 2017
                   SOURCE: C:/Users/Camilo/Documents/GitHub/MedicAndes/app/views/citasMobile.scala.html
-                  HASH: 56c84c61dece1c131562a4468f0b69ac5591676e
-                  MATRIX: 767->1|886->25|914->27|2077->1163|2092->1169|2153->1209|2550->1579|2565->1585|2622->1621|2682->1653|2711->1654|2746->1662|2929->1818|2957->1819|2988->1823|3563->2371|3578->2377|3636->2414|5588->4339|5628->4363|5667->4364|5707->4376|6029->4671|6048->4681|6104->4715|6198->4782|6217->4792|6264->4818|6346->4873|6365->4883|6395->4892|6538->5008|6557->5018|6595->5035|6635->5047|6757->5138|6794->5148
-                  LINES: 27->1|32->1|33->2|56->25|56->25|56->25|60->29|60->29|60->29|62->31|62->31|63->32|70->39|70->39|71->40|83->52|83->52|83->52|110->79|110->79|110->79|111->80|115->84|115->84|115->84|116->85|116->85|116->85|117->86|117->86|117->86|121->90|121->90|121->90|122->91|125->94|127->96
+                  HASH: 6b1bec3bd78ebc3b85a5d92514db083895950c2e
+                  MATRIX: 767->1|886->25|914->27|2077->1163|2092->1169|2153->1209|2550->1579|2565->1585|2622->1621|2682->1653|2711->1654|2746->1662|2929->1818|2957->1819|2988->1823|3563->2371|3578->2377|3636->2414|5524->4275|5564->4299|5603->4300|5643->4312|5965->4607|5984->4617|6040->4651|6134->4718|6153->4728|6200->4754|6282->4809|6301->4819|6331->4828|6474->4944|6520->4981|6559->4982|6581->4985|6594->4989|6624->4991|6643->5001|6684->5019|6724->5031|6846->5122|6883->5132
+                  LINES: 27->1|32->1|33->2|56->25|56->25|56->25|60->29|60->29|60->29|62->31|62->31|63->32|70->39|70->39|71->40|83->52|83->52|83->52|108->77|108->77|108->77|109->78|113->82|113->82|113->82|114->83|114->83|114->83|115->84|115->84|115->84|119->88|119->88|119->88|119->88|119->88|119->88|119->88|119->88|120->89|123->92|125->94
                   -- GENERATED --
               */
           

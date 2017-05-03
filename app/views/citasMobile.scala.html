@@ -58,9 +58,7 @@
           <span class="visuallyhidden">Accounts</span>
         </button>
         <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-          <li class="mdl-menu__item">hello#example.com</li>
-          <li class="mdl-menu__item">info#example.com</li>
-          <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
+          <li class="mdl-menu__item" ><i class="material-icons">remove</i><a href="/mobile" style="text-decoration: none; color:#000000;">Log out</a></li>
         </ul>
       </div>
     </header>
@@ -87,7 +85,7 @@
 
           </div>
           <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-            @citaActual.getDiagnostico()
+            @if(citaActual.getDiagnostico()==null){--}else{@citaActual.getDiagnostico()}
           </div>
         </div>
       <div class="demo-separator mdl-cell--1-col"></div>

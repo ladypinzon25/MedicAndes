@@ -89,9 +89,7 @@ Seq[Any](format.raw/*1.34*/("""
           <span class="visuallyhidden">Accounts</span>
         </button>
         <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-          <li class="mdl-menu__item">hello#example.com</li>
-          <li class="mdl-menu__item">info#example.com</li>
-          <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
+          <li class="mdl-menu__item" ><i class="material-icons">remove</i><a href="/mobile" style="text-decoration: none; color:#000000;">Log out</a></li>
         </ul>
       </div>
     </header>
@@ -107,29 +105,30 @@ Seq[Any](format.raw/*1.34*/("""
   <main class="pacientes mdl-layout__content mdl-color--grey-100">
     <div class="mdl-grid demo-content">
       <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-grid mdl-grid--no-spacing">
-        """),_display_(/*79.10*/for(pacienteActual <- pacientes) yield /*79.42*/ {_display_(Seq[Any](format.raw/*79.44*/("""
-        """),format.raw/*80.9*/("""<!--Card Element-->
+        """),_display_(/*77.10*/for(pacienteActual <- pacientes) yield /*77.42*/ {_display_(Seq[Any](format.raw/*77.44*/("""
+        """),format.raw/*78.9*/("""<!--Card Element-->
         <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--6-col-desktop">
           <div class="mdl-card__title mdl-card--expand mdl-color--teal-300">
             <div class="mdl-card__title mdl-card--expand">
               <h4 class="patientName">
-                """),_display_(/*85.18*/pacienteActual/*85.32*/.getNombre),format.raw/*85.42*/("""
-              """),format.raw/*86.15*/("""</h4>
+                """),_display_(/*83.18*/pacienteActual/*83.32*/.getNombre),format.raw/*83.42*/("""
+              """),format.raw/*84.15*/("""</h4>
               <span class="patientState">Consejo</span>
             </div>
           </div>
           <div class="mdl-card__actions mdl-card--border">
-            <a href="paciente/"""),_display_(/*91.32*/pacienteActual/*91.46*/.getId),format.raw/*91.52*/("""" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">visibility</i>Ver Paciente</a>
+            <a href="paciente/"""),_display_(/*89.32*/pacienteActual/*89.46*/.getId),format.raw/*89.52*/("""" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">visibility</i>Ver Paciente</a>
           </div>
         </div>
         <div class="demo-separator mdl-cell--1-col"></div>
-        """)))}),format.raw/*95.10*/("""
+        """)))}),format.raw/*93.10*/("""
 
 
-      """),format.raw/*98.7*/("""</div>
+      """),format.raw/*96.7*/("""</div>
     </div>
   </main>
 </div>
+
 <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
 </body>
@@ -154,11 +153,11 @@ Seq[Any](format.raw/*1.34*/("""
 object pacientesMobile extends pacientesMobile_Scope0.pacientesMobile
               /*
                   -- GENERATED --
-                  DATE: Tue May 02 16:48:41 COT 2017
+                  DATE: Wed May 03 10:19:28 COT 2017
                   SOURCE: C:/Users/Camilo/Documents/GitHub/MedicAndes/app/views/pacientesMobile.scala.html
-                  HASH: efc2e53591443a532bffd0ec5aac70718977ca19
-                  MATRIX: 779->1|906->33|934->35|2097->1171|2112->1177|2173->1217|2570->1587|2585->1593|2642->1629|2702->1661|2731->1662|2766->1670|2949->1826|2977->1827|3008->1831|3587->2383|3602->2389|3660->2426|5622->4361|5670->4393|5710->4395|5747->4405|6123->4754|6146->4768|6177->4778|6221->4794|6441->4987|6464->5001|6491->5007|6789->5274|6828->5286
-                  LINES: 27->1|32->1|33->2|56->25|56->25|56->25|60->29|60->29|60->29|62->31|62->31|63->32|70->39|70->39|71->40|83->52|83->52|83->52|110->79|110->79|110->79|111->80|116->85|116->85|116->85|117->86|122->91|122->91|122->91|126->95|129->98
+                  HASH: 9b8c8ae046fb0c038108ff05ed73200831b4d6b3
+                  MATRIX: 779->1|906->33|934->35|2097->1171|2112->1177|2173->1217|2570->1587|2585->1593|2642->1629|2702->1661|2731->1662|2766->1670|2949->1826|2977->1827|3008->1831|3587->2383|3602->2389|3660->2426|5558->4297|5606->4329|5646->4331|5683->4341|6059->4690|6082->4704|6113->4714|6157->4730|6377->4923|6400->4937|6427->4943|6725->5210|6764->5222
+                  LINES: 27->1|32->1|33->2|56->25|56->25|56->25|60->29|60->29|60->29|62->31|62->31|63->32|70->39|70->39|71->40|83->52|83->52|83->52|108->77|108->77|108->77|109->78|114->83|114->83|114->83|115->84|120->89|120->89|120->89|124->93|127->96
                   -- GENERATED --
               */
           
