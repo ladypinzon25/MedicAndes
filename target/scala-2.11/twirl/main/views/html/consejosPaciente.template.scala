@@ -95,8 +95,8 @@ Seq[Any](format.raw/*1.58*/("""
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
           <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">event</i>Citas</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Pacientes</a>
+          <a class="mdl-navigation__link" href="/mobile/mpaciente/1"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">event</i>Consejos</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Medición</a>
           <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">settings</i>Configuración</a>
           <div class="mdl-layout-spacer"></div>
             <!--<a class="mdl-navigation__link" href=""><i class="mdl-color-text&#45;&#45;blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>-->
@@ -153,10 +153,10 @@ Seq[Any](format.raw/*1.58*/("""
 object consejosPaciente extends consejosPaciente_Scope0.consejosPaciente
               /*
                   -- GENERATED --
-                  DATE: Thu May 11 13:47:14 COT 2017
+                  DATE: Thu May 11 13:50:38 COT 2017
                   SOURCE: C:/Users/Camilo/Documents/GitHub/MedicAndes/app/views/consejosPaciente.scala.html
-                  HASH: e3ca9b7b715ebb467501ea64e5a96db80c8fb79f
-                  MATRIX: 795->1|946->57|974->59|2179->1237|2194->1243|2255->1283|2660->1661|2675->1667|2732->1703|2794->1737|2823->1738|2858->1746|3041->1902|3069->1903|3102->1909|3454->2234|3471->2242|3504->2254|3794->2517|3809->2523|3867->2560|5841->4507|5881->4531|5920->4532|5964->4548|6296->4853|6313->4861|6346->4873|6430->4930|6446->4937|6476->4946|6640->5083|6684->5118|6723->5119|6745->5122|6758->5126|6788->5128|6804->5135|6841->5149|6887->5167|6944->5197|6986->5230|7025->5231|7047->5234|7060->5238|7090->5240|7106->5247|7141->5259|7187->5277|7255->5318|7307->5361|7346->5362|7368->5365|7381->5369|7411->5371|7427->5378|7473->5400|7519->5418|7583->5455|7632->5495|7671->5496|7693->5499|7706->5503|7736->5505|7752->5512|7795->5531|7839->5547|7973->5650|8015->5664
+                  HASH: 0a6b4580e98094f4bd911ca46930bb3de70791e9
+                  MATRIX: 795->1|946->57|974->59|2179->1237|2194->1243|2255->1283|2660->1661|2675->1667|2732->1703|2794->1737|2823->1738|2858->1746|3041->1902|3069->1903|3102->1909|3454->2234|3471->2242|3504->2254|3794->2517|3809->2523|3867->2560|5862->4528|5902->4552|5941->4553|5985->4569|6317->4874|6334->4882|6367->4894|6451->4951|6467->4958|6497->4967|6661->5104|6705->5139|6744->5140|6766->5143|6779->5147|6809->5149|6825->5156|6862->5170|6908->5188|6965->5218|7007->5251|7046->5252|7068->5255|7081->5259|7111->5261|7127->5268|7162->5280|7208->5298|7276->5339|7328->5382|7367->5383|7389->5386|7402->5390|7432->5392|7448->5399|7494->5421|7540->5439|7604->5476|7653->5516|7692->5517|7714->5520|7727->5524|7757->5526|7773->5533|7816->5552|7860->5568|7994->5671|8036->5685
                   LINES: 27->1|32->1|33->2|56->25|56->25|56->25|60->29|60->29|60->29|62->31|62->31|63->32|70->39|70->39|71->40|77->46|77->46|77->46|83->52|83->52|83->52|108->77|108->77|108->77|109->78|113->82|113->82|113->82|114->83|114->83|114->83|118->87|118->87|118->87|118->87|118->87|118->87|118->87|118->87|119->88|120->89|120->89|120->89|120->89|120->89|120->89|120->89|120->89|121->90|122->91|122->91|122->91|122->91|122->91|122->91|122->91|122->91|123->92|124->93|124->93|124->93|124->93|124->93|124->93|124->93|124->93|125->94|128->97|130->99
                   -- GENERATED --
               */

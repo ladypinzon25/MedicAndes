@@ -92,3 +92,11 @@
 2017-05-11 13:47:22,092 [WARN] from application in application-akka.actor.default-dispatcher-7 - application.conf @ file:/C:/Users/Camilo/Documents/GitHub/MedicAndes/target/scala-2.11/classes/application.conf: 377: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
 2017-05-11 13:47:22,105 [INFO] from application in application-akka.actor.default-dispatcher-7 - ApplicationTimer demo: Starting application at 2017-05-11T18:47:22.105Z
 2017-05-11 13:47:22,557 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-7 - Application started (Dev)
+2017-05-11 13:50:43,812 [INFO] from application in application-akka.actor.default-dispatcher-12 - ApplicationTimer demo: Stopping application at 2017-05-11T18:50:43.812Z after 201s.
+2017-05-11 13:50:43,813 [INFO] from application in application-akka.actor.default-dispatcher-12 - Shutting down connection pool.
+2017-05-11 13:50:43,969 [INFO] from application in application-akka.actor.default-dispatcher-12 - Creating Pool for datasource 'default'
+2017-05-11 13:50:44,034 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-12 - Database [default] connected at jdbc:postgresql://localhost:5432/medicAndes
+2017-05-11 13:50:44,104 [WARN] from com.avaje.ebeaninternal.server.deploy.BeanDescriptorManager in application-akka.actor.default-dispatcher-12 - Bean [models.EncriptadoEntity] has no unique id set
+2017-05-11 13:50:44,111 [WARN] from application in application-akka.actor.default-dispatcher-12 - application.conf @ file:/C:/Users/Camilo/Documents/GitHub/MedicAndes/target/scala-2.11/classes/application.conf: 377: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2017-05-11 13:50:44,129 [INFO] from application in application-akka.actor.default-dispatcher-12 - ApplicationTimer demo: Starting application at 2017-05-11T18:50:44.129Z
+2017-05-11 13:50:44,253 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-12 - Application started (Dev)
