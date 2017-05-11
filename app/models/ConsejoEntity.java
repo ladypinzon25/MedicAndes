@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import com.avaje.ebean.Model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
 
@@ -198,5 +200,10 @@ public class ConsejoEntity extends Model {
     public void setPaciente(PacienteEntity paciente) {
 
         this.paciente = paciente;
+    }
+
+    public Date getDia(){
+        Date d = new Date (fecha);
+        return d;
     }
 }

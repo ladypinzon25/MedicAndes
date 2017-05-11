@@ -51,9 +51,6 @@
           <span class="mdl-layout-title">Home</span>
           <div class="mdl-layout-spacer"></div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-              <i class="material-icons">search</i>
-            </label>
             <div class="mdl-textfield__expandable-holder">
               <input class="mdl-textfield__input" type="text" id="search">
               <label class="mdl-textfield__label" for="search">Enter your query...</label>
@@ -100,7 +97,24 @@
       </div>
       <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid demo-content">
-
+          <div class="demo-separator mdl-cell--2-col"></div>
+          <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+            <form class="col s12">
+              <div class="row">
+                <div class="demo-separator mdl-cell--2-col"></div>
+                <div class="input-field col s6">
+                  Log in: <input type="text"  name="fname">
+                </div>
+                <div class="demo-separator mdl-cell--2-col"></div>
+                <div class="input-field col s6">
+                  Contraseña: <input type="password"  name="fname">
+                </div>
+              </div>
+              <div class="demo-separator mdl-cell--2-col"></div>
+              <a class=" mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-button--colored mdl-color-text--white" href="mobile/pacientes">Log in Medico</a>
+              <a class=" mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-button--colored mdl-color-text--white" href="mobile/mpaciente/1">Log in Paciente</a>
+            </form>
+          </div>
         </div>
       </main>
     </div>

@@ -36,6 +36,7 @@ GET     /mobile/citas                      controllers.MobileController.mobileCi
 GET     /mobile/paciente/:id               controllers.MobileController.mobilePaciente(id: Long)
 GET     /mobile                            controllers.MobileController.mobileIndex
 GET     /mobile/mensajes/:id               controllers.MobileController.mensajes(id: Long)
+GET     /mobile/mpaciente/:id              controllers.MobileController.mobileLPaciente(id: Long)
 ########################################################################################################################
 
 #Controlador de medico

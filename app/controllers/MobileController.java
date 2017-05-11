@@ -18,8 +18,10 @@ import java.util.List;
 public class MobileController extends Controller {
 
 
-    public static Result enviarMensaje(long idM, long idP) {
-        return play.mvc.Results.TODO;
+    public Result mobileLPaciente(long id) {
+        PacienteEntity paciente = PacienteEntity.FINDER.byId(id);
+
+        return ok(consejosPaciente.render(paciente, paciente.getConsejos()));
     }
 
     public Result mensajes(Long pId)

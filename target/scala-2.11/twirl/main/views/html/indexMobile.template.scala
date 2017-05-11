@@ -82,9 +82,6 @@ Seq[Any](format.raw/*1.1*/("""<!doctype html>
           <span class="mdl-layout-title">Home</span>
           <div class="mdl-layout-spacer"></div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-              <i class="material-icons">search</i>
-            </label>
             <div class="mdl-textfield__expandable-holder">
               <input class="mdl-textfield__input" type="text" id="search">
               <label class="mdl-textfield__label" for="search">Enter your query...</label>
@@ -102,7 +99,7 @@ Seq[Any](format.raw/*1.1*/("""<!doctype html>
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
-          <img src=""""),_display_(/*74.22*/routes/*74.28*/.Assets.versioned("imagesM/user.jpg")),format.raw/*74.65*/("""" class="demo-avatar">
+          <img src=""""),_display_(/*71.22*/routes/*71.28*/.Assets.versioned("imagesM/user.jpg")),format.raw/*71.65*/("""" class="demo-avatar">
           <div class="demo-avatar-dropdown">
             <span>hello#example.com</span>
             <div class="mdl-layout-spacer"></div>
@@ -131,7 +128,24 @@ Seq[Any](format.raw/*1.1*/("""<!doctype html>
       </div>
       <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid demo-content">
-
+          <div class="demo-separator mdl-cell--2-col"></div>
+          <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+            <form class="col s12">
+              <div class="row">
+                <div class="demo-separator mdl-cell--2-col"></div>
+                <div class="input-field col s6">
+                  Log in: <input type="text"  name="fname">
+                </div>
+                <div class="demo-separator mdl-cell--2-col"></div>
+                <div class="input-field col s6">
+                  Contraseña: <input type="password"  name="fname">
+                </div>
+              </div>
+              <div class="demo-separator mdl-cell--2-col"></div>
+              <a class=" mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-button--colored mdl-color-text--white" href="mobile/pacientes">Log in Medico</a>
+              <a class=" mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-button--colored mdl-color-text--white" href="mobile/mpaciente/1">Log in Paciente</a>
+            </form>
+          </div>
         </div>
       </main>
     </div>
@@ -182,8 +196,7 @@ Seq[Any](format.raw/*1.1*/("""<!doctype html>
           </g>
         </defs>
       </svg>
-      <a href="https://github.com/google/material-design-lite/blob/mdl-1.x/templates/dashboard/" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white">View Source</a>
-    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+      <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
   </body>
 </html>
 """))
@@ -206,11 +219,11 @@ Seq[Any](format.raw/*1.1*/("""<!doctype html>
 object indexMobile extends indexMobile_Scope0.indexMobile
               /*
                   -- GENERATED --
-                  DATE: Thu May 11 13:08:01 COT 2017
+                  DATE: Thu May 11 13:35:04 COT 2017
                   SOURCE: C:/Users/Camilo/Documents/GitHub/MedicAndes/app/views/indexMobile.scala.html
-                  HASH: 98965d9a469f8bb4411e8128ff7b4ac8c3c08847
-                  MATRIX: 839->0|2717->1850|2746->1851|2780->1858|2956->2007|2984->2008|3016->2013|4574->3544|4589->3550|4647->3587
-                  LINES: 32->1|67->36|67->36|68->37|75->44|75->44|76->45|105->74|105->74|105->74
+                  HASH: ab59712e664c338b44674813a8ec4734d337c4ad
+                  MATRIX: 839->0|2717->1850|2746->1851|2780->1858|2956->2007|2984->2008|3016->2013|4419->3389|4434->3395|4492->3432
+                  LINES: 32->1|67->36|67->36|68->37|75->44|75->44|76->45|102->71|102->71|102->71
                   -- GENERATED --
               */
           
